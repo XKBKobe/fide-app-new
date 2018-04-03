@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {ModalController, NavController} from 'ionic-angular';
+import {LoginPage} from "../welcome/login";
 
 @Component({
   selector: 'page-my-center',
@@ -7,8 +8,12 @@ import {NavController} from 'ionic-angular';
 })
 export class MyCenterPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+              public modalCtrl: ModalController) {
 
   }
 
+  loginOut(){
+   this.modalCtrl.create(LoginPage).present();
+  }
 }

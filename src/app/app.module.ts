@@ -15,6 +15,7 @@ import {MyLoanPage} from "../pages/myLoan/my-loan";
 import {MyDataPage} from "../pages/myData/my-data";
 import {MyCenterPage} from "../pages/myCenter/my-center";
 import {TabsPage} from '../pages/tabs/tabs';
+import {LoginPage} from "../pages/welcome/login";
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import {TabsPage} from '../pages/tabs/tabs';
     MyLoanPage,
     MyDataPage,
     MyCenterPage,
+    LoginPage,
     TabsPage,
   ],
   imports: [
@@ -37,6 +39,7 @@ import {TabsPage} from '../pages/tabs/tabs';
     MyLoanPage,
     MyDataPage,
     MyCenterPage,
+    LoginPage,
     TabsPage
   ],
   providers: [
