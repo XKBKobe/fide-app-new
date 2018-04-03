@@ -4,29 +4,26 @@ import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import {MyApp} from './app.component';
 
 
-
 //native
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
 
 //pages
-import {AboutPage} from '../pages/about/about';
-import {ContactPage} from '../pages/contact/contact';
-import {HomePage} from '../pages/home/home';
-import {TabsPage} from '../pages/tabs/tabs';
+import {MyHomePage} from "../pages/myHome/my-home";
 import {MyLoanPage} from "../pages/myLoan/my-loan";
 import {MyDataPage} from "../pages/myData/my-data";
+import {MyCenterPage} from "../pages/myCenter/my-center";
+import {TabsPage} from '../pages/tabs/tabs';
 
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
+    MyHomePage,
     MyLoanPage,
     MyDataPage,
+    MyCenterPage,
     TabsPage,
   ],
   imports: [
@@ -36,11 +33,10 @@ import {MyDataPage} from "../pages/myData/my-data";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
+    MyHomePage,
     MyLoanPage,
     MyDataPage,
+    MyCenterPage,
     TabsPage
   ],
   providers: [

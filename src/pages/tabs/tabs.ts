@@ -1,19 +1,20 @@
 import {Component} from '@angular/core';
 
-import {ContactPage} from '../contact/contact';
-import {HomePage} from '../home/home';
+import {MyHomePage} from "../myHome/my-home";
 import {MyLoanPage} from "../myLoan/my-loan";
 import {MyDataPage} from "../myData/my-data";
+import {MyCenterPage} from "../myCenter/my-center";
+
 
 @Component({
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
 
-  tab1Root = HomePage;
+  tab1Root = MyHomePage;
   tab2Root = MyLoanPage;
   tab3Root = MyDataPage;
-  tab4Root = ContactPage;
+  tab4Root = MyCenterPage;
 
   constructor() {
 
