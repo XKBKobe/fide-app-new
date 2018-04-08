@@ -2,12 +2,17 @@ import {NgModule, ErrorHandler} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import {MyApp} from './app.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 //native
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
+import {Toast} from '@ionic-native/toast';
 
+//service
+import {HttpApiService} from "../providers/HttpApiService";
+import {MessageService} from "../providers/MessageService";
 
 //pages
 import {MyHomePage} from "../pages/myHome/my-home";
@@ -30,6 +35,7 @@ import {LoginPage} from "../pages/welcome/login";
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -45,7 +51,10 @@ import {LoginPage} from "../pages/welcome/login";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Toast,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    HttpApiService,
+    MessageService
   ]
 })
 export class AppModule {
