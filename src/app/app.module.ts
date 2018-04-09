@@ -21,6 +21,7 @@ import {MyDataPage} from "../pages/myData/my-data";
 import {MyCenterPage} from "../pages/myCenter/my-center";
 import {TabsPage} from '../pages/tabs/tabs';
 import {LoginPage} from "../pages/welcome/login";
+import {ProductDetailPage} from "../pages/myHome/product-detail/product-detail";
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {LoginPage} from "../pages/welcome/login";
     MyCenterPage,
     LoginPage,
     TabsPage,
+    ProductDetailPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import {LoginPage} from "../pages/welcome/login";
     MyDataPage,
     MyCenterPage,
     LoginPage,
-    TabsPage
+    TabsPage,
+    ProductDetailPage
   ],
   providers: [
     StatusBar,
