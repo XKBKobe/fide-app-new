@@ -22,13 +22,14 @@
   </ion-slides>
 
   <ion-list *ngIf="data.length > 0" inset>
-    <ion-item *ngFor="let data of data" style="background-color: #fff;margin-bottom: 10px;">
+    <ion-item *ngFor="let data of data" style="background-color: #fff;margin-bottom: 10px;" tappable
+              (click)="productDetail(data)">
       <ion-thumbnail item-start>
         <img src="{{data.pngUrl}}">
       </ion-thumbnail>
       <h2>{{data.name}}</h2>
-      <p>类型：信用卡</p>
-      <p>年利率：10%</p>
+      <p>类型：{{data.type | productType}}</p>
+      <p>年利率：<span ion-text color="danger">{{data| productRate}}</span></p>
       <button ion-button clear item-end>View</button>
     </ion-item>
   </ion-list>

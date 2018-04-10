@@ -16,6 +16,11 @@ import {HttpApiService} from "../providers/HttpApiService";
 import {MessageService} from "../providers/MessageService";
 import {StorageService} from "../providers/StorageService";
 
+//pipes
+import {ProductTypePipe} from "../pipes/product-type.pipe";
+import {ProductRatePipe} from "../pipes/product-rate.pipe";
+
+
 //pages
 import {MyHomePage} from "../pages/myHome/my-home";
 import {MyLoanPage} from "../pages/myLoan/my-loan";
@@ -24,6 +29,9 @@ import {MyCenterPage} from "../pages/myCenter/my-center";
 import {TabsPage} from '../pages/tabs/tabs';
 import {LoginPage} from "../pages/welcome/login";
 import {ProductDetailPage} from "../pages/myHome/product-detail/product-detail";
+
+
+
 
 
 
@@ -36,12 +44,29 @@ import {ProductDetailPage} from "../pages/myHome/product-detail/product-detail";
     MyCenterPage,
     LoginPage,
     TabsPage,
-    ProductDetailPage
+    ProductDetailPage,
+    ProductTypePipe,
+    ProductRatePipe
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      tabsHideOnSubPages: true,
+      iconMode: 'ios',
+      modalEnter: 'modal-slide-in',
+      modalLeave: 'modal-slide-out',
+      platforms: {
+        ios: {
+          backButtonText: '',
+          swipeBackEnabled: true
+        },
+        android: {
+          backButtonIcon: 'ios-arrow-back',
+          activator: 'none'
+        }
+      }
+    }),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],

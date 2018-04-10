@@ -45,9 +45,9 @@ export class HttpApiService {
           this.message.hideLoading();
           let respCode = res['respCode'];
           if (respCode != '100200') {
-            if (respCode != '101704' && respCode != '101705' && respCode != '101604') {
+            // if (respCode != '101704' && respCode != '101705' && respCode != '101604') {
               this.message.showToast(res['respMsg']);
-            }
+            // }
             reject(res);
           } else {
             res.hasOwnProperty('data') ? resolve(res['data']) : resolve(res);

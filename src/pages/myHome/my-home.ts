@@ -23,28 +23,34 @@ export class MyHomePage {
 
   ionViewDidEnter() {
     this.slides.startAutoplay();
-
-    this.http.post('queryProductList', this.params).then(res => {
-      console.log(res);
-      this.data = res;
-    }, err => {
-      if (err && err['respCode'] == 101604) {
-        localStorage.clear();
-        this.modalCtrl.create(LoginPage).present();
-        return false;
-      }
-    })
+    this.getProductList();
   }
 
   ionViewDidLeave() {
     this.slides.stopAutoplay();
   }
 
-  refresh() {
-
+  getProductList(refresher?){
+    this.http.post('queryProductList', this.params).then(res => {
+      console.log(res);
+      this.data = res;
+      refresher && refresher.complete();
+    }, err => {
+      if (err && err['respCode'] == 101604) {
+        localStorage.clear();
+        this.modalCtrl.create(LoginPage).present();
+        return false;
+      }
+      refresher && refresher.complete();
+    })
   }
 
-  goProduct() {
+  refresh(refresher) {
+    this.getProductList(refresher);
+  }
+
+  productDetail() {
     this.navCtrl.push(ProductDetailPage);
   }
+
 }
