@@ -5,9 +5,31 @@
 </ion-header>
 
 <ion-content>
+  <ion-refresher (ionRefresh)="refresh($event)" [pullMin]="60" [pullMax]="200">
+    <ion-refresher-content
+      pullingIcon="arrow-down"
+      pullingText="下拉刷新..."
+      refreshingSpinner="bubbles"
+      refreshingText="正在刷新..."
+    >
+    </ion-refresher-content>
+  </ion-refresher>
+
   <ion-slides autoplay="2000" loop="true" pager="true" class="banner">
     <ion-slide><img src="assets/imgs/myHome/banner/banner1.png" alt=""></ion-slide>
     <ion-slide><img src="assets/imgs/myHome/banner/banner2.png" alt=""></ion-slide>
     <ion-slide><img src="assets/imgs/myHome/banner/banner3.png" alt=""></ion-slide>
   </ion-slides>
+
+  <ion-list *ngIf="data.length > 0" inset>
+    <ion-item *ngFor="let data of data" style="background-color: #fff;margin-bottom: 10px;">
+      <ion-thumbnail item-start>
+        <img src="{{data.pngUrl}}">
+      </ion-thumbnail>
+      <h2>{{data.name}}</h2>
+      <p>类型：信用卡</p>
+      <p>年利率：10%</p>
+      <button ion-button clear item-end>View</button>
+    </ion-item>
+  </ion-list>
 </ion-content>

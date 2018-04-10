@@ -1,6 +1,22 @@
 page-my-home {
 
-  .banner{
+  .banner {
     height: 160px;
+  }
+
+  .list-ios[inset] {
+    margin: 10px;
+  }
+
+  .list-md[inset] {
+    margin: 10px;
+  }
+
+  .list-ios[inset] .item {
+    border: none !important;
+  }
+
+  .item-md.item-block .item-inner{
+    border: none;
   }
 }
