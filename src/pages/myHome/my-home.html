@@ -23,13 +23,13 @@
 
   <ion-list *ngIf="data.length > 0" inset>
     <ion-item *ngFor="let data of data" style="background-color: #fff;margin-bottom: 10px;" tappable
-              (click)="productDetail(data)">
+              (click)="productDetail(data.productUuid)">
       <ion-thumbnail item-start>
-        <img src="{{data.pngUrl}}">
+        <img src="{{data.pngUrl}}" style="width: 80px;height: 80px;">
       </ion-thumbnail>
       <h2>{{data.name}}</h2>
       <p>类型：{{data.type | productType}}</p>
-      <p>年利率：<span ion-text color="danger">{{data| productRate}}</span></p>
+      <p>{{data.rate | chargeType}}：<span ion-text color="danger">{{data| productRate}}</span></p>
       <button ion-button clear item-end>View</button>
     </ion-item>
   </ion-list>

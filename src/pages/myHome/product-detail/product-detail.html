@@ -5,5 +5,24 @@
 </ion-header>
 
 <ion-content>
-  产品详情
+  <ion-list style="margin: 0 10px 10px 10px;">
+    <ion-item style="background-color: #fff;">
+      <ion-thumbnail item-start>
+        <img src="{{data.pngUrl}}" style="width: 100px;height: 100px;">
+      </ion-thumbnail>
+      <h2>{{data.name}}</h2>
+      <p class="font12 product-group">目标客群：<span class="target-color">{{data.targetCustomer | targetCustomer}}</span></p>
+      <p class="font12 product-type">类型：<span class="target-color">{{data.type | productType}}</span></p>
+      <p class="font12 product-rate">{{data.rate | chargeType}}：<span ion-text class="target-color">{{data | productRate}}</span>
+      </p>
+      <p class="font12 product-time">最快放款时间：<span class="target-color">{{data.loanDay}}天</span></p>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-grid class="product-header"><span class="borderItem">产品描述</span></ion-grid>
+    <ion-item>
+      <textarea rows="{{data.description | productRowPipe}}" readonly class="product-text">{{data.description}}</textarea>
+    </ion-item>
+  </ion-list>
 </ion-content>

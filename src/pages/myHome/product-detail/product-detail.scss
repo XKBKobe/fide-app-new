@@ -1,3 +1,47 @@
 page-product-detail{
+  .product-group{
+    padding-left:20px;
+    background: url("../assets/imgs/myHome/product_detail_group.png") no-repeat left center;
+    background-size: auto 100%;
+  }
 
+  .product-type{
+    padding-left:20px;
+    background: url("../assets/imgs/myHome/product_detail_type.png") no-repeat left center;
+    background-size: auto 100%;
+  }
+
+  .product-rate{
+    padding-left:20px;
+    background: url("../assets/imgs/myHome/product_detail_rate.png") no-repeat left center;
+    background-size: auto 100%;
+  }
+
+  .product-time{
+    padding-left:20px;
+    background: url("../assets/imgs/myHome/product_detail_time.png") no-repeat left center;
+    background-size: auto 100%;
+  }
+
+  .target-color{
+    color: #444444;
+  }
+
+  .product-header{
+    background-color:#d8f2ff;
+    text-align: center;
+    color: color($colors, primary);
+    font-size: 14px;
+    height: 24px;
+    line-height: 24px;
+    margin:0 10px 0 10px;
+    padding: 0;
+  }
+  .product-text{
+    border: none;
+    font-size: 14px;
+    width:100%;
+    resize: none;
+    line-height: 20px;
+  }
 }

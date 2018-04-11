@@ -6,9 +6,15 @@ export const HTTP_URL_JSON = {
     "server": "fideUserServer",
     "url": "/user/login"
   },
+
   "queryProductList": {  //查询产品列表
     "server": "fideCheifServer",
     "url": "/product/queryProductList"
+  },
+
+  "queryProductInfo": {  //查询产品信息
+    "server": "fideCheifServer",
+    "url": "/product/queryProductInfo"
   },
 
 };

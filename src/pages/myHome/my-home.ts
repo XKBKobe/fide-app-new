@@ -49,8 +49,10 @@ export class MyHomePage {
     this.getProductList(refresher);
   }
 
-  productDetail() {
-    this.navCtrl.push(ProductDetailPage);
+  productDetail(productUuid) {
+    this.navCtrl.push(ProductDetailPage,{
+      productUuid: productUuid
+    });
   }
 
 }

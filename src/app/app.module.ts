@@ -19,6 +19,9 @@ import {StorageService} from "../providers/StorageService";
 //pipes
 import {ProductTypePipe} from "../pipes/product-type.pipe";
 import {ProductRatePipe} from "../pipes/product-rate.pipe";
+import {ChargeTypePipe} from "../pipes/charge-type.pipe";
+import {TargetCustomerPipe} from "../pipes/target-customer.pipe";
+import {ProductRowPipe} from "../pipes/productRow.pipe";
 
 
 //pages
@@ -29,6 +32,8 @@ import {MyCenterPage} from "../pages/myCenter/my-center";
 import {TabsPage} from '../pages/tabs/tabs';
 import {LoginPage} from "../pages/welcome/login";
 import {ProductDetailPage} from "../pages/myHome/product-detail/product-detail";
+
+
 
 
 
@@ -46,7 +51,10 @@ import {ProductDetailPage} from "../pages/myHome/product-detail/product-detail";
     TabsPage,
     ProductDetailPage,
     ProductTypePipe,
-    ProductRatePipe
+    ProductRatePipe,
+    ChargeTypePipe,
+    TargetCustomerPipe,
+    ProductRowPipe
   ],
   imports: [
     BrowserModule,
