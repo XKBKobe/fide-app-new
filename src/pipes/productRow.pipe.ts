@@ -15,15 +15,15 @@ export class ProductRowPipe implements PipeTransform {
             var infoNum;
             for (var i in info) {
                 if (windowWidth < 376) {
-                    infoNum = 19;
+                    infoNum = 18;
                 } else {
-                    infoNum = 17;
+                    infoNum = 16;
                 }
                 var infoLength = info[i].length * infoNum;
                 var rowNum = Math.ceil(infoLength / windowWidth);
                 row = row + rowNum;
             }
-            return row;
+            return row + 1;
         }
     }
 }
