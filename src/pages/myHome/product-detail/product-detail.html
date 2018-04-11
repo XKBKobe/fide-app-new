@@ -11,7 +11,8 @@
         <img src="{{data.pngUrl}}" style="width: 100px;height: 100px;">
       </ion-thumbnail>
       <h2>{{data.name}}</h2>
-      <p class="font12 product-group">目标客群：<span class="target-color">{{data.targetCustomer | targetCustomer}}</span></p>
+      <p class="font12 product-group">目标客群：<span class="target-color">{{data.targetCustomer | targetCustomer}}</span>
+      </p>
       <p class="font12 product-type">类型：<span class="target-color">{{data.type | productType}}</span></p>
       <p class="font12 product-rate">{{data.rate | chargeType}}：<span ion-text class="target-color">{{data | productRate}}</span>
       </p>
@@ -19,10 +20,48 @@
     </ion-item>
   </ion-list>
 
-  <ion-list>
-    <ion-grid class="product-header"><span class="borderItem">产品描述</span></ion-grid>
-    <ion-item>
-      <textarea rows="{{data.description | productRowPipe}}" readonly class="product-text">{{data.description}}</textarea>
+  <ion-list class="product-list-bottom">
+    <ion-grid class="product-header"><span>产品描述</span></ion-grid>
+    <ion-item class="product-text-item">
+      <textarea rows="{{data.description | productRowPipe}}" readonly
+                class="product-text">{{data.description}}</textarea>
     </ion-item>
   </ion-list>
+
+  <ion-list class="product-list-bottom">
+    <ion-grid class="product-header"><span>申请条件</span></ion-grid>
+    <ion-item class="product-text-item">
+      <textarea rows="{{data.applyDesc | productRowPipe}}" readonly class="product-text">{{data.applyDesc}}</textarea>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="product-list-bottom">
+    <ion-grid class="product-header"><span>还款说明</span></ion-grid>
+    <ion-item class="product-text-item">
+      <textarea rows="{{data.paybackDesc | productRowPipe}}" readonly
+                class="product-text">{{data.paybackDesc}}</textarea>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="product-list-bottom"
+            style="margin-bottom: 0;margin-left: 10px;margin-right: 10px;background-color: #fff;">
+    <ion-grid class="product-header" style="margin: 0;">
+      <span class="borderItem">支持机构</span>
+    </ion-grid>
+    <ion-grid *ngFor="let orgItem of orgList;let index=index"
+              [ngStyle]="{'display':index > 2 && !!showMoreOrg? 'none' : 'block' }">
+      <div class="product-org">{{orgItem.orgName}}</div>
+    </ion-grid>
+
+    <ion-grid *ngIf="!!showMoreHide && !!showMoreOrg">
+      <p class="product-more product-show" tappable (click)="showMore()">更多</p>
+    </ion-grid>
+
+    <ion-grid *ngIf="!!showMoreHide && !showMoreOrg">
+      <p class="product-hide product-show" tappable (click)="showHide()">收起</p>
+    </ion-grid>
+  </ion-list>
+
+  <button ion-button block class="default-button-size" (click)="apply()" tappable>立即申请</button>
+
 </ion-content>

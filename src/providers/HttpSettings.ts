@@ -17,4 +17,9 @@ export const HTTP_URL_JSON = {
     "url": "/product/queryProductInfo"
   },
 
+  "queryOrg": {  //查询附近银行机构
+    "server": "fideUserServer",
+    "url": "/org/queryOrg"
+  },
+
 };

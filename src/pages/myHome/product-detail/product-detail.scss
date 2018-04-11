@@ -1,47 +1,103 @@
-page-product-detail{
-  .product-group{
-    padding-left:20px;
+page-product-detail {
+  .product-group {
+    padding-left: 20px;
     background: url("../assets/imgs/myHome/product_detail_group.png") no-repeat left center;
     background-size: auto 100%;
   }
 
-  .product-type{
-    padding-left:20px;
+  .product-type {
+    padding-left: 20px;
     background: url("../assets/imgs/myHome/product_detail_type.png") no-repeat left center;
     background-size: auto 100%;
   }
 
-  .product-rate{
-    padding-left:20px;
+  .product-rate {
+    padding-left: 20px;
     background: url("../assets/imgs/myHome/product_detail_rate.png") no-repeat left center;
     background-size: auto 100%;
   }
 
-  .product-time{
-    padding-left:20px;
+  .product-time {
+    padding-left: 20px;
     background: url("../assets/imgs/myHome/product_detail_time.png") no-repeat left center;
     background-size: auto 100%;
   }
 
-  .target-color{
+  .target-color {
     color: #444444;
   }
 
-  .product-header{
-    background-color:#d8f2ff;
+  .product-header {
+    background-color: #d8f2ff;
     text-align: center;
     color: color($colors, primary);
     font-size: 14px;
-    height: 24px;
-    line-height: 24px;
-    margin:0 10px 0 10px;
+    height: 28px;
+    line-height: 28px;
+    margin-right: 10px;
+    margin-left: 10px;
     padding: 0;
+    width: auto;
   }
-  .product-text{
+  .product-text {
     border: none;
     font-size: 14px;
-    width:100%;
+    width: 100%;
     resize: none;
     line-height: 20px;
   }
+
+  .list-ios > .item-block:last-child {
+    border: none;
+  }
+
+  .list-md > .item-block:last-child {
+    border: none;
+  }
+
+  .label-ios{
+    margin: 0;
+  }
+
+  .label-md{
+    margin: 0;
+  }
+
+  .product-text-item{
+    padding-left: 10px !important;
+    padding-right: 2px;
+  }
+
+  .product-list-bottom{
+    margin-bottom: 10px;
+  }
+
+  .product-org{
+    padding-left: 24px;
+    background: url("../assets/imgs/myHome/log.png") no-repeat left center;
+    background-size: 20px;
+    height: 24px;
+    line-height: 24px;
+  }
+
+  .product-more{
+    padding-left: 24px;
+    background: url("../assets/imgs/myHome/on.png") no-repeat left center;
+    background-size: 30px;
+  }
+
+  .product-hide{
+    padding-left: 24px;
+    background: url("../assets/imgs/myHome/off.png") no-repeat left center;
+    background-size: 30px;
+  }
+
+  .product-show{
+    text-align: center;
+    width: 66px;
+    margin: 0 auto;
+    color: color($colors, primary);
+  }
+
+
 }

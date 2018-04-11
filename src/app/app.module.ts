@@ -32,6 +32,7 @@ import {MyCenterPage} from "../pages/myCenter/my-center";
 import {TabsPage} from '../pages/tabs/tabs';
 import {LoginPage} from "../pages/welcome/login";
 import {ProductDetailPage} from "../pages/myHome/product-detail/product-detail";
+import {LoanProgress} from "../pages/components/loan-progress/loan-progress";
 
 
 
@@ -54,7 +55,8 @@ import {ProductDetailPage} from "../pages/myHome/product-detail/product-detail";
     ProductRatePipe,
     ChargeTypePipe,
     TargetCustomerPipe,
-    ProductRowPipe
+    ProductRowPipe,
+    LoanProgress
   ],
   imports: [
     BrowserModule,
@@ -86,7 +88,8 @@ import {ProductDetailPage} from "../pages/myHome/product-detail/product-detail";
     MyCenterPage,
     LoginPage,
     TabsPage,
-    ProductDetailPage
+    ProductDetailPage,
+    LoanProgress
   ],
   providers: [
     StatusBar,
