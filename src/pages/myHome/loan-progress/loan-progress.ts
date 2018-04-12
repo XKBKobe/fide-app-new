@@ -6,12 +6,13 @@ import {NavController} from 'ionic-angular';
   templateUrl: 'loan-progress.html'
 })
 export class LoanProgress {
+  page: number = 1;
 
   constructor(public navCtrl: NavController) {
 
   }
 
-  skipToPage(page){
+  skipToPage(page) {
     this.page = page;
     console.log(page);
   }
