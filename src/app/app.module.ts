@@ -38,13 +38,11 @@ import {IdentityCheckPage} from "../pages/components/identity-check/identity-che
 import {PersonDataPage} from "../pages/components/person-data/person-data";
 import {BasicsDataPage} from "../pages/components/basics-data/basics-data";
 import {CreditDataPage} from "../pages/components/credit-data/credit-data";
-
-
-
-
-
-
-
+import {LoanStepOnePage} from "../pages/myHome/loan-progress/loan-step-one/loan-step-one";
+import {LoanStepTwoPage} from "../pages/myHome/loan-progress/loan-step-two/loan-step-two";
+import {LoanStepThreePage} from "../pages/myHome/loan-progress/loan-step-three/loan-step-three";
+import {LoanStepFourPage} from "../pages/myHome/loan-progress/loan-step-foure/loan-step-four";
+import {LoanStepFivePage} from "../pages/myHome/loan-progress/loan-step-five/loan-step-five";
 
 
 @NgModule({
@@ -67,7 +65,12 @@ import {CreditDataPage} from "../pages/components/credit-data/credit-data";
     IdentityCheckPage,
     PersonDataPage,
     BasicsDataPage,
-    CreditDataPage
+    CreditDataPage,
+    LoanStepOnePage,
+    LoanStepTwoPage,
+    LoanStepThreePage,
+    LoanStepFourPage,
+    LoanStepFivePage
   ],
   imports: [
     BrowserModule,
@@ -105,7 +108,12 @@ import {CreditDataPage} from "../pages/components/credit-data/credit-data";
     IdentityCheckPage,
     PersonDataPage,
     BasicsDataPage,
-    CreditDataPage
+    CreditDataPage,
+    LoanStepOnePage,
+    LoanStepTwoPage,
+    LoanStepThreePage,
+    LoanStepFourPage,
+    LoanStepFivePage
   ],
   providers: [
     StatusBar,
