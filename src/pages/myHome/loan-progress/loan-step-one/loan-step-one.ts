@@ -11,4 +11,7 @@ export class LoanStepOnePage {
 
   }
 
+  ngOnInit() {
+    console.log('LoanStepOnePage');
+  }
 }

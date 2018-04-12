@@ -8,21 +8,21 @@
 
 <ion-content>
   <!--流程头部-->
-  <page-loan-step-head></page-loan-step-head>
+  <page-loan-step-head (skipToPage)="skipToPage($event)"></page-loan-step-head>
 
   <!--身份核身-->
-  <page-loan-step-one></page-loan-step-one>
+  <page-loan-step-one *ngIf="page == 1"></page-loan-step-one>
 
   <!--个人资料-->
-  <page-loan-step-two></page-loan-step-two>
+  <page-loan-step-two *ngIf="page == 2"></page-loan-step-two>
 
   <!--基础资料-->
-  <page-loan-step-three></page-loan-step-three>
+  <page-loan-step-three *ngIf="page == 3"></page-loan-step-three>
 
   <!--信贷资料-->
-  <page-loan-step-four></page-loan-step-four>
+  <page-loan-step-four *ngIf="page == 4"></page-loan-step-four>
 
   <!--提交申请-->
-  <page-loan-step-five></page-loan-step-five>
+  <page-loan-step-five *ngIf="page == 5"></page-loan-step-five>
 
 </ion-content>

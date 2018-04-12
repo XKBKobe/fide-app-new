@@ -11,4 +11,8 @@ export class LoanProgress {
 
   }
 
+  skipToPage(page){
+    this.page = page;
+    console.log(page);
+  }
 }

@@ -2,32 +2,32 @@
   <div class="step-box">
 
     <div class="step-process" tappable (click)="goPage(1)">
-      <div class="step-one"></div>
-      <p class="font12 step-text">身份核实</p>
+      <div class="step-one" [ngClass]="{'step-one-complete': page > 0 }"></div>
+      <p class="font12 step-text" [ngClass]="{'step-text-complete': page > 0 }">身份核实</p>
     </div>
-    <div class="step-line"></div>
+    <div class="step-line" [ngClass]="{'step-line-complete': page > 0 }"></div>
 
     <div class="step-process" tappable (click)="goPage(2)">
-      <div class="step-two"></div>
-      <p class="font12 step-text">个人资料</p>
+      <div class="step-two" [ngClass]="{'step-two-complete': page > 1 }"></div>
+      <p class="font12 step-text" [ngClass]="{'step-text-complete': page > 1 }">个人资料</p>
     </div>
-    <div class="step-line"></div>
+    <div class="step-line" [ngClass]="{'step-line-complete': page > 1 }"></div>
 
     <div class="step-process" tappable (click)="goPage(3)">
-      <div class="step-three"></div>
-      <p class="font12 step-text">基础资料</p>
+      <div class="step-three" [ngClass]="{'step-three-complete': page > 2 }"></div>
+      <p class="font12 step-text" [ngClass]="{'step-text-complete': page > 2 }">基础资料</p>
     </div>
-    <div class="step-line"></div>
+    <div class="step-line" [ngClass]="{'step-line-complete': page > 2 }"></div>
 
     <div class="step-process" tappable (click)="goPage(4)">
-      <div class="step-four"></div>
-      <p class="font12 step-text">信贷资料</p>
+      <div class="step-four" [ngClass]="{'step-four-complete': page > 3 }"></div>
+      <p class="font12 step-text" [ngClass]="{'step-text-complete': page > 3 }">信贷资料</p>
     </div>
-    <div class="step-line"></div>
+    <div class="step-line" [ngClass]="{'step-line-complete': page > 3 }"></div>
 
     <div class="step-process" tappable (click)="goPage(5)">
-      <div class="step-five"></div>
-      <p class="font12 step-text">提交申请</p>
+      <div class="step-five" [ngClass]="{'step-five-complete': page > 4 }"></div>
+      <p class="font12 step-text" [ngClass]="{'step-text-complete': page > 4 }">提交申请</p>
     </div>
   </div>
 </div>
