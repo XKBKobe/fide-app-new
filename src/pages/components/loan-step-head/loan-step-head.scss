@@ -1,0 +1,68 @@
+page-loan-step-head{
+  .step-box{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5px;
+  }
+
+  .step-process{
+    width: 16%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .step-line{
+    width: 5%;
+    height: 1px;
+    background-color: #8e9093;
+    margin-top: 16px;
+  }
+
+  .step-one{
+    width: 26px;
+    height: 30px;
+    background: url("../assets/imgs/myHome/step/stepone_applyIcon_normal.png") no-repeat left center;
+    background-size: contain;
+    margin: 0 auto;
+  }
+
+  .step-two{
+    width: 26px;
+    height: 30px;
+    background: url("../assets/imgs/myHome/step/steptwo_applyIcon_normal.png") no-repeat left center;
+    background-size: contain;
+    margin: 0 auto;
+  }
+
+  .step-three{
+    width: 26px;
+    height: 30px;
+    background: url("../assets/imgs/myHome/step/stepthree_applyIcon_normal.png") no-repeat left center;
+    background-size: contain;
+    margin: 0 auto;
+  }
+
+  .step-four{
+    width: 26px;
+    height: 30px;
+    background: url("../assets/imgs/myHome/step/stepfour_applyIcon_normal.png") no-repeat left center;
+    background-size: contain;
+    margin: 0 auto;
+  }
+
+  .step-five{
+    width: 26px;
+    height: 30px;
+    background: url("../assets/imgs/myHome/step/stepfive_applyIcon_normal.png") no-repeat left center;
+    background-size: contain;
+    margin: 0 auto;
+  }
+
+  .step-text{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    color: #8e9093;
+  }
+}

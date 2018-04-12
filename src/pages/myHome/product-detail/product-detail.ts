@@ -2,7 +2,8 @@ import {Component} from '@angular/core';
 import {ModalController, NavController, NavParams} from 'ionic-angular';
 import {HttpApiService} from "../../../providers/HttpApiService";
 import {LoginPage} from "../../welcome/login";
-import {LoanProgress} from "../../components/loan-progress/loan-progress";
+import {LoanProgress} from "../loan-progress/loan-progress";
+
 
 @Component({
   selector: 'page-product-detail',

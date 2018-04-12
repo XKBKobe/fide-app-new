@@ -32,7 +32,13 @@ import {MyCenterPage} from "../pages/myCenter/my-center";
 import {TabsPage} from '../pages/tabs/tabs';
 import {LoginPage} from "../pages/welcome/login";
 import {ProductDetailPage} from "../pages/myHome/product-detail/product-detail";
-import {LoanProgress} from "../pages/components/loan-progress/loan-progress";
+import {LoanProgress} from "../pages/myHome/loan-progress/loan-progress";
+import {LoanStepHeadPage} from "../pages/components/loan-step-head/loan-step-head";
+import {IdentityCheckPage} from "../pages/components/identity-check/identity-check";
+import {PersonDataPage} from "../pages/components/person-data/person-data";
+import {BasicsDataPage} from "../pages/components/basics-data/basics-data";
+import {CreditDataPage} from "../pages/components/credit-data/credit-data";
+
 
 
 
@@ -56,7 +62,12 @@ import {LoanProgress} from "../pages/components/loan-progress/loan-progress";
     ChargeTypePipe,
     TargetCustomerPipe,
     ProductRowPipe,
-    LoanProgress
+    LoanProgress,
+    LoanStepHeadPage,
+    IdentityCheckPage,
+    PersonDataPage,
+    BasicsDataPage,
+    CreditDataPage
   ],
   imports: [
     BrowserModule,
@@ -89,7 +100,12 @@ import {LoanProgress} from "../pages/components/loan-progress/loan-progress";
     LoginPage,
     TabsPage,
     ProductDetailPage,
-    LoanProgress
+    LoanProgress,
+    LoanStepHeadPage,
+    IdentityCheckPage,
+    PersonDataPage,
+    BasicsDataPage,
+    CreditDataPage
   ],
   providers: [
     StatusBar,
