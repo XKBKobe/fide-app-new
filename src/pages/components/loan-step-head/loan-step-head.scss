@@ -10,6 +10,7 @@ page-loan-step-head {
     width: 16%;
     margin: 0 auto;
     text-align: center;
+    position: relative;
   }
 
   .step-line {
@@ -29,6 +30,7 @@ page-loan-step-head {
     background: url("../assets/imgs/myHome/step/stepone_applyIcon_normal.png") no-repeat center center;
     background-size: contain;
     margin: 0 auto;
+    position: relative;
   }
 
   .step-one-complete {
@@ -45,6 +47,7 @@ page-loan-step-head {
     background: url("../assets/imgs/myHome/step/steptwo_applyIcon_normal.png") no-repeat center center;
     background-size: contain;
     margin: 0 auto;
+    position: relative;
   }
 
   .step-two-complete {
@@ -61,6 +64,7 @@ page-loan-step-head {
     background: url("../assets/imgs/myHome/step/stepthree_applyIcon_normal.png") no-repeat center center;
     background-size: contain;
     margin: 0 auto;
+    position: relative;
   }
 
   .step-three-complete {
@@ -77,6 +81,7 @@ page-loan-step-head {
     background: url("../assets/imgs/myHome/step/stepfour_applyIcon_normal.png") no-repeat center center;
     background-size: contain;
     margin: 0 auto;
+    position: relative;
   }
 
   .step-four-complete {
@@ -93,6 +98,7 @@ page-loan-step-head {
     background: url("../assets/imgs/myHome/step/stepfive_applyIcon_normal.png") no-repeat center center;
     background-size: contain;
     margin: 0 auto;
+    position: relative;
   }
 
   .step-five-complete {
@@ -112,5 +118,27 @@ page-loan-step-head {
 
   .step-text-complete {
     color: color($colors, primary);
+  }
+
+  .step-check-yes{
+    width: 20px;
+    height: 20px;
+    background: url("../assets/imgs/myHome/step/yes.png") no-repeat center center;
+    background-size: contain;
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    margin-left: 4px;
+  }
+
+  .step-check-no{
+    width: 20px;
+    height: 20px;
+    background: url("../assets/imgs/myHome/step/no.png") no-repeat center center;
+    background-size: contain;
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    margin-left: 4px;
   }
 }
