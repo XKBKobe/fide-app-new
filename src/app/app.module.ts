@@ -10,6 +10,7 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {Toast} from '@ionic-native/toast';
 import {IonicStorageModule} from '@ionic/storage';
+import {IonicImageViewerModule} from 'ionic-img-viewer';
 
 //service
 import {HttpApiService} from "../providers/HttpApiService";
@@ -75,6 +76,7 @@ import {LoanStepFivePage} from "../pages/myHome/loan-progress/loan-step-five/loa
   imports: [
     BrowserModule,
     HttpClientModule,
+    IonicImageViewerModule,
     IonicModule.forRoot(MyApp, {
       tabsHideOnSubPages: true,
       iconMode: 'ios',
