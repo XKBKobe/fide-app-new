@@ -1,3 +1,109 @@
-page-person-data{
+page-person-data {
+  .personal-form {
+    margin-top: 10px;
+  }
+
+  .personPer-payWay {
+    flex: none;
+  }
+
+  .cmCode-alert {
+    text-align: right;
+    padding: 2px 5px;
+  }
+
+  .personal-form ion-select {
+    max-width: 100%;
+    flex: 1;
+  }
+
+  .item .label-ios {
+    margin-right: 0;
+  }
+
+  .item-block {
+    min-height: auto;
+  }
+
+  .select-md {
+    padding: 13px 8px;
+  }
+
+  .ochre {
+    color: #ffb26e;
+  }
+
+  .lightOchre {
+    color: #ffce6e;
+  }
+
+  .item-img {
+    margin: 0 !important;
+    width: 3rem;
+    position: absolute;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+  }
+
+  .person-data-cmCode{
+    padding-left: 24px;
+    background: url("../assets/imgs/myData/personData/recommended_inputIcon_normal.png") no-repeat center center;
+    height: 24px;
+    width: 24px;
+    background-size: contain;
+  }
+
+  .person-data-name{
+    padding-left: 24px;
+    background: url("../assets/imgs/myData/personData/name_inputIcon_normal.png") no-repeat center center;
+    height: 24px;
+    width: 24px;
+    background-size: contain;
+  }
+
+  .person-data-id{
+    padding-left: 24px;
+    background: url("../assets/imgs/myData/personData/ID_inputIcon_normal.png") no-repeat center center;
+    height: 24px;
+    width: 24px;
+    background-size: contain;
+  }
+
+  .person-data-applymoney{
+    padding-left: 24px;
+    background: url("../assets/imgs/myData/personData/applymoney_inputIcon_normal.png") no-repeat center center;
+    height: 24px;
+    width: 24px;
+    background-size: contain;
+  }
+
+  .person-data-purpose{
+    padding-left: 24px;
+    background: url("../assets/imgs/myData/personData/staging_inputIcon_select.png") no-repeat center center;
+    height: 24px;
+    width: 24px;
+    background-size: contain;
+  }
+
+
+  .person-data-repay{
+    padding-left: 24px;
+    background: url("../assets/imgs/myData/personData/repay_inputIcon_normal.png") no-repeat center center;
+    height: 24px;
+    width: 24px;
+    background-size: contain;
+  }
+
+  .label-margin{
+    margin: 0;
+  }
+}
+
+.require-star {
+  position: absolute;
+  top: 18px;
+  left: 5px;
+  color: red;
 
 }

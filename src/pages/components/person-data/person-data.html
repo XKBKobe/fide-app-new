@@ -1,3 +1,81 @@
-<div>
-  个人资料
-</div>
+<ion-list class="personal-form">
+    <ion-item style="background-color: #fff;">
+      <ion-label class="label-margin">
+        <span class="require-star">*</span>
+        <div class="person-data-cmCode"></div>
+      </ion-label>
+      <ion-input placeholder="推荐码(若无可不填)"></ion-input>
+    </ion-item>
+    <div ion-text class="cmCode-alert" color="lightBlack">
+    </div>
+    <div>
+      <div ion-text class="cmCode-alert" color="red"></div>
+    </div>
+
+  <ion-item style="background-color: #fff;">
+    <ion-label class="label-margin">
+      <span class="require-star">*</span>
+      <div class="person-data-name"></div>
+    </ion-label>
+    <ion-input name="name"
+               placeholder="请输入姓名"></ion-input>
+  </ion-item>
+
+  <ion-item style="background-color: #fff;">
+    <ion-label class="label-margin">
+      <span class="require-star">*</span>
+      <div class="person-data-id"></div>
+    </ion-label>
+    <ion-input name="idNumber"
+               placeholder="请输入身份证号"></ion-input>
+    <ion-icon class="down-arrow" (click)="idCardDisplay()" item-right style="z-index: 100;"></ion-icon>
+  </ion-item>
+
+  <div>
+    <!--<img-view></img-view>-->
+    <!--<img-view [imgData]="personData.identityBack"-->
+    <!--[isRequire]="personData.queryPerData.identityPic.isRequire" (imgMatUrl)="imgMatUrl($event,'identityBack')"-->
+    <!--[uploadPicStatus]="personData._uploadPic"></img-view>-->
+  </div>
+
+  <ion-item style="background-color: #fff;">
+    <ion-label class="label-margin">
+      <span class="require-star">*</span>
+      <div class="person-data-applymoney"></div>
+    </ion-label>
+    <ion-input name="applyAmount"
+               placeholder="请输入希望申请的额度"></ion-input>
+    <div item-right>万元</div>
+  </ion-item>
+
+
+  <ion-item style="background-color: #fff;">
+    <ion-label item-left hidden>
+      请选择贷款用途
+    </ion-label>
+    <ion-label class="personPer-payWay label-margin">
+      <span class="require-star">*</span>
+      <div class="person-data-purpose"></div>
+    </ion-label>
+    <ion-select name="purpose" okText="确定" cancelText="取消"
+                placeholder="请选择贷款用途">
+
+    </ion-select>
+  </ion-item>
+
+
+  <ion-item style="background-color: #fff;">
+    <ion-label class="label-margin" item-left  hidden>
+      请选择希望还款方式
+    </ion-label>
+    <ion-label class="personPer-payWay">
+      <span class="require-star">*</span>
+      <div class="person-data-repay"></div>
+    </ion-label>
+    <ion-select name="repaymentType" okText="确定" cancelText="取消"
+                placeholder="请选择希望还款方式">
+      <ion-option>111
+      </ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>

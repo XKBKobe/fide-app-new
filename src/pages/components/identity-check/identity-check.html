@@ -1,5 +1,32 @@
-<div>
-  身份核实
-</div>
-
 <!--<img src="assets/imgs/myHome/product_detail_group.png" imageViewer="assets/imgs/myHome/product_detail_time.png" />-->
+
+<div [ngSwitch]="checkStatus">
+  <!--IDSHOW：显示身份证正反面-->
+  <div *ngSwitchCase="'IDSHOW'" style="margin-top: 10px;">
+    <ion-card class="imgCard" style="background-color: #fff;">
+      <ion-card-content>
+        <p class="img-title">身份证正面</p>
+        <div>
+          <img class="cardImg" [src]="IDfrontBase64" imageViewer="{{IDfrontBigImg}}" tappable/>
+          <div class="more-img-box">
+            <button ion-button block (click)="checkFrontID(0)">上传照片</button>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <ion-card class="imgCard" style="background-color: #fff;">
+      <ion-card-content>
+        <p class="img-title">身份证反面</p>
+        <div>
+          <img class="cardImg" [src]="IDbackBase64" imageViewer="{{IDbackBigImg}}" tappable>
+          <div class="more-img-box">
+            <button ion-button block (click)="checkFrontID(0)">上传照片</button>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!--<img class="cardImg" [src]="IDbackBase64" #myImage (click)="presentImage(myImage)">-->
+  <button ion-button block class="default-button-size" tappable>下一步</button>
+</div>
