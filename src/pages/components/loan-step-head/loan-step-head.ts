@@ -6,17 +6,21 @@ import {NavController} from 'ionic-angular';
   templateUrl: 'loan-step-head.html'
 })
 export class LoanStepHeadPage {
-  page:number = 1;
+  page: number = 1;
+
   //点击跳转到指定界面
-  @Output() skipToPage: EventEmitter<string> = new EventEmitter<string>();
+  @Output() skipToPage: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(public navCtrl: NavController) {
 
   }
 
-  //跳转到页面
+
+  //跳转到头部和页面
   goPage(page) {
+    //头部
     this.page = page;
+    //页面
     this.skipToPage.emit(page)
   }
 }

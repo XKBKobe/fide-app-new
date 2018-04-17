@@ -6,6 +6,7 @@ import {NavController} from 'ionic-angular';
   templateUrl: 'img-view.html'
 })
 export class ImgViewPage {
+  @Input('headerHide') headerHide: boolean = false;
   @Input('imgData') imgData;
   @Input('icon') icon;
   @Input('last') last;
@@ -13,7 +14,6 @@ export class ImgViewPage {
   @Input('uploadPicStatus') uploadPicStatus;
   //商户的uuid
   @Output() imgMatUrl: EventEmitter<any> = new EventEmitter<any>();
-
 
   description: any;
   class: any;
@@ -51,18 +51,18 @@ export class ImgViewPage {
 
 
   ngOnInit() {
-    let type = this.imgData.matTypeCode;
-    this.title = this.setJson[type].title;
-    this.icon = this.setJson[type].icon;
-    this.class = this.setJson[type].class;
-    this.description = this.setJson[type].description;
-    this.color = this.setJson[type].color;
-    this.src = this.imgData.matUrl ? this.imgData.matUrl + "&w=200&h=100" : '';
-    this.bigsrc = this.imgData.matUrl;
-    this.uploadDisabled = this.uploadPicStatus;
-    if (!this.src) {
-      this.src = this.setJson[type].src;
-      this.bigsrc = this.setJson[type].bigsrc;
-    }
+    // let type = this.imgData.matTypeCode;
+    // this.title = this.setJson[type].title;
+    // this.icon = this.setJson[type].icon;
+    // this.class = this.setJson[type].class;
+    // this.description = this.setJson[type].description;
+    // this.color = this.setJson[type].color;
+    // this.src = this.imgData.matUrl ? this.imgData.matUrl + "&w=200&h=100" : '';
+    // this.bigsrc = this.imgData.matUrl;
+    // this.uploadDisabled = this.uploadPicStatus;
+    // if (!this.src) {
+    //   this.src = this.setJson[type].src;
+    //   this.bigsrc = this.setJson[type].bigsrc;
+    // }
   }
 }
