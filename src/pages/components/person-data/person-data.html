@@ -1,16 +1,16 @@
 <ion-list class="personal-form">
-    <ion-item style="background-color: #fff;">
-      <ion-label class="label-margin">
-        <span class="require-star">*</span>
-        <div class="person-data-cmCode"></div>
-      </ion-label>
-      <ion-input placeholder="推荐码(若无可不填)"></ion-input>
-    </ion-item>
-    <div ion-text class="cmCode-alert" color="lightBlack">
-    </div>
-    <div>
-      <div ion-text class="cmCode-alert" color="red"></div>
-    </div>
+  <ion-item style="background-color: #fff;">
+    <ion-label class="label-margin">
+      <span class="require-star">*</span>
+      <div class="person-data-cmCode"></div>
+    </ion-label>
+    <ion-input placeholder="推荐码(若无可不填)"></ion-input>
+  </ion-item>
+  <div ion-text class="cmCode-alert" color="lightBlack">
+  </div>
+  <div>
+    <div ion-text class="cmCode-alert" color="red"></div>
+  </div>
 
   <ion-item style="background-color: #fff;">
     <ion-label class="label-margin">
@@ -31,11 +31,9 @@
     <ion-icon class="down-arrow" (click)="idCardDisplay()" item-right style="z-index: 100;"></ion-icon>
   </ion-item>
 
-  <div>
-    <!--<img-view></img-view>-->
-    <!--<img-view [imgData]="personData.identityBack"-->
-    <!--[isRequire]="personData.queryPerData.identityPic.isRequire" (imgMatUrl)="imgMatUrl($event,'identityBack')"-->
-    <!--[uploadPicStatus]="personData._uploadPic"></img-view>-->
+  <div style="background-color: #fff;">
+    <img-view></img-view>
+    <img-view></img-view>
   </div>
 
   <ion-item style="background-color: #fff;">
@@ -65,7 +63,7 @@
 
 
   <ion-item style="background-color: #fff;">
-    <ion-label class="label-margin" item-left  hidden>
+    <ion-label class="label-margin" item-left hidden>
       请选择希望还款方式
     </ion-label>
     <ion-label class="personPer-payWay">

@@ -44,6 +44,7 @@ import {LoanStepTwoPage} from "../pages/myHome/loan-progress/loan-step-two/loan-
 import {LoanStepThreePage} from "../pages/myHome/loan-progress/loan-step-three/loan-step-three";
 import {LoanStepFourPage} from "../pages/myHome/loan-progress/loan-step-foure/loan-step-four";
 import {LoanStepFivePage} from "../pages/myHome/loan-progress/loan-step-five/loan-step-five";
+import {ImgViewPage} from "../pages/components/img-view/img-view";
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import {LoanStepFivePage} from "../pages/myHome/loan-progress/loan-step-five/loa
     LoanStepTwoPage,
     LoanStepThreePage,
     LoanStepFourPage,
-    LoanStepFivePage
+    LoanStepFivePage,
+    ImgViewPage
   ],
   imports: [
     BrowserModule,
@@ -115,7 +117,8 @@ import {LoanStepFivePage} from "../pages/myHome/loan-progress/loan-step-five/loa
     LoanStepTwoPage,
     LoanStepThreePage,
     LoanStepFourPage,
-    LoanStepFivePage
+    LoanStepFivePage,
+    ImgViewPage
   ],
   providers: [
     StatusBar,
