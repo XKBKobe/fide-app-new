@@ -34,12 +34,25 @@ page-basics-data{
     margin-left: 0 !important;
   }
 
+  .img-box{
+    position: relative;
+  }
+  .text-input[disabled]{
+    opacity: 1;
+  }
+
   .basics-data-email{
     background: url("../assets/imgs/myData/basicsData/email_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
+
+  //居住证明照片 todo
+
+  //户口本照片 todo
+
+  //金融资产证明照片 todo
 
   .basics-data-qq{
     background: url("../assets/imgs/myData/basicsData/qq.png") no-repeat center center;
@@ -89,6 +102,71 @@ page-basics-data{
 
   .basics-data-detail-address{
     background: url("../assets/imgs/myData/basicsData/detaiedlBusinessAddress_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  //请输入住宅地址邮编  todo 少图标
+
+
+  .basics-data-address-situation{
+    background: url("../assets/imgs/myData/basicsData/addressSituation_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  //房产证照片 todo
+
+  .basics-data-nature{
+    background: url("../assets/imgs/myData/basicsData/nature_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  //请输入电费用户名 todo 少图标
+
+  .basics-data-marriage{
+    background: url("../assets/imgs/myData/basicsData/marriage_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  //结婚证照片 todo
+
+  .basics-data-marriage-name{
+    background: url("../assets/imgs/myData/personData/name_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  .basics-data-id{
+    background: url("../assets/imgs/myData/personData/ID_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  .basics-data-marriage-degree{
+    background: url("../assets/imgs/myData/basicsData/degree_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  .basics-data-marriage-danwei{
+    background: url("../assets/imgs/myData/basicsData/industry_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  .basics-data-other{
+    background: url("../assets/imgs/myData/basicsData/mother_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;

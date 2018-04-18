@@ -135,7 +135,7 @@
   <!--常用银行卡开户行-->
   <ion-item>
     <ion-label item-left hidden>
-      第二联系人与我的关系
+      常用银行卡开户行
     </ion-label>
     <ion-label class="personPer-payWay label-margin">
       <span class="require-star">*</span>
@@ -153,7 +153,7 @@
       <div class="basics-data-bank-number"></div>
     </ion-label>
     <ion-input type="number"
-      placeholder="常用银行卡卡号"></ion-input>
+               placeholder="常用银行卡卡号"></ion-input>
   </ion-item>
 
   <!--todo city-picker-->
@@ -167,9 +167,201 @@
                placeholder="请输入住宅详细地址"></ion-input>
   </ion-item>
 
+  <!--请输入住宅地址邮编  todo 少图标-->
+  <ion-item>
+    <ion-label class="label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-email"></div>
+    </ion-label>
+    <ion-input
+      placeholder="请输入住宅地址邮编"></ion-input>
+  </ion-item>
+
+  <!--住宅情况-->
+  <ion-item>
+    <ion-label item-left hidden>
+      住宅情况
+    </ion-label>
+    <ion-label class="personPer-payWay label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-address-situation"></div>
+    </ion-label>
+    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+                placeholder="住宅情况">
+    </ion-select>
+  </ion-item>
+
+  <!--房产证照片 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+  <!--住宅性质-->
+  <ion-item>
+    <ion-label item-left hidden>
+      住宅性质
+    </ion-label>
+    <ion-label class="personPer-payWay label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-nature"></div>
+    </ion-label>
+    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+                placeholder="住宅性质">
+    </ion-select>
+  </ion-item>
+
+  <!--请输入电费用户名 todo 少图标-->
+  <ion-item>
+    <ion-label class="label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-email"></div>
+    </ion-label>
+    <ion-input
+      placeholder="请输入电费用户名"></ion-input>
+  </ion-item>
+
+  <!--居住证明照片 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+  <!--户口本照片 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+  <!--金融资产证明照片 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
 
 
+  <!--婚姻状况-->
+  <ion-item>
+    <ion-label item-left hidden>
+      婚姻状况
+    </ion-label>
+    <ion-label class="personPer-payWay label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-marriage"></div>
+    </ion-label>
+    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+                placeholder="婚姻状况">
+    </ion-select>
+  </ion-item>
 
+
+  <!--结婚证照片 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+  <!--配偶姓名-->
+  <ion-item>
+    <ion-label class="label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-marriage-name"></div>
+    </ion-label>
+    <ion-input type="text"
+               placeholder="配偶姓名"></ion-input>
+  </ion-item>
+
+  <!--配偶身份证号-->
+  <ion-item>
+    <ion-label class="label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-id"></div>
+    </ion-label>
+    <ion-input type="text"
+               placeholder="配偶身份证号"></ion-input>
+  </ion-item>
+
+  <!--配偶文化程度-->
+  <ion-item>
+    <ion-label item-left hidden>
+      配偶文化程度
+    </ion-label>
+    <ion-label class="personPer-payWay label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-marriage-degree"></div>
+    </ion-label>
+    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+                placeholder="配偶文化程度">
+    </ion-select>
+  </ion-item>
+
+  <!--配偶电话-->
+  <ion-item>
+    <ion-label class="label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-family-tel"></div>
+    </ion-label>
+    <ion-input type="tel"
+               placeholder="配偶电话"></ion-input>
+  </ion-item>
+
+  <!--配偶单位名称-->
+  <ion-item>
+    <ion-label class="label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-marriage-danwei"></div>
+    </ion-label>
+    <ion-input type="text"
+               placeholder="配偶单位名称"></ion-input>
+  </ion-item>
+
+  <!--配偶单位性质-->
+  <ion-item>
+    <ion-label item-left hidden>
+      配偶单位性质
+    </ion-label>
+    <ion-label class="personPer-payWay label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-nature"></div>
+    </ion-label>
+    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+                placeholder="配偶单位性质">
+    </ion-select>
+  </ion-item>
+
+
+  <!--配偶身份证-->
+  <div>
+    <ion-item>
+      <ion-label class="label-margin">
+        <span class="require-star">*</span>
+        <div class="basics-data-marriage-danwei"></div>
+      </ion-label>
+      <ion-input type="text"
+                 placeholder="配偶身份证" disabled></ion-input>
+    </ion-item>
+    <img-view [headerHide]="true"></img-view>
+    <img-view [headerHide]="true"></img-view>
+  </div>
+
+  <!--母亲姓氏-->
+  <ion-item>
+    <ion-label class="label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-other"></div>
+    </ion-label>
+    <ion-input type="text"
+      placeholder="母亲姓氏"></ion-input>
+  </ion-item>
+
+  <!--有无子女-->
+  <ion-item>
+    <ion-label item-left hidden>
+      请选择贷款用途
+    </ion-label>
+    <ion-label class="personPer-payWay label-margin">
+      <span class="require-star">*</span>
+      <div class="person-data-repay"></div>
+    </ion-label>
+    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+                placeholder="请选择贷款用途">
+    </ion-select>
+  </ion-item>
 
 
 </ion-list>

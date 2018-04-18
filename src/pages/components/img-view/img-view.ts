@@ -42,6 +42,15 @@ export class ImgViewPage {
       "bigsrc": "assets/image/datum/big/IDbackphotoBig.png",
       "class": "",
       "color": ""
+    },
+    "PERSONAL_PROPERTY_CERTIFICATE": {
+      "title": "房产证",
+      "description": "房产证明(或房产查询单)",
+      "icon": "icon-estatephoto",
+      "src": "assets/image/datum/estatephoto.png",
+      "bigsrc": "assets/image/datum/big/estatephotoBig.png",
+      "class": "iconfont17",
+      "color": "address"
     }
   };
 
