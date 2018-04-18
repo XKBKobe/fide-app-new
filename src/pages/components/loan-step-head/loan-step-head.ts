@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {Events, NavController} from 'ionic-angular';
 
 @Component({
   selector: 'page-loan-step-head',
@@ -11,8 +11,16 @@ export class LoanStepHeadPage {
   //点击跳转到指定界面
   @Output() skipToPage: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+              public events: Events) {
 
+  }
+
+  ngOnInit() {
+    this.events.subscribe("nextToPage", (data) => {
+      this.page = data;
+      console.log('发布订阅  ' + data)
+    });
   }
 
 

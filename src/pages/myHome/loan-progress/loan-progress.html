@@ -14,7 +14,7 @@
   <page-loan-step-one *ngIf="page == 1"></page-loan-step-one>
 
   <!--个人资料-->
-  <page-loan-step-two *ngIf="page == 2"></page-loan-step-two>
+  <page-loan-step-two *ngIf="page == 2" (nextToPage)="nextToPage($$event)"></page-loan-step-two>
 
   <!--基础资料-->
   <page-loan-step-three *ngIf="page == 3"></page-loan-step-three>
