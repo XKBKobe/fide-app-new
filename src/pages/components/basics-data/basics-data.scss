@@ -1,3 +1,97 @@
 page-basics-data{
+  .item-block{
+    background-color: #fff;
+    min-height: auto;
+  }
+
+  .info-select {
+    max-width: 100%;
+    padding-left: 1.3rem;
+  }
+
+
+  .require-star {
+    position: absolute;
+    top: 15px;
+    left: 5px;
+    color: red;
+  }
+
+  ion-select{
+    max-width: 100%;
+    padding-left: 0 !important;
+  }
+
+  ion-select .select-icon{
+    display: none;
+  }
+
+  .text-input-ios{
+    margin-left: 0 !important;
+  }
+
+  .text-input-md{
+    margin-left: 0 !important;
+  }
+
+  .basics-data-email{
+    background: url("../assets/imgs/myData/basicsData/email_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  .basics-data-qq{
+    background: url("../assets/imgs/myData/basicsData/qq.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  //todo city-picker
+
+  .basics-data-family{
+    background: url("../assets/imgs/myData/basicsData/family_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  .basics-data-family-tel{
+    background: url("../assets/imgs/myData/basicsData/familyTel_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  .basics-data-connect{
+    background: url("../assets/imgs/myData/basicsData/conection_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  .basics-data-bank{
+    background: url("../assets/imgs/myData/basicsData/bank_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  .basics-data-bank-number{
+    background: url("../assets/imgs/myData/basicsData/bank_inputIcon_select.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  //todo city-picker
+
+  .basics-data-detail-address{
+    background: url("../assets/imgs/myData/basicsData/detaiedlBusinessAddress_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
 
 }

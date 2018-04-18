@@ -3,8 +3,9 @@ page-person-data {
     margin-top: 10px;
   }
 
-  .personPer-payWay {
-    flex: none;
+  .personal-form ion-select {
+    max-width: 100%;
+    flex: 1;
   }
 
   .cmCode-alert {
@@ -12,10 +13,6 @@ page-person-data {
     padding: 2px 5px;
   }
 
-  .personal-form ion-select {
-    max-width: 100%;
-    flex: 1;
-  }
 
   .item .label-ios {
     margin-right: 0;
@@ -95,10 +92,14 @@ page-person-data {
     background-size: contain;
   }
 
-  .label-margin{
-    margin: 0;
-  }
+
 }
+
+
+.personPer-payWay {
+  flex: none;
+}
+
 
 .require-star {
   position: absolute;

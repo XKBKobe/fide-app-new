@@ -46,3 +46,20 @@
 .font14{
   font-size: 14px !important;
 }
+
+
+.right-arrow::before{
+  content: " ";
+  display: inline-block;
+  height: 9px;
+  width: 9px;
+  border-width: 1px 1px 0 0;
+  border-color: #C8C8CD;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: absolute;
+  top: 50%;
+  margin-top: -4px;
+  right: 10px;
+}
