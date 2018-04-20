@@ -356,14 +356,65 @@
     </ion-label>
     <ion-label class="personPer-payWay label-margin">
       <span class="require-star">*</span>
-      <div class="person-data-repay"></div>
+      <div class="basics-data-kids"></div>
     </ion-label>
     <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
                 placeholder="有无子女">
     </ion-select>
   </ion-item>
 
+  <!--是否购车-->
+  <ion-item>
+    <ion-label item-left hidden>
+      是否购车
+    </ion-label>
+    <ion-label class="personPer-payWay label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-cars"></div>
+    </ion-label>
+    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+                placeholder="是否购车">
+    </ion-select>
+  </ion-item>
 
+  <!--行驶证照片 todo-->
+  <img-view [headerHide]="true"></img-view>
 
+  <!--最高学历-->
+  <ion-item>
+    <ion-label item-left hidden>
+      最高学历
+    </ion-label>
+    <ion-label class="personPer-payWay label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-education"></div>
+    </ion-label>
+    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+                placeholder="最高学历">
+    </ion-select>
+  </ion-item>
+
+  <!--学历学位证 todo-->
+  <img-view></img-view>
+
+  <!--单位名称-->
+  <ion-item>
+    <ion-label class="label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-unit"></div>
+    </ion-label>
+    <ion-input type="text"
+      placeholder="单位名称"></ion-input>
+  </ion-item>
+
+  <!--单位电话-->
+  <ion-item>
+    <ion-label class="label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-unit"></div>
+    </ion-label>
+    <ion-input type="tel"
+               placeholder="单位名称"></ion-input>
+  </ion-item>
 
 </ion-list>
