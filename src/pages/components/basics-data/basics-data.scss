@@ -204,8 +204,74 @@ page-basics-data{
     background-size: contain;
   }
 
+  .basics-data-company-tel{
+    background: url("../assets/imgs/myData/basicsData/company-tel.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
 
+
+  //todo city-picker
+
+  .basics-data-post{
+    background: url("../assets/imgs/myData/basicsData/post.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  .basics-data-seniority{
+    background: url("../assets/imgs/myData/basicsData/seniority_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  .basics-data-post-two{
+    background: url("../assets/imgs/myData/basicsData/post_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  .basics-data-annualIncome{
+    background: url("../assets/imgs/myData/basicsData/annualIncome_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  .basics-data-monthlyIncome{
+    background: url("../assets/imgs/myData/basicsData/monthlyIncome_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  .basics-data-industry{
+    background: url("../assets/imgs/myData/basicsData/industry_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  .basics-data-businessLicense{
+    background: url("../assets/imgs/myData/basicsData/businessLicense_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  .basics-data-business-type{
+    background: url("../assets/imgs/myData/basicsData/business-type.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
 
 
 
 }
+
+

@@ -324,7 +324,6 @@
     </ion-select>
   </ion-item>
 
-
   <!--配偶身份证-->
   <div>
     <ion-item>
@@ -411,10 +410,282 @@
   <ion-item>
     <ion-label class="label-margin">
       <span class="require-star">*</span>
-      <div class="basics-data-unit"></div>
+      <div class="basics-data-company-tel"></div>
     </ion-label>
     <ion-input type="tel"
-               placeholder="单位名称"></ion-input>
+               placeholder="单位电话"></ion-input>
   </ion-item>
+
+  <!--单位性质-->
+  <ion-item>
+    <ion-label item-left hidden>
+      单位性质
+    </ion-label>
+    <ion-label class="personPer-payWay label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-nature"></div>
+    </ion-label>
+    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+                placeholder="单位性质">
+    </ion-select>
+  </ion-item>
+
+  <!--单位地址-->  <!--todo city-picker-->
+
+
+  <!--单位详细地址-->
+  <ion-item>
+    <ion-label class="label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-detail-address"></div>
+    </ion-label>
+    <ion-input type="text"
+               placeholder="单位详细地址"></ion-input>
+  </ion-item>
+
+  <!--单位地址邮编-->
+  <ion-item>
+    <ion-label class="label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-post"></div>
+    </ion-label>
+    <ion-input type="text"
+               placeholder="单位地址邮编"></ion-input>
+  </ion-item>
+
+
+  <!--在职单位工龄-->
+  <ion-item>
+    <ion-label class="label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-seniority"></div>
+    </ion-label>
+    <ion-input type="number"
+               placeholder="在职单位工龄（年）"></ion-input>
+    <span item-right>年</span>
+  </ion-item>
+
+  <!--在职单位职位或岗位-->
+  <ion-item>
+    <ion-label class="label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-post-two"></div>
+    </ion-label>
+    <ion-input type="text"
+               placeholder="在职单位职位或岗位"></ion-input>
+  </ion-item>
+
+  <!--年收入-->
+  <ion-item>
+    <ion-label class="label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-annualIncome"></div>
+    </ion-label>
+    <ion-input type="text"
+               placeholder="年收入（万元）"></ion-input>
+    <span item-right>万元</span>
+  </ion-item>
+
+  <!--现月收入-->
+  <ion-item>
+    <ion-label item-left hidden>
+      现月收入
+    </ion-label>
+    <ion-label class="personPer-payWay label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-monthlyIncome"></div>
+    </ion-label>
+    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+                placeholder="现月收入">
+    </ion-select>
+  </ion-item>
+
+  <!--请选择行业-->
+  <ion-item>
+    <ion-label item-left hidden>
+      请选择行业
+    </ion-label>
+    <ion-label class="personPer-payWay label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-industry"></div>
+    </ion-label>
+    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+                placeholder="请选择行业">
+    </ion-select>
+  </ion-item>
+
+  <!--营业执照名称-->
+  <ion-item>
+    <ion-label class="label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-businessLicense"></div>
+    </ion-label>
+    <ion-input type="text"
+               placeholder="营业执照名称"></ion-input>
+  </ion-item>
+
+  <!--经营地址-->  <!--todo city-picker-->
+
+  <!--经营详细地址-->
+  <ion-item>
+    <ion-label class="label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-detail-address"></div>
+    </ion-label>
+    <ion-input type="text"
+               placeholder="营业执照名称"></ion-input>
+  </ion-item>
+
+  <!--请选择经营背景类型-->
+  <ion-item>
+    <ion-label item-left hidden>
+      请选择经营背景类型
+    </ion-label>
+    <ion-label class="personPer-payWay label-margin">
+      <span class="require-star">*</span>
+      <div class="basics-data-business-type"></div>
+    </ion-label>
+    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+                placeholder="请选择经营背景类型">
+    </ion-select>
+  </ion-item>
+
+
+  <!--营业执照照片 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+  <!--淘宝/天猫贷款截图 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+  <!--店铺注册截图 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+
+  <!--股东身份证 todo-->
+  <div>
+    <ion-item>
+      <ion-label class="label-margin">
+        <span class="require-star">*</span>
+        <div class="basics-data-marriage-danwei"></div>
+      </ion-label>
+      <ion-input type="text"
+                 placeholder="股东身份证" disabled></ion-input>
+    </ion-item>
+    <img-view [headerHide]="true"></img-view>
+    <img-view [headerHide]="true"></img-view>
+  </div>
+
+  <!--股权证明 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+  <!--授权代理合同 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+  <!--税务登记证 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+  <!--机构代码证 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+  <!--验资报告 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+  <!--加盟合同 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+  <!--租赁合同 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+  <!--企业征信 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+  <!--法人身份证正反面 todo-->
+  <div>
+    <ion-item>
+      <ion-label class="label-margin">
+        <span class="require-star">*</span>
+        <div class="basics-data-marriage-danwei"></div>
+      </ion-label>
+      <ion-input type="text"
+                 placeholder="法人身份证正反面" disabled></ion-input>
+    </ion-item>
+    <img-view [headerHide]="true"></img-view>
+    <img-view [headerHide]="true"></img-view>
+  </div>
+
+  <!--三方回款任务合同 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+  <!--个人征信 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+  <!--法人征信 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+  <!--法人征信 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+
+  <!--法人配偶身份证正反面 todo-->
+  <div>
+    <ion-item>
+      <ion-label class="label-margin">
+        <span class="require-star">*</span>
+        <div class="basics-data-marriage-danwei"></div>
+      </ion-label>
+      <ion-input type="text"
+                 placeholder="法人配偶身份证正反面" disabled></ion-input>
+    </ion-item>
+    <img-view [headerHide]="true"></img-view>
+    <img-view [headerHide]="true"></img-view>
+  </div>
+
+  <!--连续三年回款合同 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+
+  <!--其他证明 todo-->
+  <div class="img-box">
+    <img-view></img-view>
+  </div>
+
+
+
+
+
+
+
 
 </ion-list>
