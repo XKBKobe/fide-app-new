@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
+import {CREDIT_DATA} from "../../../providers/BaseConfig";
 
 @Component({
   selector: 'page-credit-data',
@@ -7,8 +8,14 @@ import {NavController} from 'ionic-angular';
 })
 export class CreditDataPage {
 
+  creditData:any;
+
   constructor(public navCtrl: NavController) {
 
+  }
+
+  ngOnInit(){
+    this.creditData = CREDIT_DATA;
   }
 
 }
