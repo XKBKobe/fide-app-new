@@ -22,4 +22,9 @@ export const HTTP_URL_JSON = {
     "url": "/org/queryOrg"
   },
 
+  "getPersonalLoanStatus": { //查询我的资料状态
+    "server": "fideUserServer",
+    "url": "/user/getPersonalLoanStatus"
+  },
+
 };

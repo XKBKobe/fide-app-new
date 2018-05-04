@@ -2,10 +2,10 @@
   <ion-list style="margin: 0;">
     <ion-item *ngFor="let item of creditData"
               style="border: none;border-bottom: 1px solid #eee;background-color: #fff;">
-      <ion-avatar item-start>
-        <img src="{{item.img}}">
+      <ion-avatar item-start style="margin: 0">
+        <img style="width: 30px;height: 30px;margin-top: 2px;" src="{{item.img}}">
       </ion-avatar>
-      <h4>{{item.name}}</h4>
+      <h4 style="padding-left: 8px;">{{item.name}}</h4>
     </ion-item>
   </ion-list>
 </div>

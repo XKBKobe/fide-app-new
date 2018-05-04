@@ -8,7 +8,7 @@
 
 <ion-content>
   <!--流程头部-->
-  <page-loan-step-head (skipToPage)="skipToPage($event)"></page-loan-step-head>
+  <page-loan-step-head (skipToPage)="skipToPage($event)" [loanStep]="loanStep"></page-loan-step-head>
 
   <!--身份核身-->
   <page-loan-step-one *ngIf="page == 1"></page-loan-step-one>

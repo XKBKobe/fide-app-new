@@ -58,7 +58,6 @@ export class ProductDetailPage {
             }
           }
         }
-        console.log(filterOrgList);
         that.orgList = filterOrgList;
       } else {
         that.orgList = res;
@@ -82,6 +81,8 @@ export class ProductDetailPage {
 
   //立即申请贷款
   apply(){
-    this.navCtrl.push(LoanProgress)
+    this.navCtrl.push(LoanProgress,{
+      product:this.data
+    })
   }
 }
