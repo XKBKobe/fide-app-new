@@ -60,18 +60,18 @@ export class ImgViewPage {
 
 
   ngOnInit() {
-    // let type = this.imgData.matTypeCode;
-    // this.title = this.setJson[type].title;
-    // this.icon = this.setJson[type].icon;
-    // this.class = this.setJson[type].class;
-    // this.description = this.setJson[type].description;
-    // this.color = this.setJson[type].color;
-    // this.src = this.imgData.matUrl ? this.imgData.matUrl + "&w=200&h=100" : '';
-    // this.bigsrc = this.imgData.matUrl;
-    // this.uploadDisabled = this.uploadPicStatus;
-    // if (!this.src) {
-    //   this.src = this.setJson[type].src;
-    //   this.bigsrc = this.setJson[type].bigsrc;
-    // }
+    let type = this.imgData.matTypeCode;
+    this.title = this.setJson[type].title;
+    this.icon = this.setJson[type].icon;
+    this.class = this.setJson[type].class;
+    this.description = this.setJson[type].description;
+    this.color = this.setJson[type].color;
+    this.src = this.imgData.matUrl ? this.imgData.matUrl + "&w=200&h=100" : '';
+    this.bigsrc = this.imgData.matUrl;
+    this.uploadDisabled = this.uploadPicStatus;
+    if (!this.src) {
+      this.src = this.setJson[type].src;
+      this.bigsrc = this.setJson[type].bigsrc;
+    }
   }
 }

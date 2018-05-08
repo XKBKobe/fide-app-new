@@ -1,5 +1,5 @@
-<ion-list class="personal-form">
-  <ion-item style="background-color: #fff;">
+<ion-list *ngIf="!!personData" class="personal-form">
+  <ion-item class="person-bgColor">
     <ion-label class="label-margin">
       <span class="require-star">*</span>
       <div class="person-data-cmCode"></div>
@@ -12,18 +12,18 @@
     <div ion-text class="cmCode-alert" color="red"></div>
   </div>
 
-  <ion-item style="background-color: #fff;">
+  <ion-item class="person-bgColor" [hidden]="!step2Set.name.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span *ngIf="step2Set.name.isRequire" class="require-star">*</span>
       <div class="person-data-name"></div>
     </ion-label>
     <ion-input name="name"
                placeholder="请输入姓名"></ion-input>
   </ion-item>
 
-  <ion-item style="background-color: #fff;">
+  <ion-item class="person-bgColor" [hidden]="!step2Set.idNumber.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span *ngIf="step2Set.idNumber.isRequire" class="require-star">*</span>
       <div class="person-data-id"></div>
     </ion-label>
     <ion-input name="idNumber"
@@ -31,12 +31,14 @@
     <ion-icon class="down-arrow" (click)="idCardDisplay()" item-right style="z-index: 100;"></ion-icon>
   </ion-item>
 
-  <div style="background-color: #fff;">
-    <img-view [headerHide]="true"></img-view>
-    <img-view></img-view>
+  <div class="person-bgColor" *ngIf="step2Set.identityPic.isShow">
+    <img-view [headerHide]="true" [isRequire]="step2Set.identityPic.isRequire"
+              [imgData]="personData.identity"></img-view>
+    <img-view [headerHide]="true" [isRequire]="step2Set.identityPic.isRequire"
+              [imgData]="personData.identityBack"></img-view>
   </div>
 
-  <ion-item style="background-color: #fff;">
+  <ion-item class="person-bgColor">
     <ion-label class="label-margin">
       <span class="require-star">*</span>
       <div class="person-data-applymoney"></div>
@@ -47,7 +49,7 @@
   </ion-item>
 
 
-  <ion-item style="background-color: #fff;">
+  <ion-item class="person-bgColor">
     <ion-label item-left hidden>
       请选择贷款用途
     </ion-label>
@@ -62,7 +64,7 @@
   </ion-item>
 
 
-  <ion-item style="background-color: #fff;">
+  <ion-item class="person-bgColor">
     <ion-label class="label-margin" item-left hidden>
       请选择希望还款方式
     </ion-label>

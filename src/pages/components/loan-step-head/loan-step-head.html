@@ -39,7 +39,7 @@
 
     <div *ngIf="!loanStep.step5" class="step-process" tappable (click)="goPage(5)">
       <div class="step-five" [ngClass]="{'step-five-complete': page > 4 }">
-        <div class="step-check-no"></div>
+        <div class="step-check-yes"></div>
       </div>
       <p class="font12 step-text" [ngClass]="{'step-text-complete': page > 4 }">提交申请</p>
     </div>
