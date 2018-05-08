@@ -11,7 +11,6 @@ img-view{
     width: 160px;
     height: 110px;
     margin: auto;
-    //border: 1px solid color($colors, itemLine); eee
     border-radius: 5px;
   }
 
@@ -32,7 +31,7 @@ img-view{
   .imgCard .card-content{
     display: flex;
     padding: 16px 0;
-    //border-bottom: 1px solid color($colors, itemLine);
+    border-bottom: 1px solid #eee;
   }
 
   .imgCard .img-title{

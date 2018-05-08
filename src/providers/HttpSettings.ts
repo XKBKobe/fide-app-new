@@ -1,3 +1,14 @@
+//常用数据
+export const CommDatas = {
+  //贷款用途
+  purpose: [{text: "消费", value: 'A'}, {text: "生产经营", value: 'B'}, {text: "住房消费贷款", value: 'C'}, {
+    text: "汽车消费贷款",
+    value: 'D'
+  }, {text: "其它消费贷款", value: 'E'}]
+
+};
+
+
 export const HTTP_URL_JSON = {
   login: {   //登录
     server: 'fideUserServer',
@@ -29,11 +40,10 @@ export const HTTP_URL_JSON = {
     url: '/user/queryPersonalMaterial'
   },
 
-  isDataFill:{  //判断是否填写信贷资料
+  isDataFill: {  //判断是否填写信贷资料
     "server": "fideUserServer",
     "url": "/user/isDataFill"
   }
-
 
 
 };

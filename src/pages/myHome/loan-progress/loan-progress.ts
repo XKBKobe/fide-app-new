@@ -4,6 +4,7 @@ import {LoginPage} from "../../welcome/login";
 import {HttpApiService} from "../../../providers/HttpApiService";
 import {CommonService} from "../../../providers/commonService";
 import {PERSON_DATA} from "../../../providers/BaseConfig";
+import {DataSaveService} from "../../../providers/DataSaveService";
 
 @Component({
   selector: 'page-loan-progress',
@@ -24,14 +25,15 @@ export class LoanProgress {
 
   personData: any;
 
-  step2Set:any; //个人资料显示
+  step2Set: any; //个人资料显示
 
   constructor(public navCtrl: NavController,
               public events: Events,
               public navParams: NavParams,
               public http: HttpApiService,
               public modalCtrl: ModalController,
-              public comm: CommonService) {
+              public comm: CommonService,
+              public dataSave: DataSaveService) {
     this.product = navParams.get('product');
   }
 
@@ -40,6 +42,8 @@ export class LoanProgress {
     this.http.post('getPersonalLoanStatus', {}).then(res => {
       res['checkIdentity'] == 1 || res['checkIdentity'] == 0 ? this.loanStep.step1 = true : this.loanStep.step1 = false;
       this.loanStep.step5 = res['hasApplying'];
+      //设置推荐码
+      this.dataSave.setCmCode(res['hasApplying']);
       console.log(this.loanStep);
     }, err => {
       if (err && err['respCode'] == 101604) {

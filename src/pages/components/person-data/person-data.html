@@ -1,7 +1,7 @@
 <ion-list *ngIf="!!personData" class="personal-form">
-  <ion-item class="person-bgColor">
+  <ion-item class="person-bgColor" [hidden]="!step2Set.cmCode.isShow || cmCode">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span *ngIf="step2Set.cmCode.isRequire" class="require-star">*</span>
       <div class="person-data-cmCode"></div>
     </ion-label>
     <ion-input placeholder="推荐码(若无可不填)"></ion-input>
@@ -17,7 +17,7 @@
       <span *ngIf="step2Set.name.isRequire" class="require-star">*</span>
       <div class="person-data-name"></div>
     </ion-label>
-    <ion-input name="name"
+    <ion-input [(ngModel)]="personData.name" name="name"
                placeholder="请输入姓名"></ion-input>
   </ion-item>
 
@@ -26,7 +26,7 @@
       <span *ngIf="step2Set.idNumber.isRequire" class="require-star">*</span>
       <div class="person-data-id"></div>
     </ion-label>
-    <ion-input name="idNumber"
+    <ion-input [(ngModel)]="personData.idNumber" name="idNumber"
                placeholder="请输入身份证号"></ion-input>
     <ion-icon class="down-arrow" (click)="idCardDisplay()" item-right style="z-index: 100;"></ion-icon>
   </ion-item>
@@ -38,43 +38,46 @@
               [imgData]="personData.identityBack"></img-view>
   </div>
 
-  <ion-item class="person-bgColor">
+  <ion-item class="person-bgColor" [hidden]="!step2Set.applyAmount.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span *ngIf="step2Set.applyAmount.isRequire" class="require-star">*</span>
       <div class="person-data-applymoney"></div>
     </ion-label>
-    <ion-input name="applyAmount"
+    <ion-input [(ngModel)]="personData.applyAmount" name="applyAmount"
                placeholder="请输入希望申请的额度"></ion-input>
     <div item-right>万元</div>
   </ion-item>
 
 
-  <ion-item class="person-bgColor">
+  <ion-item class="person-bgColor" [hidden]="!step2Set.purpose.isShow">
     <ion-label item-left hidden>
       请选择贷款用途
     </ion-label>
     <ion-label class="personPer-payWay label-margin">
-      <span class="require-star">*</span>
+      <span *ngIf="step2Set.purpose.isRequire" class="require-star">*</span>
       <div class="person-data-purpose"></div>
     </ion-label>
-    <ion-select name="purpose" okText="确定" cancelText="取消"
+    <ion-select [(ngModel)]="personData.purpose" name="purpose" okText="确定" cancelText="取消"
                 placeholder="请选择贷款用途">
-
+      <ion-option *ngFor="let type of purpose" [value]="type.value"
+                  [selected]="type.value == personData.purpose">{{type.text}}
+      </ion-option>
     </ion-select>
   </ion-item>
 
 
-  <ion-item class="person-bgColor">
+  <ion-item class="person-bgColor" [hidden]="!step2Set.repaymentType.isShow">
     <ion-label class="label-margin" item-left hidden>
       请选择希望还款方式
     </ion-label>
     <ion-label class="personPer-payWay">
-      <span class="require-star">*</span>
+      <span *ngIf="step2Set.repaymentType.isRequire" class="require-star">*</span>
       <div class="person-data-repay"></div>
     </ion-label>
-    <ion-select name="repaymentType" okText="确定" cancelText="取消"
+    <ion-select [(ngModel)]="personData.repaymentType" name="repaymentType" okText="确定" cancelText="取消"
                 placeholder="请选择希望还款方式">
-      <ion-option>111
+      <ion-option *ngFor="let type of avaPeriods" [value]="type.value"
+                  [selected]="type.value == personData.repaymentType">{{type.text}}
       </ion-option>
     </ion-select>
   </ion-item>

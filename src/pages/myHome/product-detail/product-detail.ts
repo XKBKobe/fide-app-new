@@ -3,6 +3,7 @@ import {ModalController, NavController, NavParams} from 'ionic-angular';
 import {HttpApiService} from "../../../providers/HttpApiService";
 import {LoginPage} from "../../welcome/login";
 import {LoanProgress} from "../loan-progress/loan-progress";
+import {DataSaveService} from "../../../providers/DataSaveService";
 
 
 @Component({
@@ -21,7 +22,8 @@ export class ProductDetailPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public http: HttpApiService,
-              public modalCtrl: ModalController) {
+              public modalCtrl: ModalController,
+              public dataSave:DataSaveService) {
 
     this.productUuid = navParams.get('productUuid')
   }
@@ -31,6 +33,8 @@ export class ProductDetailPage {
     this.http.post('queryProductInfo', {productUuid: this.productUuid}).then(res => {
       this.data = res;
       this.queryOrgList(res['availableOrg']);
+      //设置还款方式
+      this.availablePeriods(res['availablePeriods']);
     }, err => {
       if (err && err['respCode'] == 101604) {
         localStorage.clear();
@@ -66,9 +70,35 @@ export class ProductDetailPage {
       if (that.orgList.length > 3) {
         that.showMoreHide = true;
         that.showMoreOrg = true;
-        // that.showHideOrg = false;
       }
     })
+  }
+
+  availablePeriods(data) {
+    //还款方式
+    if (!!data) {
+      let repayWayData = [];
+      //贷款的期数
+      var loanType = data;
+      var loanTypeArr = loanType.split(',');
+      for (let item = 0; item < loanTypeArr.length; item++) {
+        if (item == 0) {
+          if (loanTypeArr[item] == '1') {
+            var repayWayJson = {};
+            repayWayJson['text'] = '随借随还';
+            repayWayJson['value'] = loanTypeArr[item];
+            repayWayData.push(repayWayJson);
+          }
+        } else {
+          var repayWayJson = {};
+          repayWayJson['text'] = '分' + loanTypeArr[item] + '期';
+          repayWayJson['value'] = loanTypeArr[item];
+          repayWayData.push(repayWayJson);
+        }
+      }
+      //设置还款方式
+      this.dataSave.setAvaPeriods(repayWayData);
+    }
   }
 
   showMore() {

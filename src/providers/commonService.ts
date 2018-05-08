@@ -1,14 +1,10 @@
-/**
- * 用户交互反馈
- *
- * 规划：1.环境判断   2.loading效果  3.提示(toast)  4.网络判断
- */
 import {Injectable} from '@angular/core';
 import {BASICS_DATA, CREDIT_DATA_SETTING, PERSON_DATA} from "./BaseConfig";
 
-
 @Injectable()
 export class CommonService {
+
+  avaPeriods:any;
 
   constructor() {
   }
@@ -56,4 +52,6 @@ export class CommonService {
         break;
     }
   }
+
+
 }
