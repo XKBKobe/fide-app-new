@@ -47,8 +47,8 @@ export class ImgViewPage {
       "title": "房产证",
       "description": "房产证明(或房产查询单)",
       "icon": "icon-estatephoto",
-      "src": "assets/image/datum/estatephoto.png",
-      "bigsrc": "assets/image/datum/big/estatephotoBig.png",
+      "src": "assets/imgs/datum/estatephoto.png",
+      "bigsrc": "assets/imgs/datum/big/estatephotoBig.png",
       "class": "iconfont17",
       "color": "address"
     }

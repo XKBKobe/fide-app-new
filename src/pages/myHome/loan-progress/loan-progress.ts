@@ -27,6 +27,8 @@ export class LoanProgress {
 
   step2Set: any; //个人资料显示
 
+  step3Set: any; //基础资料显示
+
   constructor(public navCtrl: NavController,
               public events: Events,
               public navParams: NavParams,
@@ -116,8 +118,9 @@ export class LoanProgress {
     let that = this;
     let stepThreeSetting = that.product.basicMat;
     this.comm.checkMaterial(data, stepThreeSetting, 'step3', data => {
+      //基础资料配置
+      that.step3Set = data;
       let personalAllData = that.personData;
-      console.log(data);
       for (let i in data) {
         if (data[i].isRequire) {
           if (personalAllData[i] instanceof Array) {

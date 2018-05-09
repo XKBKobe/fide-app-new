@@ -1,5 +1,5 @@
-page-basics-data{
-  .item-block{
+page-basics-data {
+  .item-block {
     background-color: #fff;
     min-height: auto;
   }
@@ -9,7 +9,6 @@ page-basics-data{
     padding-left: 1.3rem;
   }
 
-
   .require-star {
     position: absolute;
     top: 15px;
@@ -17,31 +16,40 @@ page-basics-data{
     color: red;
   }
 
-  ion-select{
+  ion-select {
     max-width: 100%;
     padding-left: 0 !important;
   }
 
-  ion-select .select-icon{
+  ion-select .select-icon {
     display: none;
   }
 
-  .text-input-ios{
+  .text-input-ios {
     margin-left: 0 !important;
   }
 
-  .text-input-md{
+  .text-input-md {
     margin-left: 0 !important;
   }
 
-  .img-box{
+  .img-box {
     position: relative;
   }
-  .text-input[disabled]{
+  .text-input[disabled] {
     opacity: 1;
   }
 
-  .basics-data-email{
+  .basics-add {
+    position: absolute;
+    left: 30%;
+    margin-left: 166px;
+    width: 60px;
+    bottom: 20px;
+    color: color($colors, primary);
+  }
+
+  .basics-data-email {
     background: url("../assets/imgs/myData/basicsData/email_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
@@ -54,7 +62,7 @@ page-basics-data{
 
   //金融资产证明照片 todo
 
-  .basics-data-qq{
+  .basics-data-qq {
     background: url("../assets/imgs/myData/basicsData/qq.png") no-repeat center center;
     height: 26px;
     width: 26px;
@@ -63,35 +71,35 @@ page-basics-data{
 
   //todo city-picker
 
-  .basics-data-family{
+  .basics-data-family {
     background: url("../assets/imgs/myData/basicsData/family_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
 
-  .basics-data-family-tel{
+  .basics-data-family-tel {
     background: url("../assets/imgs/myData/basicsData/familyTel_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
 
-  .basics-data-connect{
+  .basics-data-connect {
     background: url("../assets/imgs/myData/basicsData/conection_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
 
-  .basics-data-bank{
+  .basics-data-bank {
     background: url("../assets/imgs/myData/basicsData/bank_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
 
-  .basics-data-bank-number{
+  .basics-data-bank-number {
     background: url("../assets/imgs/myData/basicsData/bank_inputIcon_select.png") no-repeat center center;
     height: 26px;
     width: 26px;
@@ -100,7 +108,7 @@ page-basics-data{
 
   //todo city-picker
 
-  .basics-data-detail-address{
+  .basics-data-detail-address {
     background: url("../assets/imgs/myData/basicsData/detaiedlBusinessAddress_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
@@ -109,8 +117,7 @@ page-basics-data{
 
   //请输入住宅地址邮编  todo 少图标
 
-
-  .basics-data-address-situation{
+  .basics-data-address-situation {
     background: url("../assets/imgs/myData/basicsData/addressSituation_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
@@ -119,7 +126,7 @@ page-basics-data{
 
   //房产证照片 todo
 
-  .basics-data-nature{
+  .basics-data-nature {
     background: url("../assets/imgs/myData/basicsData/nature_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
@@ -128,7 +135,7 @@ page-basics-data{
 
   //请输入电费用户名 todo 少图标
 
-  .basics-data-marriage{
+  .basics-data-marriage {
     background: url("../assets/imgs/myData/basicsData/marriage_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
@@ -137,49 +144,49 @@ page-basics-data{
 
   //结婚证照片 todo
 
-  .basics-data-marriage-name{
+  .basics-data-marriage-name {
     background: url("../assets/imgs/myData/personData/name_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
 
-  .basics-data-id{
+  .basics-data-id {
     background: url("../assets/imgs/myData/personData/ID_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
 
-  .basics-data-marriage-degree{
+  .basics-data-marriage-degree {
     background: url("../assets/imgs/myData/basicsData/degree_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
 
-  .basics-data-marriage-danwei{
+  .basics-data-marriage-danwei {
     background: url("../assets/imgs/myData/basicsData/industry_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
 
-  .basics-data-other{
+  .basics-data-other {
     background: url("../assets/imgs/myData/basicsData/mother_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
 
-  .basics-data-kids{
+  .basics-data-kids {
     background: url("../assets/imgs/myData/basicsData/kids_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
 
-  .basics-data-cars{
+  .basics-data-cars {
     background: url("../assets/imgs/myData/basicsData/car_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
@@ -188,7 +195,7 @@ page-basics-data{
 
   //行驶证照片 todo
 
-  .basics-data-education{
+  .basics-data-education {
     background: url("../assets/imgs/myData/basicsData/degree_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
@@ -197,80 +204,77 @@ page-basics-data{
 
   //学历学位证 todo
 
-  .basics-data-unit{
+  .basics-data-unit {
     background: url("../assets/imgs/myData/basicsData/unit_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
 
-  .basics-data-company-tel{
+  .basics-data-company-tel {
     background: url("../assets/imgs/myData/basicsData/company-tel.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
 
-
   //todo city-picker
 
-  .basics-data-post{
+  .basics-data-post {
     background: url("../assets/imgs/myData/basicsData/post.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
 
-  .basics-data-seniority{
+  .basics-data-seniority {
     background: url("../assets/imgs/myData/basicsData/seniority_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
 
-  .basics-data-post-two{
+  .basics-data-post-two {
     background: url("../assets/imgs/myData/basicsData/post_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
 
-  .basics-data-annualIncome{
+  .basics-data-annualIncome {
     background: url("../assets/imgs/myData/basicsData/annualIncome_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
 
-  .basics-data-monthlyIncome{
+  .basics-data-monthlyIncome {
     background: url("../assets/imgs/myData/basicsData/monthlyIncome_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
 
-  .basics-data-industry{
+  .basics-data-industry {
     background: url("../assets/imgs/myData/basicsData/industry_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
 
-  .basics-data-businessLicense{
+  .basics-data-businessLicense {
     background: url("../assets/imgs/myData/basicsData/businessLicense_inputIcon_normal.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
 
-  .basics-data-business-type{
+  .basics-data-business-type {
     background: url("../assets/imgs/myData/basicsData/business-type.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;
   }
-
-
 
 }
 

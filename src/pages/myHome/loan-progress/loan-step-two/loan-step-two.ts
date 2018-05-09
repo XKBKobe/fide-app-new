@@ -21,12 +21,10 @@ export class LoanStepTwoPage {
   }
 
   ngOnInit() {
-    console.log(this.step2Set);
     //查询个人资料
     this.http.post('queryPersonalMaterial', {}, false).then(data => {
       this.personData = data;
     });
-    console.log('LoanStepTwoPage');
   }
 
   next() {

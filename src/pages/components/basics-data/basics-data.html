@@ -1,170 +1,188 @@
-<ion-list style="margin-top: 10px;">
+<ion-list *ngIf="!!personData" style="margin-top: 10px;">
   <!--&lt;!&ndash;请选择贷款用途&ndash;&gt;-->
   <!--<ion-item>-->
-    <!--<ion-label item-left hidden>-->
-      <!--请选择贷款用途(todo)-->
-    <!--</ion-label>-->
-    <!--<ion-label class="personPer-payWay label-margin">-->
-      <!--<span class="require-star">*</span>-->
-      <!--<div class="person-data-repay"></div>-->
-    <!--</ion-label>-->
-    <!--<ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"-->
-                <!--placeholder="请选择贷款用途（todo）">-->
-    <!--</ion-select>-->
+  <!--<ion-label item-left hidden>-->
+  <!--请选择贷款用途(todo)-->
+  <!--</ion-label>-->
+  <!--<ion-label class="personPer-payWay label-margin">-->
+  <!--<span class="require-star">*</span>-->
+  <!--<div class="person-data-repay"></div>-->
+  <!--</ion-label>-->
+  <!--<ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"-->
+  <!--placeholder="请选择贷款用途（todo）">-->
+  <!--</ion-select>-->
   <!--</ion-item>-->
 
   <!--qq邮箱-->
-  <ion-item>
+  <ion-item [hidden]="!step3Set.email.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.email.isRequire" class="require-star">*</span>
       <div class="basics-data-email"></div>
     </ion-label>
-    <ion-input type="email"
+    <ion-input [(ngModel)]="personData.email" type="email"
                placeholder="请输入电子邮箱"></ion-input>
   </ion-item>
 
   <!--qq账号-->
-  <ion-item>
+  <ion-item [hidden]="!step3Set.qqNum.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.qqNum.isRequire" class="require-star">*</span>
       <div class="basics-data-qq"></div>
     </ion-label>
-    <ion-input type="email"
+    <ion-input [(ngModel)]="personData.qqNum" type="email"
                placeholder="请输入qq账号"></ion-input>
   </ion-item>
 
-  <!--todo city-picker-->
+  <!--todo city-picker   household-->
 
-  <!--家庭联系人姓名-->
-  <ion-item>
+
+  <!--家庭联系人姓名 primaryContact-->
+  <ion-item [hidden]="!step3Set.primaryContact.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.primaryContact.isRequire" class="require-star">*</span>
       <div class="basics-data-family"></div>
     </ion-label>
-    <ion-input type="text"
+    <ion-input [(ngModel)]="personData.primaryContact.name" type="text"
                placeholder="家庭联系人姓名"></ion-input>
   </ion-item>
 
-  <!--家庭联系人电话-->
-  <ion-item>
+  <!--家庭联系人电话 primaryContact-->
+  <ion-item [hidden]="!step3Set.primaryContact.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.primaryContact.isRequire" class="require-star">*</span>
       <div class="basics-data-family-tel"></div>
     </ion-label>
-    <ion-input type="tel"
+    <ion-input [(ngModel)]="personData.primaryContact.mobile" type="tel"
                placeholder="家庭联系人电话"></ion-input>
   </ion-item>
 
-  <!--家庭联系人与我的关系-->
-  <ion-item>
+  <!--家庭联系人与我的关系 primaryContact-->
+  <ion-item [hidden]="!step3Set.primaryContact.isShow">
     <ion-label item-left hidden>
       家庭联系人与我的关系
     </ion-label>
     <ion-label class="personPer-payWay label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.primaryContact.isRequire" class="require-star">*</span>
       <div class="basics-data-connect"></div>
     </ion-label>
-    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+    <ion-select [(ngModel)]="personData.primaryContact.relType" class="right-arrow" name="purpose" okText="确定"
+                cancelText="取消"
                 placeholder="家庭联系人与我的关系">
+      <ion-option *ngFor="let type of contactData" [value]="type.value"
+                  [selected]="type.value === personData.primaryContact.relType">{{type.text}}
+      </ion-option>
     </ion-select>
   </ion-item>
 
-  <!--第二联系人姓名-->
-  <ion-item>
+  <!--第二联系人姓名 secondaryContact-->
+  <ion-item [hidden]="!step3Set.secondaryContact.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.secondaryContact.isRequire" class="require-star">*</span>
       <div class="basics-data-family"></div>
     </ion-label>
-    <ion-input type="text"
+    <ion-input [(ngModel)]="personData.secondaryContact.name" type="text"
                placeholder="第二联系人姓名"></ion-input>
   </ion-item>
 
   <!--第二联系人电话-->
-  <ion-item>
+  <ion-item [hidden]="!step3Set.secondaryContact.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.secondaryContact.isRequire" class="require-star">*</span>
       <div class="basics-data-family-tel"></div>
     </ion-label>
-    <ion-input type="tel"
+    <ion-input [(ngModel)]="personData.secondaryContact.mobile" type="tel"
                placeholder="第二联系人电话"></ion-input>
   </ion-item>
 
   <!--第二联系人与我的关系-->
-  <ion-item>
+  <ion-item [hidden]="!step3Set.secondaryContact.isShow">
     <ion-label item-left hidden>
       第二联系人与我的关系
     </ion-label>
     <ion-label class="personPer-payWay label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.secondaryContact.isRequire" class="require-star">*</span>
       <div class="basics-data-connect"></div>
     </ion-label>
-    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+    <ion-select [(ngModel)]="personData.secondaryContact.relType" class="right-arrow" name="purpose" okText="确定"
+                cancelText="取消"
                 placeholder="第二联系人与我的关系">
+      <ion-option *ngFor="let type of secondContactData" [value]="type.value"
+                  [selected]="type.value === personData.secondaryContact.relType">{{type.text}}
+      </ion-option>
     </ion-select>
   </ion-item>
 
-  <!--常用银行卡开户行-->
-  <ion-item>
+  <!--常用银行卡开户行 bankCode-->
+  <ion-item [hidden]="!step3Set.bankCode.isShow">
     <ion-label item-left hidden>
       常用银行卡开户行
     </ion-label>
     <ion-label class="personPer-payWay label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.bankCode.isRequire" class="require-star">*</span>
       <div class="basics-data-bank"></div>
     </ion-label>
-    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+    <ion-select [(ngModel)]="personData.bankCode" class="right-arrow" name="purpose" okText="确定" cancelText="取消"
                 placeholder="常用银行卡开户行">
+      <ion-option *ngFor="let type of commonBank" [value]="type.value" [selected]="type.value === personData.bankCode">
+        {{type.text}}
+      </ion-option>
     </ion-select>
   </ion-item>
 
-  <!--常用银行卡卡号-->
-  <ion-item>
+  <!--常用银行卡卡号 cardNumber-->
+  <ion-item [hidden]="!step3Set.cardNumber.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.cardNumber.isRequire" class="require-star">*</span>
       <div class="basics-data-bank-number"></div>
     </ion-label>
-    <ion-input type="number"
+    <ion-input [(ngModel)]="personData.cardNumber" type="number"
                placeholder="常用银行卡卡号"></ion-input>
   </ion-item>
 
-  <!--todo city-picker-->
-  <!--请输入住宅详细地址-->
-  <ion-item>
+  <!--todo city-picker liveAddress-->
+
+  <!--请输入住宅详细地址 liveAddress-->
+  <ion-item [hidden]="!step3Set.liveAddress.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.liveAddress.isRequire" class="require-star">*</span>
       <div class="basics-data-detail-address"></div>
     </ion-label>
-    <ion-input type="text"
+    <ion-input [(ngModel)]="personData.liveLoc" type="text"
                placeholder="请输入住宅详细地址"></ion-input>
   </ion-item>
 
-  <!--请输入住宅地址邮编  todo 少图标-->
-  <ion-item>
+  <!--请输入住宅地址邮编  todo 少图标  houseAddressZipCode-->
+  <ion-item [hidden]="!step3Set.houseAddressZipCode.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.houseAddressZipCode.isRequire" class="require-star">*</span>
       <div class="basics-data-email"></div>
     </ion-label>
-    <ion-input
-      placeholder="请输入住宅地址邮编"></ion-input>
+    <ion-input [(ngModel)]="personData.houseAddressZipCode" type="tel"
+               placeholder="请输入住宅地址邮编"></ion-input>
   </ion-item>
 
-  <!--住宅情况-->
-  <ion-item>
+  <!--住宅情况 houseProperty-->
+  <ion-item [hidden]="!step3Set.houseProperty.isShow">
     <ion-label item-left hidden>
       住宅情况
     </ion-label>
     <ion-label class="personPer-payWay label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.houseProperty.isRequire" class="require-star">*</span>
       <div class="basics-data-address-situation"></div>
     </ion-label>
-    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+    <ion-select [(ngModel)]="personData.houseProperty" class="right-arrow" name="purpose" okText="确定" cancelText="取消"
                 placeholder="住宅情况">
+      <ion-option *ngFor="let type of houseProperty" [value]="type.value"
+                  [selected]="type.value === personData.houseProperty">{{type.text}}
+      </ion-option>
     </ion-select>
   </ion-item>
 
   <!--房产证照片 todo-->
   <div class="img-box">
-    <img-view></img-view>
+    <img-view *ngFor="let type of personData.houseProprietaryCertificate;" [imgData]="type"
+              [isRequire]="step3Set.houseProprietaryCertificate.isRequire"></img-view>
+    <span ion-text class="basics-add" (click)="openUploaderAgain('houseProprietaryCertificate','房产证')">再加一张</span>
   </div>
 
   <!--住宅性质-->
@@ -192,19 +210,19 @@
   </ion-item>
 
   <!--居住证明照片 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
-  <!--户口本照片 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--&lt;!&ndash;户口本照片 todo&ndash;&gt;-->
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
-  <!--金融资产证明照片 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--&lt;!&ndash;金融资产证明照片 todo&ndash;&gt;-->
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
 
   <!--婚姻状况-->
@@ -223,9 +241,9 @@
 
 
   <!--结婚证照片 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
   <!--配偶姓名-->
   <ion-item>
@@ -305,8 +323,8 @@
       <ion-input type="text"
                  placeholder="配偶身份证" disabled></ion-input>
     </ion-item>
-    <img-view [headerHide]="true"></img-view>
-    <img-view [headerHide]="true"></img-view>
+    <!--<img-view [headerHide]="true"></img-view>-->
+    <!--<img-view [headerHide]="true"></img-view>-->
   </div>
 
   <!--母亲姓氏-->
@@ -316,7 +334,7 @@
       <div class="basics-data-other"></div>
     </ion-label>
     <ion-input type="text"
-      placeholder="母亲姓氏"></ion-input>
+               placeholder="母亲姓氏"></ion-input>
   </ion-item>
 
   <!--有无子女-->
@@ -348,7 +366,7 @@
   </ion-item>
 
   <!--行驶证照片 todo-->
-  <img-view [headerHide]="true"></img-view>
+  <!--<img-view [headerHide]="true"></img-view>-->
 
   <!--最高学历-->
   <ion-item>
@@ -365,7 +383,7 @@
   </ion-item>
 
   <!--学历学位证 todo-->
-  <img-view></img-view>
+  <!--<img-view></img-view>-->
 
   <!--单位名称-->
   <ion-item>
@@ -374,7 +392,7 @@
       <div class="basics-data-unit"></div>
     </ion-label>
     <ion-input type="text"
-      placeholder="单位名称"></ion-input>
+               placeholder="单位名称"></ion-input>
   </ion-item>
 
   <!--单位电话-->
@@ -523,19 +541,19 @@
 
 
   <!--营业执照照片 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
-  <!--淘宝/天猫贷款截图 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--&lt;!&ndash;淘宝/天猫贷款截图 todo&ndash;&gt;-->
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
-  <!--店铺注册截图 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--&lt;!&ndash;店铺注册截图 todo&ndash;&gt;-->
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
 
   <!--股东身份证 todo-->
@@ -548,49 +566,49 @@
       <ion-input type="text"
                  placeholder="股东身份证" disabled></ion-input>
     </ion-item>
-    <img-view [headerHide]="true"></img-view>
-    <img-view [headerHide]="true"></img-view>
+    <!--<img-view [headerHide]="true"></img-view>-->
+    <!--<img-view [headerHide]="true"></img-view>-->
   </div>
 
   <!--股权证明 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
   <!--授权代理合同 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
   <!--税务登记证 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
   <!--机构代码证 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
-  <!--验资报告 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--&lt;!&ndash;验资报告 todo&ndash;&gt;-->
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
-  <!--加盟合同 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--&lt;!&ndash;加盟合同 todo&ndash;&gt;-->
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
-  <!--租赁合同 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--&lt;!&ndash;租赁合同 todo&ndash;&gt;-->
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
-  <!--企业征信 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--&lt;!&ndash;企业征信 todo&ndash;&gt;-->
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
   <!--法人身份证正反面 todo-->
   <div>
@@ -602,29 +620,29 @@
       <ion-input type="text"
                  placeholder="法人身份证正反面" disabled></ion-input>
     </ion-item>
-    <img-view [headerHide]="true"></img-view>
-    <img-view [headerHide]="true"></img-view>
+    <!--<img-view [headerHide]="true"></img-view>-->
+    <!--<img-view [headerHide]="true"></img-view>-->
   </div>
 
   <!--三方回款任务合同 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
-  <!--个人征信 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--&lt;!&ndash;个人征信 todo&ndash;&gt;-->
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
-  <!--法人征信 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--&lt;!&ndash;法人征信 todo&ndash;&gt;-->
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
-  <!--法人征信 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--&lt;!&ndash;法人征信 todo&ndash;&gt;-->
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
 
   <!--法人配偶身份证正反面 todo-->
@@ -637,19 +655,19 @@
       <ion-input type="text"
                  placeholder="法人配偶身份证正反面" disabled></ion-input>
     </ion-item>
-    <img-view [headerHide]="true"></img-view>
-    <img-view [headerHide]="true"></img-view>
+    <!--<img-view [headerHide]="true"></img-view>-->
+    <!--<img-view [headerHide]="true"></img-view>-->
   </div>
 
   <!--连续三年回款合同 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
 
-  <!--其他证明 todo-->
-  <div class="img-box">
-    <img-view></img-view>
-  </div>
+  <!--&lt;!&ndash;其他证明 todo&ndash;&gt;-->
+  <!--<div class="img-box">-->
+  <!--<img-view></img-view>-->
+  <!--</div>-->
 
 </ion-list>
