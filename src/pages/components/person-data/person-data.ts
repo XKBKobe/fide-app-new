@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import {CommDatas} from "../../../providers/HttpSettings";
 import {DataSaveService} from "../../../providers/DataSaveService";
+import {CommDatas} from "../../../providers/BaseConfig";
 
 @Component({
   selector: 'page-person-data',

@@ -1,5 +1,5 @@
-img-view{
-  .imgCard{
+img-view {
+  .imgCard {
     width: 100%;
     margin: 0;
     box-shadow: none;
@@ -7,34 +7,34 @@ img-view{
     position: relative;
   }
 
-  .imgCard img{
+  .cardImg {
     width: 160px;
     height: 110px;
     margin: auto;
     border-radius: 5px;
   }
 
-  .imgCard .title{
+  .imgCard .title {
     color: #888;
     font-size: 16px;
-    text-align: center!important;
+    text-align: center !important;
     padding-left: 20px;
   }
 
-  .imgCard button{
+  .imgCard button {
     width: 140px;
     height: 30px;
     margin: 15px auto 0 auto;
     font-size: 14px;
   }
 
-  .imgCard .card-content{
+  .imgCard .card-content {
     display: flex;
     padding: 16px 0;
     border-bottom: 1px solid #eee;
   }
 
-  .imgCard .img-title{
+  .imgCard .img-title {
     margin-top: 46px;
     padding-right: 14px;
     text-align: center;
@@ -42,11 +42,11 @@ img-view{
     color: #999;
   }
 
-  image-viewer.ion-page .toolbar-background{
+  image-viewer.ion-page .toolbar-background {
     border: none;
   }
 
-  .more-img-box{
+  .more-img-box {
     position: relative;
     font-size: 13px;
   }
@@ -59,40 +59,73 @@ img-view{
     font-size: 2.4rem;
   }
 
-  .imgCard-header{
+  .imgCard-header {
     padding: 0;
   }
 
-  .imgCard-header .info-input{
+  .imgCard-header .info-input {
     border-bottom: 0.55px solid #eee;
   }
 
-  .imgCard-header .info-input .text-input{
+  .imgCard-header .info-input .text-input {
     margin-left: 0;
   }
 
-  .imgCard .star{
+  .imgCard .star {
     font-size: 1.7rem;
     padding: 0 2px;
   }
 
-  .imgCard .img-upload{
+  .imgCard .img-upload {
     position: relative;
     width: 160px;
   }
 
-  .card-header-md .item-img{
+  .card-header-md .item-img {
     top: 3px;
   }
 
-  .card-content{
+  .card-content {
     position: relative;
   }
 
-  .imgview-box .img-title .text{
+  .imgview-box .img-title .text {
     left: 0;
     margin-left: -8px;
     width: 10px;
     top: 63px;
+  }
+
+  .item-ios ion-avatar img {
+    width: 26px;
+    height: 24px;
+    border-radius: 0;
+  }
+
+  .item-md ion-avatar img {
+    width: 26px;
+    height: 24px;
+    border-radius: 0;
+  }
+
+  .item-ios ion-avatar {
+    min-width: auto;
+    min-height: auto;
+  }
+
+  .item-md ion-avatar {
+    min-width: auto;
+    min-height: auto;
+  }
+
+  .img-title-header {
+    padding-left: 0;
+    margin-right: 10px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .img-header-title {
+    padding-left: 10px;
+    color: #999;
   }
 }

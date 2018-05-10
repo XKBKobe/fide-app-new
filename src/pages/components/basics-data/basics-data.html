@@ -1,18 +1,4 @@
 <ion-list *ngIf="!!personData" style="margin-top: 10px;">
-  <!--&lt;!&ndash;请选择贷款用途&ndash;&gt;-->
-  <!--<ion-item>-->
-  <!--<ion-label item-left hidden>-->
-  <!--请选择贷款用途(todo)-->
-  <!--</ion-label>-->
-  <!--<ion-label class="personPer-payWay label-margin">-->
-  <!--<span class="require-star">*</span>-->
-  <!--<div class="person-data-repay"></div>-->
-  <!--</ion-label>-->
-  <!--<ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"-->
-  <!--placeholder="请选择贷款用途（todo）">-->
-  <!--</ion-select>-->
-  <!--</ion-item>-->
-
   <!--qq邮箱-->
   <ion-item [hidden]="!step3Set.email.isShow">
     <ion-label class="label-margin">
@@ -179,313 +165,353 @@
   </ion-item>
 
   <!--房产证照片 todo-->
-  <div class="img-box">
+  <div class="img-box" [hidden]="!step3Set.houseProprietaryCertificate.isShow">
     <img-view *ngFor="let type of personData.houseProprietaryCertificate;" [imgData]="type"
               [isRequire]="step3Set.houseProprietaryCertificate.isRequire"></img-view>
-    <span ion-text class="basics-add" (click)="openUploaderAgain('houseProprietaryCertificate','房产证')">再加一张</span>
+    <span tappable ion-text class="basics-add"
+          (click)="openUploaderAgain('houseProprietaryCertificate','房产证')">再加一张</span>
   </div>
 
   <!--住宅性质-->
-  <ion-item>
+  <ion-item [hidden]="!step3Set.houseType.isShow">
     <ion-label item-left hidden>
       住宅性质
     </ion-label>
     <ion-label class="personPer-payWay label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.houseType.isRequire" class="require-star">*</span>
       <div class="basics-data-nature"></div>
     </ion-label>
-    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+    <ion-select [(ngModel)]="personData.houseType" class="right-arrow" name="purpose" okText="确定" cancelText="取消"
                 placeholder="住宅性质">
+      <ion-option *ngFor="let type of houseType" [value]="type.value"
+                  [selected]="type.value === personData.houseType">{{type.text}}
+      </ion-option>
     </ion-select>
   </ion-item>
 
-  <!--请输入电费用户名 todo 少图标-->
-  <ion-item>
+  <!--请输入电费用户名 electricityAccountName-->
+  <ion-item [hidden]="!step3Set.electricityAccountName.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
-      <div class="basics-data-email"></div>
+      <span [hidden]="!step3Set.electricityAccountName.isRequire" class="require-star">*</span>
+      <div class="basics-data-electricity"></div>
     </ion-label>
     <ion-input
       placeholder="请输入电费用户名"></ion-input>
   </ion-item>
 
-  <!--居住证明照片 todo-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
+  <!--居住证明照片 liveProof-->
+  <div class="img-box" [hidden]="!step3Set.liveProof.isShow">
+    <img-view *ngFor="let type of personData.liveProof;" [imgData]="type"
+              [isRequire]="step3Set.liveProof.isRequire"></img-view>
+    <span tappable ion-text class="basics-add" (click)="openUploaderAgain('liveProof','居住证明照片')">再加一张</span>
+  </div>
 
-  <!--&lt;!&ndash;户口本照片 todo&ndash;&gt;-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
+  <!--户口本照片 residenceBook-->
+  <div class="img-box" [hidden]="!step3Set.residenceBook.isShow">
+    <img-view *ngFor="let type of personData.residenceBook;" [imgData]="type"
+              [isRequire]="step3Set.residenceBook.isRequire"></img-view>
+    <span tappable ion-text class="basics-add" (click)="openUploaderAgain('residenceBook','户口本照片')">再加一张</span>
+  </div>
 
-  <!--&lt;!&ndash;金融资产证明照片 todo&ndash;&gt;-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
+  <!--金融资产证明照片 financialAssetsProof-->
+  <div class="img-box" [hidden]="!step3Set.financialAssetsProof.isShow">
+    <img-view *ngFor="let type of personData.financialAssetsProof;" [imgData]="type"
+              [isRequire]="step3Set.financialAssetsProof.isRequire"></img-view>
+    <span tappable ion-text class="basics-add"
+          (click)="openUploaderAgain('financialAssetsProof','金融资产证明照片')">再加一张</span>
+  </div>
 
 
-  <!--婚姻状况-->
-  <ion-item>
+  <!--婚姻状况 todo marriage-->
+  <ion-item [hidden]="!step3Set.marriage.isShow">
     <ion-label item-left hidden>
       婚姻状况
     </ion-label>
     <ion-label class="personPer-payWay label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.marriage.isRequire" class="require-star">*</span>
       <div class="basics-data-marriage"></div>
     </ion-label>
-    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+    <ion-select [(ngModel)]="personData.marriage" class="right-arrow" name="purpose" okText="确定" cancelText="取消"
                 placeholder="婚姻状况">
+      <ion-option *ngFor="let type of marriage" [value]="type.value"
+                  [selected]="type.value === personData.marriage">{{type.text}}
+      </ion-option>
     </ion-select>
   </ion-item>
 
+  <!--结婚证照片 marriageLicense todo-->
+  <div class="img-box" [hidden]="!step3Set.marriageLicense.isShow">
+    <img-view [headerHide]="true" [imgData]="personData.marriageLicense"
+              [isRequire]="step3Set.marriageLicense.isRequire"></img-view>
+  </div>
 
-  <!--结婚证照片 todo-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
-
-  <!--配偶姓名-->
-  <ion-item>
+  <!--配偶姓名 spouse-->
+  <ion-item [hidden]="!step3Set.spouse.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.spouse.isRequire" class="require-star">*</span>
       <div class="basics-data-marriage-name"></div>
     </ion-label>
-    <ion-input type="text"
+    <ion-input [(ngModel)]="personData.spouse.name" type="text"
                placeholder="配偶姓名"></ion-input>
   </ion-item>
 
-  <!--配偶身份证号-->
-  <ion-item>
+  <!--配偶身份证号 spouse-->
+  <ion-item [hidden]="!step3Set.spouse.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.spouse.isRequire" class="require-star">*</span>
       <div class="basics-data-id"></div>
     </ion-label>
-    <ion-input type="text"
+    <ion-input [(ngModel)]="personData.spouse.idNumber" type="text"
                placeholder="配偶身份证号"></ion-input>
   </ion-item>
 
-  <!--配偶文化程度-->
-  <ion-item>
+  <!--配偶文化程度 spouse-->
+  <ion-item [hidden]="!step3Set.spouse.isShow">
     <ion-label item-left hidden>
       配偶文化程度
     </ion-label>
     <ion-label class="personPer-payWay label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.spouse.isRequire" class="require-star">*</span>
       <div class="basics-data-marriage-degree"></div>
     </ion-label>
-    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+    <ion-select [(ngModel)]="personData.spouse.education" class="right-arrow" name="purpose" okText="确定" cancelText="取消"
                 placeholder="配偶文化程度">
+      <ion-option *ngFor="let type of education" [value]="type.value"
+                  [selected]="type.value === personData.spouse.education">{{type.text}}
+      </ion-option>
     </ion-select>
   </ion-item>
 
   <!--配偶电话-->
-  <ion-item>
+  <ion-item [hidden]="!step3Set.spouse.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.spouse.isRequire" class="require-star">*</span>
       <div class="basics-data-family-tel"></div>
     </ion-label>
-    <ion-input type="tel"
+    <ion-input [(ngModel)]="personData.spouse.mobile" type="tel"
                placeholder="配偶电话"></ion-input>
   </ion-item>
 
   <!--配偶单位名称-->
-  <ion-item>
+  <ion-item [hidden]="!step3Set.spouse.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.spouse.isRequire" class="require-star">*</span>
       <div class="basics-data-marriage-danwei"></div>
     </ion-label>
-    <ion-input type="text"
+    <ion-input [(ngModel)]="personData.spouse.orgName" type="text"
                placeholder="配偶单位名称"></ion-input>
   </ion-item>
 
-  <!--配偶单位性质-->
-  <ion-item>
+  <!--配偶单位性质 spouse-->
+  <ion-item [hidden]="!step3Set.spouse.isShow">
     <ion-label item-left hidden>
       配偶单位性质
     </ion-label>
     <ion-label class="personPer-payWay label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.spouse.isRequire" class="require-star">*</span>
       <div class="basics-data-nature"></div>
     </ion-label>
-    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+    <ion-select [(ngModel)]="personData.spouse.orgType" class="right-arrow" name="purpose" okText="确定" cancelText="取消"
                 placeholder="配偶单位性质">
+      <ion-option *ngFor="let type of orgType" [value]="type.value"
+                  [selected]="type.value === personData.spouse.orgType">{{type.text}}
+      </ion-option>
     </ion-select>
   </ion-item>
 
-  <!--配偶身份证-->
-  <div>
+  <!--配偶身份证 spouseIdentityPic-->
+  <div [hidden]="!step3Set.spouseIdentityPic.isShow">
     <ion-item>
       <ion-label class="label-margin">
-        <span class="require-star">*</span>
+        <span [hidden]="!step3Set.spouseIdentityPic.isRequire" class="require-star">*</span>
         <div class="basics-data-marriage-danwei"></div>
       </ion-label>
       <ion-input type="text"
                  placeholder="配偶身份证" disabled></ion-input>
     </ion-item>
-    <!--<img-view [headerHide]="true"></img-view>-->
-    <!--<img-view [headerHide]="true"></img-view>-->
+    <img-view [headerHide]="true" [hidden]="!step3Set.spouseIdentityPic.isShow" [imgData]="personData.spouseIdentity"
+              [isRequire]="step3Set.spouseIdentityPic.isRequire"></img-view>
+    <img-view [headerHide]="true" [hidden]="!step3Set.spouseIdentityPic.isShow"
+              [imgData]="personData.spouseIdentityBack"
+              [isRequire]="step3Set.spouseIdentityPic.isRequire"></img-view>
   </div>
 
-  <!--母亲姓氏-->
-  <ion-item>
+  <!--母亲姓氏 other-->
+  <ion-item [hidden]="!step3Set.other.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.other.isRequire" class="require-star">*</span>
       <div class="basics-data-other"></div>
     </ion-label>
-    <ion-input type="text"
+    <ion-input [(ngModel)]="personData.other" type="text"
                placeholder="母亲姓氏"></ion-input>
   </ion-item>
 
-  <!--有无子女-->
-  <ion-item>
+  <!--有无子女 children-->
+  <ion-item [hidden]="!step3Set.children.isShow">
     <ion-label item-left hidden>
       有无子女
     </ion-label>
     <ion-label class="personPer-payWay label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.children.isRequire" class="require-star">*</span>
       <div class="basics-data-kids"></div>
     </ion-label>
-    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+    <ion-select [(ngModel)]="personData.children" class="right-arrow" name="purpose" okText="确定" cancelText="取消"
                 placeholder="有无子女">
+      <ion-option *ngFor="let type of children" [value]="type.value" [selected]="type.value === personData.children">
+        {{type.text}}
+      </ion-option>
     </ion-select>
   </ion-item>
 
-  <!--是否购车-->
-  <ion-item>
+  <!--是否购车 carProperty-->
+  <ion-item [hidden]="!step3Set.carProperty.isShow">
     <ion-label item-left hidden>
       是否购车
     </ion-label>
     <ion-label class="personPer-payWay label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.carProperty.isRequire" class="require-star">*</span>
       <div class="basics-data-cars"></div>
     </ion-label>
-    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+    <ion-select [(ngModel)]="personData.carProperty" class="right-arrow" name="purpose" okText="确定" cancelText="取消"
                 placeholder="是否购车">
+      <ion-option *ngFor="let type of carProperty" [value]="type.value"
+                  [selected]="type.value === personData.carProperty">{{type.text}}
+      </ion-option>
     </ion-select>
   </ion-item>
 
-  <!--行驶证照片 todo-->
-  <!--<img-view [headerHide]="true"></img-view>-->
+  <!--行驶证照片 driverLicense todo-->
+  <img-view [headerHide]="true" [hidden]="!step3Set.driverLicense.isShow" [imgData]="personData.driverLicense"
+            [isRequire]="step3Set.driverLicense.isRequire"></img-view>
 
-  <!--最高学历-->
-  <ion-item>
+  <!--最高学历 education-->
+  <ion-item [hidden]="!step3Set.education.isShow">
     <ion-label item-left hidden>
       最高学历
     </ion-label>
     <ion-label class="personPer-payWay label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.education.isRequire" class="require-star">*</span>
       <div class="basics-data-education"></div>
     </ion-label>
-    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+    <ion-select [(ngModel)]="personData.education" class="right-arrow" name="purpose" okText="确定" cancelText="取消"
                 placeholder="最高学历">
+      <ion-option *ngFor="let type of education" [value]="type.value"
+                  [selected]="type.value === personData.education">{{type.text}}
+      </ion-option>
     </ion-select>
   </ion-item>
 
-  <!--学历学位证 todo-->
-  <!--<img-view></img-view>-->
+  <!--学历学位证 diploma todo-->
+  <img-view [hidden]="!step3Set.diploma.isShow" [imgData]="personData.diploma"
+            [isRequire]="step3Set.diploma.isRequire"></img-view>
 
   <!--单位名称-->
-  <ion-item>
+  <ion-item [hidden]="!step3Set.orgName.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.orgName.isRequire" class="require-star">*</span>
       <div class="basics-data-unit"></div>
     </ion-label>
-    <ion-input type="text"
+    <ion-input [(ngModel)]="personData.orgName" type="text"
                placeholder="单位名称"></ion-input>
   </ion-item>
 
   <!--单位电话-->
-  <ion-item>
+  <ion-item [hidden]="!step3Set.workTelephone.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.workTelephone.isRequire" class="require-star">*</span>
       <div class="basics-data-company-tel"></div>
     </ion-label>
-    <ion-input type="tel"
+    <ion-input [(ngModel)]="personData.workTelephone" type="tel"
                placeholder="单位电话"></ion-input>
   </ion-item>
 
   <!--单位性质-->
-  <ion-item>
+  <ion-item [hidden]="!step3Set.orgType.isShow">
     <ion-label item-left hidden>
       单位性质
     </ion-label>
     <ion-label class="personPer-payWay label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.orgType.isRequire" class="require-star">*</span>
       <div class="basics-data-nature"></div>
     </ion-label>
-    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+    <ion-select [(ngModel)]="personData.orgType" class="right-arrow" name="purpose" okText="确定" cancelText="取消"
                 placeholder="单位性质">
+      <ion-option *ngFor="let type of orgType" [value]="type.value" [selected]="type.value === personData.orgType">
+        {{type.text}}
+      </ion-option>
     </ion-select>
   </ion-item>
 
-  <!--单位地址-->  <!--todo city-picker-->
+
+  <!--单位地址 companyAddress-->  <!--todo city-picker-->
 
 
-  <!--单位详细地址-->
-  <ion-item>
+  <!--单位详细地址 companyAddressZipCode-->
+  <ion-item [hidden]="!step3Set.companyAddress.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.companyAddress.isRequire" class="require-star">*</span>
       <div class="basics-data-detail-address"></div>
     </ion-label>
-    <ion-input type="text"
+    <ion-input [(ngModel)]="personData.companyAddress" type="text"
                placeholder="单位详细地址"></ion-input>
   </ion-item>
 
-  <!--单位地址邮编-->
-  <ion-item>
+  <!--单位地址邮编 companyAddressZipCode-->
+  <ion-item [hidden]="!step3Set.companyAddressZipCode.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.companyAddressZipCode.isRequire" class="require-star">*</span>
       <div class="basics-data-post"></div>
     </ion-label>
-    <ion-input type="text"
+    <ion-input [(ngModel)]="personData.companyAddressZipCode" type="tel"
                placeholder="单位地址邮编"></ion-input>
   </ion-item>
 
-
-  <!--在职单位工龄-->
-  <ion-item>
+  <!--在职单位工龄 occAge-->
+  <ion-item [hidden]="!step3Set.occAge.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.occAge.isRequire" class="require-star">*</span>
       <div class="basics-data-seniority"></div>
     </ion-label>
-    <ion-input type="number"
+    <ion-input [(ngModel)]="personData.occAge" type="number"
                placeholder="在职单位工龄（年）"></ion-input>
     <span item-right>年</span>
   </ion-item>
 
-  <!--在职单位职位或岗位-->
-  <ion-item>
+  <!--在职单位职位或岗位 occupation-->
+  <ion-item [hidden]="!step3Set.occupation.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.occupation.isRequire" class="require-star">*</span>
       <div class="basics-data-post-two"></div>
     </ion-label>
-    <ion-input type="text"
+    <ion-input [(ngModel)]="personData.occupation" type="text"
                placeholder="在职单位职位或岗位"></ion-input>
   </ion-item>
 
-  <!--年收入-->
-  <ion-item>
+  <!--年收入 annualIncome-->
+  <ion-item [hidden]="!step3Set.annualIncome.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.annualIncome.isRequire" class="require-star">*</span>
       <div class="basics-data-annualIncome"></div>
     </ion-label>
-    <ion-input type="text"
+    <ion-input [(ngModel)]="personData.annualIncome" type="number"
                placeholder="年收入（万元）"></ion-input>
     <span item-right>万元</span>
   </ion-item>
 
-  <!--现月收入-->
-  <ion-item>
+  <!--现月收入 monthIncome-->
+  <ion-item [hidden]="!step3Set.monthIncome.isShow">
     <ion-label item-left hidden>
       现月收入
     </ion-label>
     <ion-label class="personPer-payWay label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.monthIncome.isRequire" class="require-star">*</span>
       <div class="basics-data-monthlyIncome"></div>
     </ion-label>
-    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+    <ion-select [(ngModel)]="personData.monthIncome" class="right-arrow" name="purpose" okText="确定" cancelText="取消"
                 placeholder="现月收入">
+      <ion-option *ngFor="let type of monthIncome" [value]="type.value"
+                  [selected]="type.value === personData.monthIncome">{{type.text}}
+      </ion-option>
     </ion-select>
   </ion-item>
 

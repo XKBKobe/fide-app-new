@@ -133,7 +133,13 @@ page-basics-data {
     background-size: contain;
   }
 
-  //请输入电费用户名 todo 少图标
+  //请输入电费用户名
+  .basics-data-electricity{
+    background: url("../assets/imgs/myData/basicsData/electricity.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
 
   .basics-data-marriage {
     background: url("../assets/imgs/myData/basicsData/marriage_inputIcon_normal.png") no-repeat center center;

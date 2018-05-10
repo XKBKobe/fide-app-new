@@ -23,11 +23,17 @@ export class LoanStepThreePage {
     console.log('LoanStepThreePage');
     //查询个人资料
     this.http.post('queryPersonalMaterial', {}, false).then(data => {
+      //家庭联系人
       if (!data["primaryContact"]) {
         data["primaryContact"] = {};
       }
+      //第二联系人
       if (!data["secondaryContact"]) {
         data["secondaryContact"] = {};
+      }
+      //配偶
+      if (!data["spouse"]) {
+        data["spouse"] = {};
       }
 
       this.personData = data;

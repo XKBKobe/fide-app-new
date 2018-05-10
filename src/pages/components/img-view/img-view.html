@@ -1,14 +1,17 @@
 <ion-card class="imgCard" style="background-color: #fff;">
   <ion-card-header class="imgCard-header" [hidden]="headerHide">
-    <ion-label item-left class="item-img {{color}}" color="{{color}}">
-      <i ion-text class="iconfont-sm {{icon}} {{class}} input-icon"></i>
-    </ion-label>
-    <ion-input type="text" value="{{title}}" disabled=true class="info-input down-arrow"></ion-input>
+    <ion-item class="right-arrow img-title-header">
+      <ion-avatar item-start style="margin: 0;">
+        <img class="item-img" src="{{img}}">
+      </ion-avatar>
+      <div class="img-header-title">{{title}}</div>
+    </ion-item>
   </ion-card-header>
   <ion-card-content>
-    <div class="img-title"><span *ngIf="isRequire" class="star" ion-text style="color: red;">*</span>{{description}}</div>
+    <div class="img-title"><span *ngIf="isRequire" class="star" ion-text style="color: red;">*</span>{{description}}
+    </div>
     <div class="img-upload">
-      <img src="{{src}}" class="cardImg" imageViewer="{{bigsrc}}">
+      <img src="{{src}}" class="cardImg" imageViewer="{{bigSrc}}">
       <div class="more-img-box">
         <button ion-button block (click)="openUploader()" [disabled]="uploadDisabled">上传照片</button>
       </div>
