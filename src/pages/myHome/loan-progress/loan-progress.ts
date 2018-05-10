@@ -275,4 +275,11 @@ export class LoanProgress {
     console.log('下一步 ' + page);
     this.events.publish("nextToPage", page);
   }
+
+  outStep(step) {
+    console.log('1333333333');
+    console.log(step.step);
+
+    this.loanStep[step.step] = step.status;
+  }
 }

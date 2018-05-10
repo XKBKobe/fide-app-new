@@ -111,8 +111,8 @@ export const CommDatas = {
 //个人资料的配置  数目 7
 export const PERSON_DATA = {
   name: {isShow: false, isRequire: false, requireText: '请输入姓名'}, //姓名
-  idNumber: {isShow: false, isRequire: false, requireText: '请身份证号'}, //身份证号
-  applyAmount: {isShow: false, isRequire: false, requireText: '请申请额度'}, //申请额度
+  idNumber: {isShow: false, isRequire: false, requireText: '请输入身份证号'}, //身份证号
+  applyAmount: {isShow: false, isRequire: false, requireText: '请输入意向额度'}, //申请额度
   identityPic: {isShow: false, isRequire: false, requireText: '请上传身份证照片'}, //身份证照片
   cmCode: {isShow: false, isRequire: false, requireText: '请输入推荐码'}, //推荐码
   repaymentType: {isShow: false, isRequire: false, requireText: '请选择还款方式'}, //还款方式
