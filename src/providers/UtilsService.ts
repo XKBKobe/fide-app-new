@@ -1,6 +1,148 @@
+import {Injectable} from '@angular/core';
+import {MessageService} from "./MessageService";
+
+@Injectable()
+export class UtilsService {
+  constructor(public message: MessageService) {
+
+  }
+
+  //md5加密
+  Md5(pass) {
+    return md5For16(pass);
+  }
+
+  //检查姓名
+  checkName(name) {
+    console.log('检查姓名name  ' + name);
+    let that = this;
+    let reg = /^[\u4E00-\u9FA5]+$/;
+    if (reg.test(name)) {
+      if (name.length < 2) {
+        that.message.presentAlert("姓名不能少于两位");
+        return false;
+      }
+      if (name.length > 15) {
+        that.message.presentAlert("姓名不能多于15位");
+        return false;
+      }
+      return true;
+    } else {
+      if (/\s+/.test(name)) {
+        that.message.presentAlert("姓名不能包含空格");
+        return false;
+      } else {
+        that.message.presentAlert("请输入中文姓名");
+        return false;
+      }
+    }
+  }
+
+  //检查身份证
+  checkIdNumber(num) {
+    let that = this;
+    return checkPersonIdcard(num, that);
+  }
+
+
+  //检验邮箱
+  checkEmail(email){
+    var reg = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return reg.test(email);
+  }
+
+  //检验电话或手机号码
+  checkTelOrMobile(num) {
+    var reg = new RegExp(/(^[1][3456789]\d{9}$)|(^(^0\d{2}-?\d{8}$)|(^0\d{3}-?\d{7,8}$)|(^\(0\d{2}\)-?\d{8}$)|(^\(0\d{3}\)-?\d{7}$)$)/);
+    if (!reg.test(num)) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+  //检验邮编
+  checkhouseCode(code){
+    var reg = /^[1-9][0-9]{5}$/;
+    return reg.test(code);
+  }
+
+}
+
+
+//检查身份证号
+function checkPersonIdcard(personnumber, that) {
+  personnumber = personnumber.toUpperCase();
+  //身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X。
+  if (!(/(^\d{15}$)|(^\d{17}([0-9]|X)$)/.test(personnumber))) {
+    that.message.presentAlert("您输入的身份证号码有误");
+    return false;
+  }
+  //校验位按照ISO 7064:1983.MOD 11-2的规定生成，X可以认为是数字10。
+  //下面分别分析出生日期和校验位
+  var len, re;
+  len = personnumber.length;
+  if (len == 15) {
+    re = new RegExp(/^(\d{6})(\d{2})(\d{2})(\d{2})(\d{3})$/);
+    var arrSplit = personnumber.match(re);
+
+    //检查生日日期是否正确
+    var dtmBirth = new Date('19' + arrSplit[2] + '/' + arrSplit[3] + '/' + arrSplit[4]);
+    var bGoodDay;
+    bGoodDay = (dtmBirth.getFullYear() == Number(arrSplit[2])) && ((dtmBirth.getMonth() + 1) == Number(arrSplit[3])) && (dtmBirth.getDate() == Number(arrSplit[4]));
+    if (!bGoodDay) {
+      that.message.presentAlert("您输入的身份证号码有误");
+      return false;
+    }
+    else {
+      //将15位身份证转成18位
+      //校验位按照ISO 7064:1983.MOD 11-2的规定生成，X可以认为是数字10。
+      var arrInt = new Array(7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2);
+      var arrCh = new Array('1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2');
+      var nTemp = 0, i;
+      personnumber = personnumber.substr(0, 6) + '19' + personnumber.substr(6, personnumber.length - 6);
+      for (i = 0; i < 17; i++) {
+        nTemp += personnumber.substr(i, 1) * arrInt[i];
+      }
+      personnumber += arrCh[nTemp % 11];
+      return true;
+    }
+  }
+  if (len == 18) {
+    re = new RegExp(/^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$/);
+    var arrSplit = personnumber.match(re);
+
+    //检查生日日期是否正确
+    var dtmBirth = new Date(arrSplit[2] + "/" + arrSplit[3] + "/" + arrSplit[4]);
+    var bGoodDay;
+    bGoodDay = (dtmBirth.getFullYear() == Number(arrSplit[2])) && ((dtmBirth.getMonth() + 1) == Number(arrSplit[3])) && (dtmBirth.getDate() == Number(arrSplit[4]));
+    if (!bGoodDay) {
+      that.message.presentAlert("您输入的身份证号码有误");
+      return false;
+    } else {
+      //检验18位身份证的校验码是否正确。
+      //校验位按照ISO 7064:1983.MOD 11-2的规定生成，X可以认为是数字10。
+      var valnum;
+      var arrInt = new Array(7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2);
+      var arrCh = new Array('1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2');
+      var nTemp = 0, i;
+      for (i = 0; i < 17; i++) {
+        nTemp += personnumber.substr(i, 1) * arrInt[i];
+      }
+      valnum = arrCh[nTemp % 11];
+      if (valnum != personnumber.substr(17, 1)) {
+        that.message.presentAlert("您输入的身份证号码有误");
+        return false;
+      }
+      return true;
+    }
+  }
+  return false;
+}
+
 
 //md5加密
-export function md5For16(string) {
+function md5For16(string) {
   function md5_RotateLeft(lValue, iShiftBits) {
     return (lValue << iShiftBits) | (lValue >>> (32 - iShiftBits));
   }
@@ -46,18 +188,22 @@ export function md5For16(string) {
     a = md5_AddUnsigned(a, md5_AddUnsigned(md5_AddUnsigned(md5_F(b, c, d), x), ac));
     return md5_AddUnsigned(md5_RotateLeft(a, s), b);
   };
+
   function md5_GG(a, b, c, d, x, s, ac) {
     a = md5_AddUnsigned(a, md5_AddUnsigned(md5_AddUnsigned(md5_G(b, c, d), x), ac));
     return md5_AddUnsigned(md5_RotateLeft(a, s), b);
   };
+
   function md5_HH(a, b, c, d, x, s, ac) {
     a = md5_AddUnsigned(a, md5_AddUnsigned(md5_AddUnsigned(md5_H(b, c, d), x), ac));
     return md5_AddUnsigned(md5_RotateLeft(a, s), b);
   };
+
   function md5_II(a, b, c, d, x, s, ac) {
     a = md5_AddUnsigned(a, md5_AddUnsigned(md5_AddUnsigned(md5_I(b, c, d), x), ac));
     return md5_AddUnsigned(md5_RotateLeft(a, s), b);
   };
+
   function md5_ConvertToWordArray(string) {
     var lWordCount;
     var lMessageLength = string.length;
@@ -80,6 +226,7 @@ export function md5For16(string) {
     lWordArray[lNumberOfWords - 1] = lMessageLength >>> 29;
     return lWordArray;
   };
+
   function md5_WordToHex(lValue) {
     var WordToHexValue = "", WordToHexValue_temp = "", lByte, lCount;
     for (lCount = 0; lCount <= 3; lCount++) {
@@ -89,6 +236,7 @@ export function md5For16(string) {
     }
     return WordToHexValue;
   };
+
   function md5_Utf8Encode(string) {
     string = string.replace(/\r\n/g, "\n");
     var utftext = "";
@@ -195,5 +343,3 @@ export function md5For16(string) {
   }
   return ((md5_WordToHex(a) + md5_WordToHex(b) + md5_WordToHex(c) + md5_WordToHex(d)).toLowerCase()).substring(8, 24);
 };
-
-

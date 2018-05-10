@@ -18,6 +18,7 @@ import {MessageService} from "../providers/MessageService";
 import {StorageService} from "../providers/StorageService";
 import {CommonService} from "../providers/commonService";
 import {DataSaveService} from "../providers/DataSaveService";
+import {UtilsService} from "../providers/UtilsService";
 
 //pipes
 import {ProductTypePipe} from "../pipes/product-type.pipe";
@@ -47,6 +48,7 @@ import {LoanStepThreePage} from "../pages/myHome/loan-progress/loan-step-three/l
 import {LoanStepFourPage} from "../pages/myHome/loan-progress/loan-step-foure/loan-step-four";
 import {LoanStepFivePage} from "../pages/myHome/loan-progress/loan-step-five/loan-step-five";
 import {ImgViewPage} from "../pages/components/img-view/img-view";
+
 
 
 
@@ -133,7 +135,8 @@ import {ImgViewPage} from "../pages/components/img-view/img-view";
     MessageService,
     StorageService,
     CommonService,
-    DataSaveService
+    DataSaveService,
+    UtilsService
   ]
 })
 export class AppModule {
