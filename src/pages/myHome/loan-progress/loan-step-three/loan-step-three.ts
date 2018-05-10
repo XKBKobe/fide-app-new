@@ -30,18 +30,6 @@ export class LoanStepThreePage {
   ngOnInit() {
     //查询个人资料
     this.http.post('queryPersonalMaterial', {}, false).then(data => {
-      //家庭联系人
-      if (!data["primaryContact"]) {
-        data["primaryContact"] = {};
-      }
-      //第二联系人
-      if (!data["secondaryContact"]) {
-        data["secondaryContact"] = {};
-      }
-      //配偶
-      if (!data["spouse"]) {
-        data["spouse"] = {};
-      }
       this.personData = data;
       console.log(this.personData);
     });
@@ -61,18 +49,17 @@ export class LoanStepThreePage {
     //检验联系人电话
     var firMobile = that.personData['primaryContact.mobile'];
     var secMobile = that.personData['secondaryContact.mobile'];
-    if (!that.utils.checkTelOrMobile(firMobile)) {
+    if (firMobile != "" && firMobile != undefined && !that.utils.checkTelOrMobile(firMobile)) {
       return that.message.presentAlert('您的家庭联系人电话格式不正确');
     }
-    if (!that.utils.checkTelOrMobile(secMobile)) {
+    if (secMobile != "" && secMobile != undefined && !that.utils.checkTelOrMobile(secMobile)) {
       return that.message.presentAlert('您的第二联系人电话格式不正确');
     }
 
     //校验住宅地址邮编
     var houseAddressZipCode = that.personData.houseAddressZipCode;
-    if (!that.utils.checkhouseCode(houseAddressZipCode)) {
+    if (houseAddressZipCode != "" && houseAddressZipCode != undefined && !that.utils.checkhouseCode(houseAddressZipCode)) {
       return that.message.presentAlert('您的住宅地址邮编格式不正确');
-
     }
 
     //电费用户名
@@ -82,7 +69,6 @@ export class LoanStepThreePage {
       if (nameReg.test(electricityAccountName)) {
         if (electricityAccountName.length < 2) {
           return that.message.presentAlert("姓名不能少于两位");
-
         }
         if (electricityAccountName.length > 15) {
           return that.message.presentAlert("姓名不能多于15位");
@@ -90,7 +76,6 @@ export class LoanStepThreePage {
       } else {
         if (/\s+/.test(electricityAccountName)) {
           return that.message.presentAlert("姓名不能包含空格");
-
         } else {
           return that.message.presentAlert("请输入中文姓名");
         }
@@ -99,36 +84,34 @@ export class LoanStepThreePage {
 
     //单位地址邮编
     var companyAddressZipCode = that.personData.companyAddressZipCode;
-    if (!that.utils.checkhouseCode(companyAddressZipCode)) {
+    if (companyAddressZipCode != "" && companyAddressZipCode != undefined && !that.utils.checkhouseCode(companyAddressZipCode)) {
       return that.message.presentAlert('您的单位地址邮编格式不正确');
     }
 
     //单位电话
     var workPhone = that.personData.workTelephone;
-    if (!that.utils.checkTelOrMobile(workPhone)) {
+    if (workPhone != "" && workPhone != undefined && !that.utils.checkTelOrMobile(workPhone)) {
       return that.message.presentAlert('您的单位电话格式不正确');
     }
 
-
     //检验配偶身份证号码
     var spouseId = this.personData['spouse.idNumber'];
-    if (!this.utils.checkIdNumber(spouseId)) {
+    if (spouseId != "" && spouseId != undefined && !this.utils.checkIdNumber(spouseId)) {
       return;
     }
 
     //检验配偶手机号码
     var spouseMobile = that.personData['spouse.mobile'];
-    if (!that.utils.checkTelOrMobile(spouseMobile)) {
+    if (spouseMobile != "" && spouseMobile != undefined && !that.utils.checkTelOrMobile(spouseMobile)) {
       return that.message.presentAlert('您的单位电话格式不正确');
     }
 
     //检验银行卡号是否为16位或19位数字
     var bankId = that.personData.cardNumber;
     var reg = /^(\d{16}|\d{19})$/;
-    if (!reg.test(bankId)) {
+    if (bankId != "" && bankId != undefined && !reg.test(bankId)) {
       return that.message.presentAlert('请输入16位或19位数字的银行卡号');
     }
-
 
     //检查资料
     let params = that.checkStepData();

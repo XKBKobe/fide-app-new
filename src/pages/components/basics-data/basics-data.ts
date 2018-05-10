@@ -33,9 +33,9 @@ export class BasicsDataPage {
   //是否购车
   carProperty: any = CommDatas.carProperty;
   //月收入
-  monthIncome:any = CommDatas.monthIncome;
+  monthIncome: any = CommDatas.monthIncome;
   //行业
-  industry:any = CommDatas.industry;
+  industry: any = CommDatas.industry;
 
 
   constructor(public navCtrl: NavController) {
@@ -46,5 +46,4 @@ export class BasicsDataPage {
     console.log(this.step3Set);
     console.log(this.personData);
   }
-
 }
