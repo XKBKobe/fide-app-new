@@ -91,6 +91,20 @@ export const CommDatas = {
     value: "2"
   }, {text: "10000以上", value: "3"}],
 
+  //行业
+  industry: [{text: "农/林/牧/渔业", value: "A"}, {text: "制造业", value: "C"}, {
+    text: "批发和零售业",
+    value: "F"
+  }, {text: "交通运/仓储和邮政业", value: "G"}, {text: "住宿和餐饮业", value: "H"}, {
+    text: "信息传输/软件和信息技术服务业",
+    value: "I"
+  }, {text: "居民服务/修理和其他服务业", value: "O"}, {text: "教育", value: "P"}, {text: "文化/体育和娱乐业", value: "R"}],
+
+  //经营背景类型
+  businessBackgroundType: [{text: "个体工商户", value: "010"}, {text: "承包挂靠协议、摊位证明", value: "020"}, {
+    text: "小企业主",
+    value: "030"
+  }, {text: "其他", value: "040"}],
 };
 
 

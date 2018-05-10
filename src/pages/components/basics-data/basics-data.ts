@@ -34,6 +34,8 @@ export class BasicsDataPage {
   carProperty: any = CommDatas.carProperty;
   //月收入
   monthIncome:any = CommDatas.monthIncome;
+  //行业
+  industry:any = CommDatas.industry;
 
 
   constructor(public navCtrl: NavController) {

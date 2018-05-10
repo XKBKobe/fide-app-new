@@ -515,185 +515,247 @@
     </ion-select>
   </ion-item>
 
-  <!--请选择行业-->
-  <ion-item>
+  <!--请选择行业 industry-->
+  <ion-item [hidden]="!step3Set.industry.isShow">
     <ion-label item-left hidden>
       请选择行业
     </ion-label>
     <ion-label class="personPer-payWay label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.industry.isRequire" class="require-star">*</span>
       <div class="basics-data-industry"></div>
     </ion-label>
-    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+    <ion-select [(ngModel)]="personData.industry" class="right-arrow" name="purpose" okText="确定" cancelText="取消"
                 placeholder="请选择行业">
+      <ion-option *ngFor="let type of industry" [value]="type.value" [selected]="type.value === personData.industry">
+        {{type.text}}
+      </ion-option>
     </ion-select>
   </ion-item>
 
-  <!--营业执照名称-->
-  <ion-item>
+  <!--营业执照名称 businessLicenseName-->
+  <ion-item [hidden]="!step3Set.businessLicenseName.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.businessLicenseName.isRequire" class="require-star">*</span>
       <div class="basics-data-businessLicense"></div>
     </ion-label>
-    <ion-input type="text"
+    <ion-input [(ngModel)]="personData.businessLicenseName" type="text"
                placeholder="营业执照名称"></ion-input>
   </ion-item>
 
-  <!--经营地址-->  <!--todo city-picker-->
+  <!--经营地址 manageAddress-->  <!--todo city-picker-->
 
-  <!--经营详细地址-->
-  <ion-item>
+  <!--经营详细地址 manageAddress-->
+  <ion-item [hidden]="!step3Set.manageAddress.isShow">
     <ion-label class="label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.manageAddress.isRequire" class="require-star">*</span>
       <div class="basics-data-detail-address"></div>
     </ion-label>
-    <ion-input type="text"
+    <ion-input [(ngModel)]="personData.manageLoc" type="text"
                placeholder="营业执照名称"></ion-input>
   </ion-item>
 
-  <!--请选择经营背景类型-->
-  <ion-item>
+  <!--请选择经营背景类型 businessBackgroundType-->
+  <ion-item [hidden]="!step3Set.businessBackgroundType.isShow">
     <ion-label item-left hidden>
       请选择经营背景类型
     </ion-label>
     <ion-label class="personPer-payWay label-margin">
-      <span class="require-star">*</span>
+      <span [hidden]="!step3Set.businessBackgroundType.isRequire" class="require-star">*</span>
       <div class="basics-data-business-type"></div>
     </ion-label>
-    <ion-select class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+    <ion-select [(ngModel)]="personData.businessBackgroundType" class="right-arrow" name="purpose" okText="确定"
+                cancelText="取消"
                 placeholder="请选择经营背景类型">
+      <ion-option *ngFor="let type of businessBackgroundType" [value]="type.value"
+                  [selected]="type.value === personData.businessBackgroundType">
+        {{type.text}}
+      </ion-option>
     </ion-select>
   </ion-item>
 
 
-  <!--营业执照照片 todo-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
+  <!--营业执照照片 businessLicense-->
+  <div class="img-box" [hidden]="!step3Set.businessLicense.isShow">
+    <img-view *ngFor="let type of personData.businessLicense;" [imgData]="type"
+              [isRequire]="step3Set.businessLicense.isRequire"></img-view>
+    <span tappable ion-text class="basics-add"
+          (click)="openUploaderAgain('businessLicense','营业执照照片')">再加一张</span>
+  </div>
 
-  <!--&lt;!&ndash;淘宝/天猫贷款截图 todo&ndash;&gt;-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
+  <!--淘宝/天猫贷款截图 loanSnapshop-->
+  <div class="img-box" [hidden]="!step3Set.loanSnapshop.isShow">
+    <img-view *ngFor="let type of personData.loanSnapshop;" [imgData]="type"
+              [isRequire]="step3Set.loanSnapshop.isRequire"></img-view>
+    <span tappable ion-text class="basics-add"
+          (click)="openUploaderAgain('loanSnapshop','淘宝/天猫贷款截图')">再加一张</span>
+  </div>
 
-  <!--&lt;!&ndash;店铺注册截图 todo&ndash;&gt;-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
+  <!--店铺注册截图 registerSnapshop-->
+  <div class="img-box" [hidden]="!step3Set.registerSnapshop.isShow">
+    <img-view *ngFor="let type of personData.registerSnapshop;" [imgData]="type"
+              [isRequire]="step3Set.registerSnapshop.isRequire"></img-view>
+    <span tappable ion-text class="basics-add"
+          (click)="openUploaderAgain('registerSnapshop','店铺注册截图')">再加一张</span>
+  </div>
 
 
-  <!--股东身份证 todo-->
-  <div>
+  <!--股东身份证 sharesIdentityPic-->
+  <div [hidden]="!step3Set.sharesIdentityPic.isShow">
     <ion-item>
       <ion-label class="label-margin">
-        <span class="require-star">*</span>
+        <span [hidden]="!step3Set.sharesIdentityPic.isRequire" class="require-star">*</span>
         <div class="basics-data-marriage-danwei"></div>
       </ion-label>
       <ion-input type="text"
                  placeholder="股东身份证" disabled></ion-input>
     </ion-item>
-    <!--<img-view [headerHide]="true"></img-view>-->
-    <!--<img-view [headerHide]="true"></img-view>-->
+    <img-view [headerHide]="true" [hidden]="!step3Set.sharesIdentityPic.isShow" [imgData]="personData.sharesIdentity"
+              [isRequire]="step3Set.sharesIdentityPic.isRequire"></img-view>
+    <img-view [headerHide]="true" [hidden]="!step3Set.sharesIdentityPic.isShow"
+              [imgData]="personData.sharesIdentityBack"
+              [isRequire]="step3Set.sharesIdentityPic.isRequire"></img-view>
   </div>
 
-  <!--股权证明 todo-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
+  <!--股权证明 sharesCertificate-->
+  <div class="img-box" [hidden]="!step3Set.sharesCertificate.isShow">
+    <img-view *ngFor="let type of personData.sharesCertificate;" [imgData]="type"
+              [isRequire]="step3Set.sharesCertificate.isRequire"></img-view>
+    <span tappable ion-text class="basics-add"
+          (click)="openUploaderAgain('sharesCertificate','股权证明')">再加一张</span>
+  </div>
 
-  <!--授权代理合同 todo-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
+  <!--授权代理合同 agentContractConsignation-->
+  <div class="img-box" [hidden]="!step3Set.agentContractConsignation.isShow">
+    <img-view *ngFor="let type of personData.agentContractConsignation;" [imgData]="type"
+              [isRequire]="step3Set.agentContractConsignation.isRequire"></img-view>
+    <span tappable ion-text class="basics-add"
+          (click)="openUploaderAgain('agentContractConsignation','授权代理合同')">再加一张</span>
+  </div>
 
-  <!--税务登记证 todo-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
+  <!--税务登记证 taxRegistCertificate-->
+  <div class="img-box" [hidden]="!step3Set.taxRegistCertificate.isShow">
+    <img-view *ngFor="let type of personData.taxRegistCertificate;" [imgData]="type"
+              [isRequire]="step3Set.taxRegistCertificate.isRequire"></img-view>
+    <span tappable ion-text class="basics-add"
+          (click)="openUploaderAgain('taxRegistCertificate','税务登记证')">再加一张</span>
+  </div>
 
-  <!--机构代码证 todo-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
+  <!--机构代码证 orgCodeCertificate-->
+  <div class="img-box" [hidden]="!step3Set.orgCodeCertificate.isShow">
+    <img-view *ngFor="let type of personData.orgCodeCertificate;" [imgData]="type"
+              [isRequire]="step3Set.orgCodeCertificate.isRequire"></img-view>
+    <span tappable ion-text class="basics-add"
+          (click)="openUploaderAgain('orgCodeCertificate','机构代码证')">再加一张</span>
+  </div>
 
-  <!--&lt;!&ndash;验资报告 todo&ndash;&gt;-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
+  <!--验资报告 capitalVerificationReport-->
+  <div class="img-box" [hidden]="!step3Set.capitalVerificationReport.isShow">
+    <img-view *ngFor="let type of personData.capitalVerificationReport;" [imgData]="type"
+              [isRequire]="step3Set.capitalVerificationReport.isRequire"></img-view>
+    <span tappable ion-text class="basics-add"
+          (click)="openUploaderAgain('capitalVerificationReport','验资报告')">再加一张</span>
+  </div>
 
-  <!--&lt;!&ndash;加盟合同 todo&ndash;&gt;-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
+  <!--加盟合同 franchiseContract-->
+  <div class="img-box" [hidden]="!step3Set.franchiseContract.isShow">
+    <img-view *ngFor="let type of personData.franchiseContract;" [imgData]="type"
+              [isRequire]="step3Set.franchiseContract.isRequire"></img-view>
+    <span tappable ion-text class="basics-add"
+          (click)="openUploaderAgain('franchiseContract','加盟合同')">再加一张</span>
+  </div>
 
-  <!--&lt;!&ndash;租赁合同 todo&ndash;&gt;-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
+  <!--租赁合同 leaseAgreement-->
+  <div class="img-box" [hidden]="!step3Set.leaseAgreement.isShow">
+    <img-view *ngFor="let type of personData.leaseAgreement;" [imgData]="type"
+              [isRequire]="step3Set.leaseAgreement.isRequire"></img-view>
+    <span tappable ion-text class="basics-add"
+          (click)="openUploaderAgain('leaseAgreement','加盟合同')">再加一张</span>
+  </div>
 
-  <!--&lt;!&ndash;企业征信 todo&ndash;&gt;-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
+  <!--企业征信 orgCredit-->
+  <div class="img-box" [hidden]="!step3Set.orgCredit.isShow">
+    <img-view *ngFor="let type of personData.orgCredit;" [imgData]="type"
+              [isRequire]="step3Set.orgCredit.isRequire"></img-view>
+    <span tappable ion-text class="basics-add"
+          (click)="openUploaderAgain('orgCredit','企业征信')">再加一张</span>
+  </div>
 
-  <!--法人身份证正反面 todo-->
-  <div>
+  <!--法人身份证正反面 juridicalPersonsIdentityPic-->
+  <div [hidden]="!step3Set.juridicalPersonsIdentityPic.isShow">
     <ion-item>
       <ion-label class="label-margin">
-        <span class="require-star">*</span>
+        <span [hidden]="!step3Set.juridicalPersonsIdentityPic.isRequire" class="require-star">*</span>
         <div class="basics-data-marriage-danwei"></div>
       </ion-label>
       <ion-input type="text"
                  placeholder="法人身份证正反面" disabled></ion-input>
     </ion-item>
-    <!--<img-view [headerHide]="true"></img-view>-->
-    <!--<img-view [headerHide]="true"></img-view>-->
+    <img-view [headerHide]="true" [hidden]="!step3Set.juridicalPersonsIdentityPic.isShow"
+              [imgData]="personData.juridicalPersonsIdentity"
+              [isRequire]="step3Set.juridicalPersonsIdentityPic.isRequire"></img-view>
+    <img-view [headerHide]="true" [hidden]="!step3Set.juridicalPersonsIdentityPic.isShow"
+              [imgData]="personData.juridicalPersonsIdentityBack"
+              [isRequire]="step3Set.juridicalPersonsIdentityPic.isRequire"></img-view>
   </div>
 
-  <!--三方回款任务合同 todo-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
+  <!--三方回款任务合同 threePartyPaymentContract-->
+  <div class="img-box" [hidden]="!step3Set.threePartyPaymentContract.isShow">
+    <img-view *ngFor="let type of personData.threePartyPaymentContract;" [imgData]="type"
+              [isRequire]="step3Set.threePartyPaymentContract.isRequire"></img-view>
+    <span tappable ion-text class="basics-add"
+          (click)="openUploaderAgain('threePartyPaymentContract','三方回款任务合同')">再加一张</span>
+  </div>
 
-  <!--&lt;!&ndash;个人征信 todo&ndash;&gt;-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
+  <!--个人征信 userCredit-->
+  <div class="img-box" [hidden]="!step3Set.userCredit.isShow">
+    <img-view *ngFor="let type of personData.userCredit;" [imgData]="type"
+              [isRequire]="step3Set.userCredit.isRequire"></img-view>
+    <span tappable ion-text class="basics-add"
+          (click)="openUploaderAgain('userCredit','个人征信')">再加一张</span>
+  </div>
 
-  <!--&lt;!&ndash;法人征信 todo&ndash;&gt;-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
-
-  <!--&lt;!&ndash;法人征信 todo&ndash;&gt;-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
+  <!--法人征信 juridicalPersonsCredit-->
+  <div class="img-box" [hidden]="!step3Set.juridicalPersonsCredit.isShow">
+    <img-view *ngFor="let type of personData.juridicalPersonsCredit;" [imgData]="type"
+              [isRequire]="step3Set.juridicalPersonsCredit.isRequire"></img-view>
+    <span tappable ion-text class="basics-add"
+          (click)="openUploaderAgain('juridicalPersonsCredit','法人征信')">再加一张</span>
+  </div>
 
 
-  <!--法人配偶身份证正反面 todo-->
-  <div>
+  <!--法人配偶身份证正反面 juridicalPersonsSpouseIdentityPic-->
+  <div [hidden]="!step3Set.juridicalPersonsSpouseIdentityPic.isShow">
     <ion-item>
       <ion-label class="label-margin">
-        <span class="require-star">*</span>
+        <span [hidden]="!step3Set.juridicalPersonsSpouseIdentityPic.isRequire" class="require-star">*</span>
         <div class="basics-data-marriage-danwei"></div>
       </ion-label>
       <ion-input type="text"
                  placeholder="法人配偶身份证正反面" disabled></ion-input>
     </ion-item>
-    <!--<img-view [headerHide]="true"></img-view>-->
-    <!--<img-view [headerHide]="true"></img-view>-->
+    <img-view [headerHide]="true" [hidden]="!step3Set.juridicalPersonsSpouseIdentityPic.isShow"
+              [imgData]="personData.juridicalPersonsSpouseIdentity"
+              [isRequire]="step3Set.juridicalPersonsSpouseIdentityPic.isRequire"></img-view>
+    <img-view [headerHide]="true" [hidden]="!step3Set.juridicalPersonsSpouseIdentityPic.isShow"
+              [imgData]="personData.juridicalPersonsSpouseIdentityBack"
+              [isRequire]="step3Set.juridicalPersonsSpouseIdentityPic.isRequire"></img-view>
   </div>
 
-  <!--连续三年回款合同 todo-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
+  <!--连续三年回款合同 successivePaymentContract-->
+  <div class="img-box" [hidden]="!step3Set.successivePaymentContract.isShow">
+    <img-view *ngFor="let type of personData.successivePaymentContract;" [imgData]="type"
+              [isRequire]="step3Set.successivePaymentContract.isRequire"></img-view>
+    <span tappable ion-text class="basics-add"
+          (click)="openUploaderAgain('successivePaymentContract','连续三年回款合同')">再加一张</span>
+  </div>
 
 
-  <!--&lt;!&ndash;其他证明 todo&ndash;&gt;-->
-  <!--<div class="img-box">-->
-  <!--<img-view></img-view>-->
-  <!--</div>-->
+  <!--其他证明 userOtherMaterial-->
+  <div class="img-box" [hidden]="!step3Set.userOtherMaterial.isShow">
+    <img-view *ngFor="let type of personData.userOtherMaterial;" [imgData]="type"
+              [isRequire]="step3Set.userOtherMaterial.isRequire"></img-view>
+    <span tappable ion-text class="basics-add"
+          (click)="openUploaderAgain('userOtherMaterial','其他证明')">再加一张</span>
+  </div>
 
 </ion-list>
