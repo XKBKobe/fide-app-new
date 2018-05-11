@@ -11,6 +11,8 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {Toast} from '@ionic-native/toast';
 import {IonicStorageModule} from '@ionic/storage';
 import {IonicImageViewerModule} from 'ionic-img-viewer';
+import {CityPickerModule} from "ionic2-city-picker";
+// import {CityPickerModule} from  "../modules/picker";
 
 //service
 import {HttpApiService} from "../providers/HttpApiService";
@@ -50,9 +52,6 @@ import {LoanStepFivePage} from "../pages/myHome/loan-progress/loan-step-five/loa
 import {ImgViewPage} from "../pages/components/img-view/img-view";
 
 
-
-
-
 @NgModule({
   declarations: [
     MyApp,
@@ -85,6 +84,7 @@ import {ImgViewPage} from "../pages/components/img-view/img-view";
     BrowserModule,
     HttpClientModule,
     IonicImageViewerModule,
+    CityPickerModule,
     IonicModule.forRoot(MyApp, {
       tabsHideOnSubPages: true,
       iconMode: 'ios',

@@ -49,6 +49,10 @@ page-basics-data {
     color: color($colors, primary);
   }
 
+  .picker-opt{
+    font-size: 12px !important;
+  }
+
   .basics-data-email {
     background: url("../assets/imgs/myData/basicsData/email_inputIcon_normal.png") no-repeat center center;
     height: 26px;

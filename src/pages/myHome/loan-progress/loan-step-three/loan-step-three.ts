@@ -3,6 +3,7 @@ import {NavController} from 'ionic-angular';
 import {HttpApiService} from "../../../../providers/HttpApiService";
 import {MessageService} from "../../../../providers/MessageService";
 import {UtilsService} from "../../../../providers/UtilsService";
+import {CITY_DATA} from "../../../../providers/BaseConfig";
 
 @Component({
   selector: 'page-loan-step-three',
@@ -11,15 +12,14 @@ import {UtilsService} from "../../../../providers/UtilsService";
 export class LoanStepThreePage {
   //贷款步骤
   @Input('step3Set') step3Set: any;
-
   //点击跳转到指定界面
   @Output() nextToPage: EventEmitter<number> = new EventEmitter<number>();
-
   //step反馈
   @Output() outStep: EventEmitter<any> = new EventEmitter<any>();
-
   //基础资料
   personData: any;
+  //城市数据
+  cityData: any = CITY_DATA;
 
   constructor(public navCtrl: NavController,
               public http: HttpApiService,
@@ -30,18 +30,6 @@ export class LoanStepThreePage {
   ngOnInit() {
     //查询个人资料
     this.http.post('queryPersonalMaterial', {}, false).then(data => {
-      //家庭联系人
-      if (!data["primaryContact"]) {
-        data["primaryContact"] = {};
-      }
-      //第二联系人
-      if (!data["secondaryContact"]) {
-        data["secondaryContact"] = {};
-      }
-      //配偶
-      if (!data["spouse"]) {
-        data["spouse"] = {};
-      }
 
       this.personData = data;
     });

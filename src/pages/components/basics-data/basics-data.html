@@ -21,6 +21,20 @@
 
   <!--todo city-picker   household-->
 
+  <ion-item [hidden]="!step3Set.household.isShow">
+    <ion-label class="label-margin fl">
+      <span [hidden]="!step3Set.household.isRequire" class="require-star">*</span>
+      <div class="basics-data-qq"></div>
+    </ion-label>
+    <city-picker item-content
+                 [cancelText]="'取消'"
+                 [doneText]="'确定'"
+                 [separator]="' - '"
+                 [citiesData]="cityData"
+                 [(ngModel)]="household"
+                 (ionChange)="householdChange($event)" class="info-select right-arrow" style="color: #555555">
+    </city-picker>
+  </ion-item>
 
   <!--家庭联系人姓名 primaryContact-->
   <ion-item [hidden]="!step3Set.primaryContact.isShow">
