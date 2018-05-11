@@ -66,7 +66,6 @@ export class LoanProgress {
   //查询个人资料
   queryMaterial() {
     this.http.post('queryPersonalMaterial', {}, false).then(data => {
-      console.log(JSON.stringify(data));
       this.personData = data;
       //检查个人资料
       this.checkStepTwo(data);
