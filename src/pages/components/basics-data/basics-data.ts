@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {CITY_DATA, CommDatas} from "../../../providers/BaseConfig";
-
+import {DataSaveService} from "../../../providers/DataSaveService";
 
 @Component({
   selector: 'page-basics-data',
@@ -12,6 +12,8 @@ export class BasicsDataPage {
   @Input('step3Set') step3Set: any;
   //基础资料显示
   @Input('personData') personData: any;
+  //product
+  @Input('product') product: any = {};
   //城市数据
   cityData: any = CITY_DATA;
   //家庭联系人
@@ -46,25 +48,50 @@ export class BasicsDataPage {
   companyAddress: string = '请选择单位地址';
   //经营地址
   manageAddress: string = '请选择经营地址';
+  //受托支付
+  merchantDisabled: boolean = false;
+  //配偶学历
+  educationOptions: any = {};
+  //最高学历
+  heightEducationOptions: any = {};
+  //配偶单位性质
+  orgTypeOptions: any = {};
+  //房产
+  houseShow: boolean = false;
+  //是否购车
+  carShow: boolean = false;
+  //婚姻状况
+  marriageShow:boolean = false;
 
-
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+              public dataSave: DataSaveService) {
 
   }
 
   ngOnInit() {
-    // console.log(this.step3Set);
-    let data = this.personData;
+    let that = this;
+    //受托支付上次的贷款 todo
+    if (!!that.product['preLoanMerchantUuid']) {
+      that.product['merchantUuid'] = that.product['preLoanMerchantUuid'];
+      that.merchantDisabled = true;
+      that.dataSave.setMerchant(that.product['preLoanMerchantUuid']);
+    } else if (!!that.step3Set.step5 && that.product['merchantUuid']) {
+      that.merchantDisabled = true;
+      that.dataSave.setMerchant(that.product['merchantUuid']);
+    } else {
+      that.merchantDisabled = false;
+    }
 
+    let data = that.personData;
     let provinceCode;
     let index;
     let cityIndex;
-    if (!!data["householdZip"]) {
-      provinceCode = data["householdZip"].substr(0, 2) + '0000';
-      index = _.findIndex(this.cityData, {value: provinceCode});
-      cityIndex = _.findIndex(this.cityData[index].children, {value: data["householdZip"]});
-      this.household = this.cityData[index].name + ' - ' + this.cityData[index].children[cityIndex].name;
-    }
+    // if (!!data["householdZip"]) {
+    //   provinceCode = data["householdZip"].substr(0, 2) + '0000';
+    //   index = _.findIndex(this.cityData, {value: provinceCode});
+    //   cityIndex = _.findIndex(this.cityData[index].children, {value: data["householdZip"]});
+    //   this.household = this.cityData[index].name + ' - ' + this.cityData[index].children[cityIndex].name;
+    // }
     //家庭联系人
     if (!data["primaryContact"]) {
       data["primaryContact"] = {};
@@ -77,6 +104,40 @@ export class BasicsDataPage {
     if (!data["spouse"]) {
       data["spouse"] = {};
     }
+
+    //有没有房产
+    if (!!data["houseProperty"] && data["houseProperty"] != 1) {
+      that.houseShow = true;
+    } else {
+      that.houseShow = false;
+    }
+
+    //是否购车
+    if (!!data["carProperty"] && data["carProperty"] != 1) {
+      that.carShow = true;
+    } else {
+      that.carShow = false;
+    }
+
+    //婚姻状况
+    if (!!data["marriage"] && data["marriage"] == 3) {
+      that.marriageShow = true;
+    } else {
+      that.marriageShow = false;
+    }
+
+    that.educationOptions = {
+      title: '配偶文化程度'
+    };
+
+    that.orgTypeOptions = {
+      title: '配偶单位性质'
+    };
+
+    that.heightEducationOptions = {
+      title: '最高学历'
+    };
+
     this.personData = data;
     console.log(this.personData);
   }
@@ -97,7 +158,28 @@ export class BasicsDataPage {
   }
 
   //请选择经营地址
-  manageAddressChange(event){
+  manageAddressChange(event) {
     console.log(event);
   }
+
+  updateSelect() {
+    if (!!this.personData.houseProperty && this.personData.houseProperty != 1) {
+      this.houseShow = true;
+    } else {
+      this.houseShow = false;
+    }
+
+    if (!!this.personData.carProperty && this.personData.carProperty != 1) {
+      this.carShow = true;
+    } else {
+      this.carShow = false;
+    }
+
+    if (!!this.personData.marriage && this.personData.marriage == 3) {
+      this.marriageShow = true;
+    } else {
+      this.marriageShow = false;
+    }
+  }
+
 }

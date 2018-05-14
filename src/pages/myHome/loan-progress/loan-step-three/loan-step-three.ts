@@ -16,6 +16,8 @@ export class LoanStepThreePage {
   @Output() nextToPage: EventEmitter<number> = new EventEmitter<number>();
   //step反馈
   @Output() outStep: EventEmitter<any> = new EventEmitter<any>();
+  //product
+  @Input('product') product: any;
   //基础资料
   personData: any;
   //城市数据
