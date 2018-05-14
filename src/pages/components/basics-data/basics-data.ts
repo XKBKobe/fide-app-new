@@ -40,6 +40,12 @@ export class BasicsDataPage {
   industry: any = CommDatas.industry;
   //请选择户籍
   household: string = '请选择户籍';
+  //住宅地址
+  liveAddress: string = '请选择住宅地址';
+  //单位地址
+  companyAddress: string = '请选择单位地址';
+  //经营地址
+  manageAddress: string = '请选择经营地址';
 
 
   constructor(public navCtrl: NavController) {
@@ -80,4 +86,18 @@ export class BasicsDataPage {
     console.log(event);
   }
 
+  //请选择户籍
+  liveAddressChange(event) {
+    console.log(event);
+  }
+
+  //请选择单位地址
+  companyAddressChange(event) {
+    console.log(event);
+  }
+
+  //请选择经营地址
+  manageAddressChange(event){
+    console.log(event);
+  }
 }

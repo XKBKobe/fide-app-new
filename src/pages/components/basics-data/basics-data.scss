@@ -4,11 +4,6 @@ page-basics-data {
     min-height: auto;
   }
 
-  .info-select {
-    max-width: 100%;
-    padding-left: 1.3rem;
-  }
-
   .require-star {
     position: absolute;
     top: 15px;
@@ -49,10 +44,6 @@ page-basics-data {
     color: color($colors, primary);
   }
 
-  .picker-opt{
-    font-size: 12px !important;
-  }
-
   .basics-data-email {
     background: url("../assets/imgs/myData/basicsData/email_inputIcon_normal.png") no-repeat center center;
     height: 26px;
@@ -61,6 +52,12 @@ page-basics-data {
   }
 
   //居住证明照片 todo
+  .basics-data-household {
+    background: url("../assets/imgs/myData/basicsData/census.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
 
   //户口本照片 todo
 
@@ -110,7 +107,12 @@ page-basics-data {
     background-size: contain;
   }
 
-  //todo city-picker
+  .basics-data-liveAdress {
+    background: url("../assets/imgs/myData/basicsData/liveAddress.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
 
   .basics-data-detail-address {
     background: url("../assets/imgs/myData/basicsData/detaiedlBusinessAddress_inputIcon_normal.png") no-repeat center center;
@@ -138,7 +140,7 @@ page-basics-data {
   }
 
   //请输入电费用户名
-  .basics-data-electricity{
+  .basics-data-electricity {
     background: url("../assets/imgs/myData/basicsData/electricity.png") no-repeat center center;
     height: 26px;
     width: 26px;
@@ -228,7 +230,12 @@ page-basics-data {
     background-size: contain;
   }
 
-  //todo city-picker
+  .basics-data-companyAddress {
+    background: url("../assets/imgs/myData/basicsData/companyAddress.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
 
   .basics-data-post {
     background: url("../assets/imgs/myData/basicsData/post.png") no-repeat center center;
@@ -274,6 +281,13 @@ page-basics-data {
 
   .basics-data-businessLicense {
     background: url("../assets/imgs/myData/basicsData/businessLicense_inputIcon_normal.png") no-repeat center center;
+    height: 26px;
+    width: 26px;
+    background-size: contain;
+  }
+
+  .basics-data-manageAddress{
+    background: url("../assets/imgs/myData/basicsData/shopnamel.png") no-repeat center center;
     height: 26px;
     width: 26px;
     background-size: contain;

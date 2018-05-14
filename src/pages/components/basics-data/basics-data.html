@@ -19,12 +19,11 @@
                placeholder="请输入qq账号"></ion-input>
   </ion-item>
 
-  <!--todo city-picker   household-->
-
+  <!--户籍地址 household-->
   <ion-item [hidden]="!step3Set.household.isShow">
-    <ion-label class="label-margin fl">
+    <ion-label class="label-margin" style="flex: none;">
       <span [hidden]="!step3Set.household.isRequire" class="require-star">*</span>
-      <div class="basics-data-qq"></div>
+      <div class="basics-data-household"></div>
     </ion-label>
     <city-picker item-content
                  [cancelText]="'取消'"
@@ -32,7 +31,7 @@
                  [separator]="' - '"
                  [citiesData]="cityData"
                  [(ngModel)]="household"
-                 (ionChange)="householdChange($event)" class="info-select right-arrow" style="color: #555555">
+                 (ionChange)="householdChange($event)" class="info-select right-arrow" style="color: #555555;">
     </city-picker>
   </ion-item>
 
@@ -139,7 +138,21 @@
                placeholder="常用银行卡卡号"></ion-input>
   </ion-item>
 
-  <!--todo city-picker liveAddress-->
+  <!--住宅详细地址 liveAddress-->
+  <ion-item [hidden]="!step3Set.liveAddress.isShow">
+    <ion-label class="label-margin" style="flex: none;">
+      <span [hidden]="!step3Set.liveAddress.isRequire" class="require-star">*</span>
+      <div class="basics-data-liveAdress"></div>
+    </ion-label>
+    <city-picker item-content
+                 [cancelText]="'取消'"
+                 [doneText]="'确定'"
+                 [separator]="' - '"
+                 [citiesData]="cityData"
+                 [(ngModel)]="liveAddress"
+                 (ionChange)="liveAddressChange($event)" class="info-select right-arrow" style="color: #555555;">
+    </city-picker>
+  </ion-item>
 
   <!--请输入住宅详细地址 liveAddress-->
   <ion-item [hidden]="!step3Set.liveAddress.isShow">
@@ -151,7 +164,7 @@
                placeholder="请输入住宅详细地址"></ion-input>
   </ion-item>
 
-  <!--请输入住宅地址邮编  todo 少图标  houseAddressZipCode-->
+  <!--请输入住宅地址邮编-->
   <ion-item [hidden]="!step3Set.houseAddressZipCode.isShow">
     <ion-label class="label-margin">
       <span [hidden]="!step3Set.houseAddressZipCode.isRequire" class="require-star">*</span>
@@ -457,8 +470,21 @@
   </ion-item>
 
 
-  <!--单位地址 companyAddress-->  <!--todo city-picker-->
-
+  <!--单位地址 companyAddress-->
+  <ion-item [hidden]="!step3Set.companyAddress.isShow">
+    <ion-label class="label-margin" style="flex: none;">
+      <span [hidden]="!step3Set.companyAddress.isRequire" class="require-star">*</span>
+      <div class="basics-data-companyAddress"></div>
+    </ion-label>
+    <city-picker item-content
+                 [cancelText]="'取消'"
+                 [doneText]="'确定'"
+                 [separator]="' - '"
+                 [citiesData]="cityData"
+                 [(ngModel)]="companyAddress"
+                 (ionChange)="companyAddressChange($event)" class="info-select right-arrow" style="color: #555555;">
+    </city-picker>
+  </ion-item>
 
   <!--单位详细地址 companyAddressZipCode-->
   <ion-item [hidden]="!step3Set.companyAddress.isShow">
@@ -556,7 +582,21 @@
                placeholder="营业执照名称"></ion-input>
   </ion-item>
 
-  <!--经营地址 manageAddress-->  <!--todo city-picker-->
+  <!--经营地址 manageAddress-->
+  <ion-item [hidden]="!step3Set.manageAddress.isShow">
+    <ion-label class="label-margin" style="flex: none;">
+      <span [hidden]="!step3Set.manageAddress.isRequire" class="require-star">*</span>
+      <div class="basics-data-manageAddress"></div>
+    </ion-label>
+    <city-picker item-content
+                 [cancelText]="'取消'"
+                 [doneText]="'确定'"
+                 [separator]="' - '"
+                 [citiesData]="cityData"
+                 [(ngModel)]="manageAddress"
+                 (ionChange)="manageAddressChange($event)" class="info-select right-arrow" style="color: #555555;">
+    </city-picker>
+  </ion-item>
 
   <!--经营详细地址 manageAddress-->
   <ion-item [hidden]="!step3Set.manageAddress.isShow">
