@@ -1,5 +1,15 @@
-page-credit-data{
-  .item-inner{
+page-credit-data {
+  .item-inner {
     border: none !important;
+  }
+  .credit-item {
+    border: none;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+  }
+  .credit-img{
+    width: 30px !important;
+    height: 30px !important;
+    margin-top: 2px;
   }
 }

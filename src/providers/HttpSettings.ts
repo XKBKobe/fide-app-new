@@ -32,5 +32,4 @@ export const HTTP_URL_JSON = {
     url: "/user/editPersonalMaterial"
   },
 
-
 };

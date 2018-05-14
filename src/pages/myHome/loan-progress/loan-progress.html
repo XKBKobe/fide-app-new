@@ -22,7 +22,8 @@
                         (outStep)="outStep($event)"></page-loan-step-three>
 
   <!--信贷资料-->
-  <page-loan-step-four *ngIf="page == 4" (nextToPage)="nextToPage($event)"></page-loan-step-four>
+  <page-loan-step-four *ngIf="page == 4" [step4Set]="step4Set" (nextToPage)="nextToPage($event)"
+                       (outStep)="outStep($event)"></page-loan-step-four>
 
   <!--提交申请-->
   <page-loan-step-five *ngIf="page == 5"></page-loan-step-five>

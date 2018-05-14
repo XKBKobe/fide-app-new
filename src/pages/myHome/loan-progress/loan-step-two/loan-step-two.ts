@@ -10,13 +10,11 @@ import {MessageService} from "../../../../providers/MessageService";
 export class LoanStepTwoPage {
   //贷款步骤
   @Input('step2Set') step2Set: any;
-
   //点击跳转到指定界面
   @Output() nextToPage: EventEmitter<number> = new EventEmitter<number>();
-
   //step反馈
   @Output() outStep: EventEmitter<any> = new EventEmitter<any>();
-
+  //个人信息
   personData: any;
 
   constructor(public navCtrl: NavController,
@@ -33,21 +31,20 @@ export class LoanStepTwoPage {
   }
 
   next() {
-    console.log(this.step2Set);
     let that = this;
-    if (!!this.step2Set) {
-      for (let i in this.step2Set) {
-        let person = this.step2Set[i];
+    if (!!that.step2Set) {
+      for (let i in that.step2Set) {
+        let person = that.step2Set[i];
         if (person.isRequire) {
           if (i == 'identityPic') {
-            if (!!this.personData["identity"]['matUrl'] && !!this.personData["identityBack"]['matUrl']) {
+            if (!!that.personData["identity"]['matUrl'] && !!that.personData["identityBack"]['matUrl']) {
               continue;
             } else {
               that.message.presentAlert(person.requireText);
               return false;
             }
           } else if (i == 'applyAmount') {
-            let applyAmount = this.personData.applyAmount;
+            let applyAmount = that.personData.applyAmount;
             if (applyAmount == null || applyAmount == "" || applyAmount == 0) {
               that.message.presentAlert(person.requireText);
               return false;
@@ -57,7 +54,7 @@ export class LoanStepTwoPage {
               return false;
             }
           } else {
-            if (!!this.personData[i]) {
+            if (!!that.personData[i]) {
               continue
             } else {
               that.message.presentAlert(person.requireText);

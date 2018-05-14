@@ -29,6 +29,8 @@ export class LoanProgress {
 
   step3Set: any; //基础资料显示
 
+  step4Set: any; //信贷资料
+
   constructor(public navCtrl: NavController,
               public events: Events,
               public navParams: NavParams,
@@ -134,12 +136,11 @@ export class LoanProgress {
             }
           } else if (i == 'merchant') { //受托商家 todo
             //获取产品信息
-            // let product = this.positionService.getProduct();
-            // if (product['merchantUuid'] || product['preLoanMerchantUuid']) {
-            //   continue;
-            // } else {
-            //   this.loanStatus.loanBasRequire = false;
-            // }
+            if (that.product['merchantUuid'] || that.product['preLoanMerchantUuid']) {
+              continue;
+            } else {
+              that.loanStep.step3 = false;
+            }
           } else if (i == 'driverLicense') { //驾驶证
             if (personalAllData['carProperty'] == 1 || !personalAllData['carProperty']) { //没有汽车
               continue;
@@ -249,6 +250,7 @@ export class LoanProgress {
     //查询信贷资料的数目
     that.http.post('isDataFill', {}).then(res => {
       that.comm.checkMaterial('', stepFourSetting, 'step4', data => {
+        that.step4Set = data;
         for (let i in data) {
           if (data[i].isRequire) {
             if (data[i].num != 0) {
