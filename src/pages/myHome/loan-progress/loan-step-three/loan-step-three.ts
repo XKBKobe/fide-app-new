@@ -12,6 +12,8 @@ import {DataSaveService} from "../../../../providers/DataSaveService";
 })
 export class LoanStepThreePage {
   //贷款步骤
+  @Input('loanStep') loanStep: any;
+  //基础信息配置
   @Input('step3Set') step3Set: any;
   //点击跳转到指定界面
   @Output() nextToPage: EventEmitter<number> = new EventEmitter<number>();
@@ -122,7 +124,10 @@ export class LoanStepThreePage {
     that.http.post("editPersonalMaterial", params).then(res => {
       that.message.showToastTop('基础资料保存成功');
       that.outStep.emit({step: 'step3', status: true});
-      that.nextToPage.emit(4);
+      //贷款未申请
+      if (!that.loanStep.step5) {
+        that.nextToPage.emit(4);
+      }
     });
   }
 

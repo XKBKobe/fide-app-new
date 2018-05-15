@@ -14,15 +14,16 @@
   <page-loan-step-one *ngIf="page == 1"></page-loan-step-one>
 
   <!--个人资料-->
-  <page-loan-step-two *ngIf="page == 2" [step2Set]="step2Set" (nextToPage)="nextToPage($event)"
+  <page-loan-step-two *ngIf="page == 2" [step2Set]="step2Set" [loanStep]="loanStep" (nextToPage)="nextToPage($event)"
                       (outStep)="outStep($event)"></page-loan-step-two>
 
   <!--基础资料-->
-  <page-loan-step-three *ngIf="page == 3" [step3Set]="step3Set" [product]="product" (nextToPage)="nextToPage($event)"
+  <page-loan-step-three *ngIf="page == 3" [step3Set]="step3Set" [loanStep]="loanStep" [product]="product"
+                        (nextToPage)="nextToPage($event)"
                         (outStep)="outStep($event)"></page-loan-step-three>
 
   <!--信贷资料-->
-  <page-loan-step-four *ngIf="page == 4" [step4Set]="step4Set" (nextToPage)="nextToPage($event)"
+  <page-loan-step-four *ngIf="page == 4" [step4Set]="step4Set" [loanStep]="loanStep" (nextToPage)="nextToPage($event)"
                        (outStep)="outStep($event)"></page-loan-step-four>
 
   <!--提交申请-->

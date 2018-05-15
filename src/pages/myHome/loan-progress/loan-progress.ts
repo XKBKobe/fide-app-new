@@ -20,7 +20,7 @@ export class LoanProgress {
     step2: true, //个人资料
     step3: true, //基础资料
     step4: true, //信贷资料
-    step5: false  //在线申请（是否贷款申请流程中）
+    step5: false //在线申请（是否贷款申请流程中）
   };
 
   personData: any;
@@ -270,20 +270,16 @@ export class LoanProgress {
   //头部点击 output
   skipToPage(page) {
     this.page = page;
-    console.log('定义头部 ' + page);
   }
 
   //下一步点击 output
   nextToPage(page) {
     this.page = page;
-    console.log('下一步 ' + page);
     this.events.publish("nextToPage", page);
   }
 
+  //更新loanStep
   outStep(step) {
-    console.log('1333333333');
-    console.log(step.step);
-
     this.loanStep[step.step] = step.status;
   }
 }

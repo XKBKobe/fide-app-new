@@ -1,3 +1,8 @@
 <!--个人资料-->
 <page-person-data [step2Set]="step2Set" [personData]="personData"></page-person-data>
-<button *ngIf="!!personData" ion-button block class="default-button-size" tappable (click)="next()">下一步</button>
+<button *ngIf="!!personData && !loanStep.step5" ion-button block class="default-button-size" tappable (click)="next()">
+  下一步
+</button>
+<button *ngIf="!!personData && !!loanStep.step5" ion-button block class="default-button-size" tappable (click)="next()">
+  保存修改
+</button>

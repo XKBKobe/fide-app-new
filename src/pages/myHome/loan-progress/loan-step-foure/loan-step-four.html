@@ -1,5 +1,9 @@
 <!--信贷资料-->
 <page-credit-data [step4Set]="step4Set"></page-credit-data>
-<button ion-button block class="default-button-size" tappable (click)="next()">下一步</button>
+<button *ngIf="!loanStep.step5" ion-button block class="default-button-size" tappable (click)="next()">下一步
+</button>
+<button *ngIf="!!loanStep.step5" ion-button block class="default-button-size" tappable (click)="next()">
+  保存修改
+</button>
 
 
