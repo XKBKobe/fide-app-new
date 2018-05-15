@@ -4,6 +4,7 @@ import {HttpApiService} from "../../../../providers/HttpApiService";
 import {MessageService} from "../../../../providers/MessageService";
 import {UtilsService} from "../../../../providers/UtilsService";
 import {CITY_DATA} from "../../../../providers/BaseConfig";
+import {DataSaveService} from "../../../../providers/DataSaveService";
 
 @Component({
   selector: 'page-loan-step-three',
@@ -26,7 +27,8 @@ export class LoanStepThreePage {
   constructor(public navCtrl: NavController,
               public http: HttpApiService,
               public message: MessageService,
-              public utils: UtilsService) {
+              public utils: UtilsService,
+              public dataSave: DataSaveService) {
   }
 
   ngOnInit() {
@@ -179,9 +181,15 @@ export class LoanStepThreePage {
                 return false;
               }
             }
-          } else if (i == 'merchant') { //受托支付 todo
-
-
+          } else if (i == 'merchant') { //受托支付
+            let merChat = that.dataSave.getMerchant();
+            //获取产品信息
+            if (!!merChat) {
+              continue;
+            } else {
+              that.message.presentAlert(person.requireText);
+              return false;
+            }
           } else if (i == 'driverLicense') { //车辆和行驶证照片 1：没有汽车
             if (personData['carProperty'] == 1 || !personData['carProperty']) { //没有汽车
               continue;

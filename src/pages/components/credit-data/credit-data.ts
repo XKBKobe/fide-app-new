@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import {CREDIT_DATA} from "../../../providers/BaseConfig";
 
 @Component({
   selector: 'page-credit-data',
@@ -17,7 +16,6 @@ export class CreditDataPage {
   }
 
   ngOnInit(){
-    this.creditData = CREDIT_DATA;
     console.log(this.step4Set);
   }
 

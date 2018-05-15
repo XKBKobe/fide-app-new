@@ -18,16 +18,12 @@ export class IdentityCheckPage {
   // CHECKLOANFAIL:贷款流程核身失败
 
   checkStatus: any;
-
   //身份证正面
   IDfrontBase64: any;
-
   //身份证反面
   IDbackBase64: any;
-
   //身份证正面big
   IDfrontBigImg: any;
-
   //身份证反面big
   IDbackBigImg: any;
 

@@ -26,6 +26,6 @@
                        (outStep)="outStep($event)"></page-loan-step-four>
 
   <!--提交申请-->
-  <page-loan-step-five *ngIf="page == 5"></page-loan-step-five>
+  <page-loan-step-five *ngIf="page == 5" [product]="product"></page-loan-step-five>
 
 </ion-content>

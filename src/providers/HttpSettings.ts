@@ -31,5 +31,10 @@ export const HTTP_URL_JSON = {
     server: "fideUserServer",
     url: "/user/editPersonalMaterial"
   },
+  queryOrgByProduct: { //查查询产品的银行
+    server: "fideUserServer",
+    url: "/org/queryOrgByProduct"
+  },
+
 
 };

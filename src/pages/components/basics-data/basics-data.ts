@@ -61,7 +61,7 @@ export class BasicsDataPage {
   //是否购车
   carShow: boolean = false;
   //婚姻状况
-  marriageShow:boolean = false;
+  marriageShow: boolean = false;
 
   constructor(public navCtrl: NavController,
               public dataSave: DataSaveService) {
@@ -139,7 +139,7 @@ export class BasicsDataPage {
     };
 
     this.personData = data;
-    console.log(this.personData);
+    console.log(this.product);
   }
 
   //请选择户籍
@@ -182,4 +182,8 @@ export class BasicsDataPage {
     }
   }
 
+  //商铺
+  merChantChange(event) {
+    this.dataSave.setMerchant(event);
+  }
 }

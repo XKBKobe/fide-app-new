@@ -9,7 +9,7 @@
       <span [hidden]="!step3Set.merchant.isRequire" class="require-star">*</span>
       <div class="basics-data-bank"></div>
     </ion-label>
-    <ion-select [(ngModel)]="personData.merchantUuid" class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+    <ion-select [(ngModel)]="personData.merchantUuid" (ionChange)="merChantChange($event)" class="right-arrow" name="merchant" okText="确定" cancelText="取消"
                 placeholder="{{product.merchantAlias}}">
       <ion-option *ngFor="let type of product.merchantList" [value]="type.value"
                   [selected]="type.value === personData.merchantUuid">
@@ -17,6 +17,7 @@
       </ion-option>
     </ion-select>
   </ion-item>
+
 
   <!--qq邮箱-->
   <ion-item [hidden]="!step3Set.email.isShow">
@@ -277,7 +278,8 @@
       <span [hidden]="!step3Set.marriage.isRequire" class="require-star">*</span>
       <div class="basics-data-marriage"></div>
     </ion-label>
-    <ion-select [(ngModel)]="personData.marriage" (ngModelChange)="updateSelect()" class="right-arrow" name="purpose" okText="确定" cancelText="取消"
+    <ion-select [(ngModel)]="personData.marriage" (ngModelChange)="updateSelect()" class="right-arrow" name="purpose"
+                okText="确定" cancelText="取消"
                 placeholder="婚姻状况">
       <ion-option *ngFor="let type of marriage" [value]="type.value"
                   [selected]="type.value === personData.marriage">{{type.text}}

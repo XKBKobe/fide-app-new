@@ -7,10 +7,8 @@ import {Events, NavController} from 'ionic-angular';
 })
 export class LoanStepHeadPage {
   page: number = 1;
-
   //贷款步骤
   @Input('loanStep') loanStep: any;
-
   //点击跳转到指定界面
   @Output() skipToPage: EventEmitter<number> = new EventEmitter<number>();
 
