@@ -57,6 +57,7 @@ export class LoanProgress {
       }
     });
 
+    //查询个人资料
     this.queryMaterial();
   }
 
@@ -89,6 +90,8 @@ export class LoanProgress {
   //检查个人资料
   checkStepTwo(data) {
     let that = this;
+    //保存purpose
+    that.dataSave.setPurpose(data.purpose);
     let stepTwoSetting = that.product.privateMat;
     this.comm.checkMaterial(data, stepTwoSetting, 'step2', data => {
       //个人资料配置

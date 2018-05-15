@@ -9,6 +9,8 @@ export class DataSaveService {
   cmCode: any;
   //受托支付
   merchant: any;
+  //贷款用途
+  purpose:any;
 
   constructor() {
   }
@@ -37,5 +39,12 @@ export class DataSaveService {
     return this.merchant;
   }
 
+  setPurpose(data){
+    this.purpose = data;
+  }
+
+  getPurpose() {
+    return this.purpose;
+  }
 
 }

@@ -1,1 +1,8 @@
-<div>附近营业点</div>
+<ion-list style="margin-top: 10px;">
+  <ion-item *ngFor="let item of nearbyData" style="background-color: #fff;">
+    <h4 class="nearby-img">{{item.orgName}}</h4>
+    <p>{{item.orgLoc}}</p>
+    <p *ngIf="!!item.orgPhone">{{item.orgPhone}}</p>
+    <button item-end ion-button round (click)="showConfirm(item)">在线提交</button>
+  </ion-item>
+</ion-list>

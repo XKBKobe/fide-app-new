@@ -35,6 +35,9 @@ export const HTTP_URL_JSON = {
     server: "fideUserServer",
     url: "/org/queryOrgByProduct"
   },
-
+  applyLoan: {  //个人资料提交贷款
+    server: "fideCheifServer",
+    url: "/loan/applyLoan"
+  },
 
 };

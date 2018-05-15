@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {HttpApiService} from "../../../../providers/HttpApiService";
 import {MessageService} from "../../../../providers/MessageService";
+import {DataSaveService} from "../../../../providers/DataSaveService";
 
 @Component({
   selector: 'page-loan-step-two',
@@ -19,7 +20,8 @@ export class LoanStepTwoPage {
 
   constructor(public navCtrl: NavController,
               public http: HttpApiService,
-              public message: MessageService) {
+              public message: MessageService,
+              public dataSave: DataSaveService) {
 
   }
 
@@ -74,6 +76,8 @@ export class LoanStepTwoPage {
     };
 
     that.http.post("editPersonalMaterial", para).then(res => {
+      //保存purpose
+      that.dataSave.setPurpose(that.personData.purpose);
       that.message.showToastTop('个人资料保存成功');
       that.outStep.emit({step: 'step2', status: true});
       that.nextToPage.emit(3);
