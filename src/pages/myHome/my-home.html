@@ -22,15 +22,16 @@
   </ion-slides>
 
   <ion-list *ngIf="data.length > 0" inset>
-    <ion-item *ngFor="let data of data" style="background-color: #fff;margin-bottom: 10px;" tappable
-              (click)="productDetail(data.productUuid)">
+    <ion-item *ngFor="let item of data" style="background-color: #fff;margin-bottom: 10px;" tappable
+              (click)="productDetail(item.productUuid)">
       <ion-thumbnail item-start>
-        <img src="{{data.pngUrl}}">
+        <img src="{{item.pngUrl}}">
       </ion-thumbnail>
-      <h2>{{data.name}}</h2>
-      <p>类型：{{data.type | productType}}</p>
-      <p>{{data.rate | chargeType}}：<span ion-text color="danger">{{data| productRate}}</span></p>
-      <button ion-button clear item-end>View</button>
+      <div><h3 style="display: inline-block;">{{item.name}}</h3><img *ngIf="!!item.hasApplying" class="home-apply-img"
+                                                                     src="assets/imgs/myHome/applying.png"></div>
+      <p>类型：{{item.type | productType}}</p>
+      <p>{{item.rate | chargeType}}：<span ion-text color="danger">{{item| productRate}}</span></p>
+      <img *ngIf="item.recommendType == 1" item-end style="margin: 0;width: 36px;" src="assets/imgs/myHome/hot.png"/>
     </ion-item>
   </ion-list>
 </ion-content>

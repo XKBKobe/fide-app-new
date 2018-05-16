@@ -4,11 +4,11 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="!!data">
   <ion-list style="margin: 0 10px 10px 10px;">
     <ion-item style="background-color: #fff;">
       <ion-thumbnail item-start>
-        <img src="{{data.pngUrl}}" style="width: 100px;height: 100px;">
+        <img *ngIf="data.pngUrl" src="{{data.pngUrl}}" style="width: 100px;height: 100px;">
       </ion-thumbnail>
       <h2>{{data.name}}</h2>
       <p class="font12 product-group">目标客群：<span class="target-color">{{data.targetCustomer | targetCustomer}}</span>

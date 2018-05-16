@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Events, NavController} from 'ionic-angular';
+import {MessageService} from "../../../providers/MessageService";
 
 @Component({
   selector: 'page-loan-step-head',
@@ -13,7 +14,8 @@ export class LoanStepHeadPage {
   @Output() skipToPage: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(public navCtrl: NavController,
-              public events: Events) {
+              public events: Events,
+              public message: MessageService) {
 
   }
 
@@ -27,6 +29,25 @@ export class LoanStepHeadPage {
 
   //跳转到头部和页面
   goPage(page) {
+    let that = this;
+    if(page == 5){
+      //核身资料
+      if (!that.loanStep.step1) {
+        return that.message.presentAlert('请先完成核身');
+      }
+      //个人资料
+      if (!that.loanStep.step2) {
+        return that.message.presentAlert('请完善个人资料信息');
+      }
+      //基础资料
+      if (!that.loanStep.step3) {
+        return that.message.presentAlert('请完善基础资料信息');
+      }
+      //信贷信息
+      if (!that.loanStep.step4) {
+        return that.message.presentAlert('请完善信贷资料信息');
+      }
+    }
     //头部
     this.page = page;
     //页面
