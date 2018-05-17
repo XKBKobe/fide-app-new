@@ -1,3 +1,84 @@
 page-my-data {
+  .my-data-warning {
+    background-color: #ffe682;
+    color: #464644;
+    padding: 7px 10px;
+    font-size: 1.4rem;
+  }
 
+  .my-data-container {
+    height: auto;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+  }
+
+  .my-data-slide{
+    border: 1px solid #eeeeee;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+
+  .my-data-slide-title{
+    font-size: 1.8rem;
+    color: color($colors, primary);
+  }
+
+  .my-data-slide-percent{
+    font-size: 1.5rem;
+    margin-top: 0;
+  }
+
+  .my-data-slide-img{
+    width: 60%;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+  }
+
+  .slider-item1 {
+    background: url("../assets/imgs/myData/u_personalinfo.png") no-repeat center center;
+    background-size: 60px;
+  }
+
+  .slider-item2 {
+    background: url("../assets/imgs/myData/u_basicinfo.png") no-repeat center center;
+    background-size: 60px;
+  }
+
+  .slider-item3 {
+    background: url("../assets/imgs/myData/u_creditinfo.png") no-repeat center center;
+    background-size: 60px;
+  }
+
+  .swiper-cutomer-pageination span {
+    margin: 0 1rem !important;
+  }
+
+  .swiper-pagination-bullet-active{
+    background-color: color($colors, primary) !important;
+  }
+
+  .my-data-bottom {
+    background: #fff;
+    text-align: center;
+    position: relative;
+    top: -3.2rem;
+  }
+
+  .my-data-shadow {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.03);
+  }
+
+  .my-data-title {
+    padding-top: 3.5rem;
+    font-size: 1.6rem;
+    color: color($colors, primary);
+  }
+
+  .my-data-text {
+    font-size: 1.4rem;
+    line-height: 26px;
+  }
 }

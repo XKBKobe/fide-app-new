@@ -7,11 +7,43 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+  <div class="my-data-warning">
+    完善资料库,在贷款时就不需要再次填写了哦
+  </div>
+  <div class="swiper-container my-data-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide my-data-slide">
+        <div>
+          <h4 class="my-data-slide-title">个人资料</h4>
+          <p class="my-data-slide-percent">完成度：100%</p>
+          <img class="my-data-slide-img" src="assets/imgs/myData/u_personalinfo.png">
+        </div>
+      </div>
+
+      <div class="swiper-slide my-data-slide">
+        <div>
+          <h4 class="my-data-slide-title">基础资料</h4>
+          <p class="my-data-slide-percent">完成度：100%</p>
+          <img class="my-data-slide-img" src="assets/imgs/myData/u_basicinfo.png">
+        </div>
+      </div>
+
+      <div class="swiper-slide my-data-slide">
+        <div>
+          <h4 class="my-data-slide-title">信贷资料</h4>
+          <p class="my-data-slide-percent">完成度：100%</p>
+          <img class="my-data-slide-img" src="assets/imgs/myData/u_creditinfo.png">
+        </div>
+      </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination swiper-cutomer-pageination"></div>
+  </div>
+
+  <div class="my-data-bottom">
+    <div class="my-data-shadow"></div>
+    <div class="my-data-title">资料库包含所有银行需要的信息资料</div>
+    <div class="my-data-text" style="margin-top:10px;color:#999;">每种产品所需资料各不相同</div>
+    <div class="my-data-text" style="padding-bottom:20px;color:#999;">实际所需资料以具体产品为准</div>
+  </div>
 </ion-content>

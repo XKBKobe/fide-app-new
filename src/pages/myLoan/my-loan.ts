@@ -8,7 +8,7 @@ import {HttpApiService} from "../../providers/HttpApiService";
   templateUrl: 'my-loan.html'
 })
 export class MyLoanPage {
-  data:any;
+  data: any;
 
   constructor(public navCtrl: NavController,
               public http: HttpApiService,
@@ -16,11 +16,11 @@ export class MyLoanPage {
 
   }
 
-  ionViewDidEnter(){
+  ionViewDidEnter() {
     this.getMyLoans();
   }
 
-  getMyLoans(refresher?){
+  getMyLoans(refresher?) {
     this.http.post('myLoans', {}).then(res => {
       console.log(res);
       this.data = res;
