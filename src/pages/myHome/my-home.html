@@ -31,7 +31,7 @@
                                                                      src="assets/imgs/myHome/applying.png"></div>
       <p>类型：{{item.type | productType}}</p>
       <p>{{item.rate | chargeType}}：<span ion-text color="danger">{{item| productRate}}</span></p>
-      <img *ngIf="item.recommendType == 1" item-end style="width: 40px;" src="assets/imgs/myHome/hot.png"/>
+      <img *ngIf="item.recommendType == 1" item-end style="width: 40px;margin: 0;" src="assets/imgs/myHome/hot.png"/>
     </ion-item>
   </ion-list>
 </ion-content>
