@@ -18,7 +18,7 @@ export class MyDataPage {
 
   ionViewDidLoad() {
     //配置swiper
-    new Swiper('.swiper-container', {
+    new Swiper('.my-data-swiper-container', {
       effect: 'coverflow',
       grabCursor: true,
       centeredSlides: true,
