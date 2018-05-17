@@ -9,15 +9,16 @@
       <span [hidden]="!step3Set.merchant.isRequire" class="require-star">*</span>
       <div class="basics-data-bank"></div>
     </ion-label>
-    <ion-select [(ngModel)]="personData.merchantUuid" (ionChange)="merChantChange($event)" class="right-arrow" name="merchant" okText="确定" cancelText="取消"
+    <ion-select [disabled]="merchantDisabled" [(ngModel)]="personData.merchantUuid" (ionChange)="merChantChange($event)"
+                class="right-arrow"
+                name="merchant" okText="确定" cancelText="取消"
                 placeholder="{{product.merchantAlias}}">
       <ion-option *ngFor="let type of product.merchantList" [value]="type.value"
-                  [selected]="type.value === personData.merchantUuid">
+                  [selected]="type.value === product.merchantUuid">
         {{type.text}}
       </ion-option>
     </ion-select>
   </ion-item>
-
 
   <!--qq邮箱-->
   <ion-item [hidden]="!step3Set.email.isShow">
@@ -829,7 +830,6 @@
     <span tappable ion-text class="basics-add"
           (click)="openUploaderAgain('successivePaymentContract','连续三年回款合同')">再加一张</span>
   </div>
-
 
   <!--其他证明 userOtherMaterial-->
   <div class="img-box" [hidden]="!step3Set.userOtherMaterial.isShow">

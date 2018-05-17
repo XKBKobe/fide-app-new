@@ -18,12 +18,13 @@ export class ProductDetailPage {
   showMoreHide: boolean = false;
   showMoreOrg: boolean = false; //更多图标
   showHideOrg: boolean = false; //收起图标
+  applyDisabled: boolean = true;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public http: HttpApiService,
               public modalCtrl: ModalController,
-              public dataSave:DataSaveService) {
+              public dataSave: DataSaveService) {
 
     this.productUuid = navParams.get('productUuid')
   }
@@ -32,6 +33,9 @@ export class ProductDetailPage {
     //获取产品信息
     this.http.post('queryProductInfo', {productUuid: this.productUuid}).then(res => {
       this.data = res;
+      //查询贷款状态
+      this.getLoanStatus();
+      //查询支持机构
       this.queryOrgList(res['availableOrg']);
       //设置还款方式
       this.availablePeriods(res['availablePeriods']);
@@ -74,6 +78,20 @@ export class ProductDetailPage {
     })
   }
 
+  getLoanStatus() {
+    let that = this;
+    //获取产品信息
+    that.http.post('getPersonalLoanStatus', {}).then(res => {
+      !!res['hasApplying'] ? that.applyDisabled = true : that.applyDisabled = false;
+    }, err => {
+      if (err && err['respCode'] == 101604) {
+        localStorage.clear();
+        that.modalCtrl.create(LoginPage).present();
+        return false;
+      }
+    })
+  }
+
   availablePeriods(data) {
     //还款方式
     if (!!data) {
@@ -110,9 +128,9 @@ export class ProductDetailPage {
   }
 
   //立即申请贷款
-  apply(){
-    this.navCtrl.push(LoanProgress,{
-      product:this.data
+  apply() {
+    this.navCtrl.push(LoanProgress, {
+      product: this.data
     })
   }
 }

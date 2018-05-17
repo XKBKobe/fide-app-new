@@ -10,6 +10,8 @@ import {DataSaveService} from "../../../providers/DataSaveService";
 export class BasicsDataPage {
   //贷款步骤
   @Input('step3Set') step3Set: any;
+  //贷款步骤
+  @Input('loanStep') loanStep: any;
   //基础资料显示
   @Input('personData') personData: any;
   //product
@@ -75,7 +77,7 @@ export class BasicsDataPage {
       that.product['merchantUuid'] = that.product['preLoanMerchantUuid'];
       that.merchantDisabled = true;
       that.dataSave.setMerchant(that.product['preLoanMerchantUuid']);
-    } else if (!!that.step3Set.step5 && that.product['merchantUuid']) {
+    } else if (!!that.loanStep.step5 && that.product['merchantUuid']) {
       that.merchantDisabled = true;
       that.dataSave.setMerchant(that.product['merchantUuid']);
     } else {

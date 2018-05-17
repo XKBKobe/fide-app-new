@@ -1,6 +1,6 @@
 <!--基础资料-->
 <page-basics-data *ngIf="!!personData" [step3Set]="step3Set" [personData]="personData"
-                  [product]="product"></page-basics-data>
+                  [product]="product" [loanStep]="loanStep"></page-basics-data>
 <button *ngIf="!!personData && !loanStep.step5" ion-button block class="default-button-size" tappable (click)="next()">
   下一步
 </button>

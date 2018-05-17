@@ -23,7 +23,7 @@
 
   <ion-list *ngIf="data.length > 0" inset>
     <ion-item *ngFor="let item of data" style="background-color: #fff;margin-bottom: 10px;" tappable
-              (click)="productDetail(item.productUuid)">
+              (click)="productDetail(item)">
       <ion-thumbnail item-start>
         <img src="{{item.pngUrl}}">
       </ion-thumbnail>

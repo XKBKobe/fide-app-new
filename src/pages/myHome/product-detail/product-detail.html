@@ -62,6 +62,6 @@
     </ion-grid>
   </ion-list>
 
-  <button ion-button block class="default-button-size" (click)="apply()" tappable>立即申请</button>
+  <button [disabled]="applyDisabled"  ion-button block class="default-button-size" (click)="apply()" tappable>立即申请</button>
 
 </ion-content>
