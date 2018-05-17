@@ -7,11 +7,21 @@
 </ion-header>
 
 <ion-content>
+  <ion-refresher (ionRefresh)="refresh($event)" [pullMin]="60" [pullMax]="200">
+    <ion-refresher-content
+      pullingIcon="arrow-down"
+      pullingText="下拉刷新..."
+      refreshingSpinner="bubbles"
+      refreshingText="正在刷新..."
+    >
+    </ion-refresher-content>
+  </ion-refresher>
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
+    <ion-item  *ngFor="let item of data" class="my-loan-margin">
+      <h4 class="nearby-img">产品：{{item.productName}}</h4>
+      <p>申请日志：{{item.applyTime | date: 'yyyy-MM-dd'}}</p>
+      <p>最新状态：{{item.applyStatus | applyStatus}}</p>
+      <button item-end ion-button outline>审批记录</button>
     </ion-item>
   </ion-list>
 </ion-content>

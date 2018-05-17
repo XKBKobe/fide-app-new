@@ -28,6 +28,7 @@ import {ProductRatePipe} from "../pipes/product-rate.pipe";
 import {ChargeTypePipe} from "../pipes/charge-type.pipe";
 import {TargetCustomerPipe} from "../pipes/target-customer.pipe";
 import {ProductRowPipe} from "../pipes/productRow.pipe";
+import {ApplyStatusPipe} from "../pipes/apply-status.pipe";
 
 
 //pages
@@ -51,6 +52,7 @@ import {LoanStepFourPage} from "../pages/myHome/loan-progress/loan-step-foure/lo
 import {LoanStepFivePage} from "../pages/myHome/loan-progress/loan-step-five/loan-step-five";
 import {ImgViewPage} from "../pages/components/img-view/img-view";
 import {NearbyBankPage} from "../pages/components/nearby-bank/nearby-bank";
+
 
 
 @NgModule({
@@ -80,7 +82,8 @@ import {NearbyBankPage} from "../pages/components/nearby-bank/nearby-bank";
     LoanStepFourPage,
     LoanStepFivePage,
     ImgViewPage,
-    NearbyBankPage
+    NearbyBankPage,
+    ApplyStatusPipe
   ],
   imports: [
     BrowserModule,

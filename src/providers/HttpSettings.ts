@@ -39,5 +39,10 @@ export const HTTP_URL_JSON = {
     server: "fideCheifServer",
     url: "/loan/applyLoan"
   },
+  myLoans: {   //我的贷款
+    server: "fideCheifServer",
+    url: "/loan/myLoans"
+  },
+
 
 };
