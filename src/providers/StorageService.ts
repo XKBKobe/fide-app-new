@@ -49,4 +49,11 @@ export class StorageService {
       cbFun && cbFun(true);
     });
   }
+
+  //清除storage
+  clearStorage(cbFun?) {
+    this.storage.clear().then(function () {
+      cbFun && cbFun(true);
+    });
+  }
 }
