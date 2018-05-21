@@ -22,7 +22,7 @@ export class LoginPage {
 
   login() {
     let params = {
-      "loginName": 13486169016,
+      "loginName": 18072717067,
       "password": this.utils.Md5('000000'),
       "sysSource": '1',
       "cid": ''

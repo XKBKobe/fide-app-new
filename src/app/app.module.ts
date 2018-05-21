@@ -29,6 +29,7 @@ import {ChargeTypePipe} from "../pipes/charge-type.pipe";
 import {TargetCustomerPipe} from "../pipes/target-customer.pipe";
 import {ProductRowPipe} from "../pipes/productRow.pipe";
 import {ApplyStatusPipe} from "../pipes/apply-status.pipe";
+import {LoanAmountPipe} from "../pipes/loan-amount.pipe";
 
 
 //pages
@@ -55,6 +56,8 @@ import {NearbyBankPage} from "../pages/components/nearby-bank/nearby-bank";
 import {PerDataPage} from "../pages/myData/per-data/per-data";
 import {BasDataPage} from "../pages/myData/bas-data/bas-data";
 import {CreDataPage} from "../pages/myData/cre-data/cre-data";
+import {ApproveRecordPage} from "../pages/myLoan/approve-record/approve-record";
+
 
 
 
@@ -89,7 +92,9 @@ import {CreDataPage} from "../pages/myData/cre-data/cre-data";
     ApplyStatusPipe,
     PerDataPage,
     BasDataPage,
-    CreDataPage
+    CreDataPage,
+    ApproveRecordPage,
+    LoanAmountPipe
   ],
   imports: [
     BrowserModule,
@@ -139,7 +144,8 @@ import {CreDataPage} from "../pages/myData/cre-data/cre-data";
     NearbyBankPage,
     PerDataPage,
     BasDataPage,
-    CreDataPage
+    CreDataPage,
+    ApproveRecordPage
   ],
   providers: [
     StatusBar,

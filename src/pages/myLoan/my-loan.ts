@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {ModalController, NavController} from 'ionic-angular';
 import {LoginPage} from "../welcome/login";
 import {HttpApiService} from "../../providers/HttpApiService";
+import {ApproveRecordPage} from "./approve-record/approve-record";
 
 @Component({
   selector: 'page-my-loan',
@@ -37,5 +38,11 @@ export class MyLoanPage {
 
   refresh(refresher) {
     this.getMyLoans(refresher);
+  }
+
+  goRecord(item) {
+    this.navCtrl.push(ApproveRecordPage, {
+      applyLog: item
+    })
   }
 }

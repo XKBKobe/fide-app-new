@@ -47,6 +47,10 @@ export const HTTP_URL_JSON = {
     server: "fideUserServer",
     url: "/user/queryPersonalMaterialSetting"
   },
+  queryLoanLog: { //我的贷款日志
+    server: "fideCheifServer",
+    url: "/loan/queryLoanLog"
+  },
 
 
 };

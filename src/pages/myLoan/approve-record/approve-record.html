@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      审批记录
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="!!data">
+    <ion-item class="bg-white" style="padding-left: 10px;">
+      <ion-avatar item-start style="margin-right: 10px;">
+        <img src="assets/imgs/myLoan/fdlog.png">
+      </ion-avatar>
+      <h3>银行：{{data.partyOrgDto.orgName}}</h3>
+      <p>产品：{{data.productName}}</p>
+      <p>{{data.applyAmount | loanAmount :data.approvedAmount}}万元</p>
+      <button *ngIf="data.managerMobile && data.managerName" item-end ion-button
+              (click)="call($event,data.managerMobile)" style="height: 2.8rem;margin: 0;">
+        <img src="assets/imgs/myLoan/apply_phone.png" style="width: 20px;">
+        {{data.managerName}}
+      </button>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="!!data">
+    <ion-item *ngFor="let item of data.loanAuditLogList">
+      <div *ngIf="!item.showCM">
+        <h3>{{item.sufAuditStatus | applyStatus}}</h3>
+        <p>{{item.auditIdea}}</p>
+        <p>{{item.auditTime | date: 'yyyy-MM-dd HH:mm'}}</p>
+      </div>
+
+      <div [hidden]="!item.showCM">
+        <ion-avatar item-start>
+          <img src="{{item.cManagerPngUrl}}">
+        </ion-avatar>
+        <div item-end>
+          <h3>{{item.cManagerName}}</h3>
+          <p>{{item.cManagerMobile}}</p>
+          <p>{{item.auditTime | date: 'yyyy-MM-dd HH:mm'}}</p>
+        </div>
+
+      </div>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
