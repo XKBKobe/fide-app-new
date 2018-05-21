@@ -4,16 +4,14 @@ import {HttpApiService} from "../../../providers/HttpApiService";
 import {CommonService} from "../../../providers/commonService";
 
 @Component({
-  selector: 'page-bas-data',
-  templateUrl: 'bas-data.html'
+  selector: 'page-cre-data',
+  templateUrl: 'cre-data.html'
 })
-export class BasDataPage {
-  //个人信息
-  personData: any;
+export class CreDataPage {
   //信息配置
   personSetting: any;
-  //个人资料显示
-  step3Set: any;
+  //信贷资料
+  step4Set: any;
 
   constructor(public navCtrl: NavController,
               public http: HttpApiService,
@@ -24,13 +22,10 @@ export class BasDataPage {
 
   ionViewDidLoad() {
     let that = this;
-    let basSet = that.personSetting.basicMat;
-    //查询个人资料
-    that.http.post('queryPersonalMaterial', {}, false).then(data => {
-      that.personData = data;
-      that.comm.checkMaterial(basSet, 'step3', data => {
-        that.step3Set = data;
-      });
-    });
+    let creSet = that.personSetting.availableDataSource;
+    //查询信贷资料的数目
+    that.comm.checkMaterial(creSet, 'step4', data => {
+      that.step4Set = data;
+    })
   }
 }

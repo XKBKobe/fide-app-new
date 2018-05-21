@@ -4,6 +4,7 @@ import Swiper from 'swiper';
 import {HttpApiService} from "../../providers/HttpApiService";
 import {PerDataPage} from "./per-data/per-data";
 import {BasDataPage} from "./bas-data/bas-data";
+import {CreDataPage} from "./cre-data/cre-data";
 
 @Component({
   selector: 'page-my-data',
@@ -58,8 +59,14 @@ export class MyDataPage {
 
   //个人资料
   goBas(){
-    console.log('goBas');
     this.navCtrl.push(BasDataPage,{
+      personSetting:JSON.parse(this.personSetting)
+    })
+  }
+
+  //信贷资料
+  goCre(){
+    this.navCtrl.push(CreDataPage,{
       personSetting:JSON.parse(this.personSetting)
     })
   }

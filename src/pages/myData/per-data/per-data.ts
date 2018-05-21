@@ -21,11 +21,7 @@ export class PerDataPage {
               public comm: CommonService) {
     this.personSetting = navParams.get('personSetting')
   }
-
-  ionViewDidEnter() {
-
-  }
-
+  
   ionViewDidLoad() {
     let that = this;
     let perSet = that.personSetting.privateMat;

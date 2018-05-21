@@ -54,6 +54,7 @@ import {ImgViewPage} from "../pages/components/img-view/img-view";
 import {NearbyBankPage} from "../pages/components/nearby-bank/nearby-bank";
 import {PerDataPage} from "../pages/myData/per-data/per-data";
 import {BasDataPage} from "../pages/myData/bas-data/bas-data";
+import {CreDataPage} from "../pages/myData/cre-data/cre-data";
 
 
 
@@ -87,7 +88,8 @@ import {BasDataPage} from "../pages/myData/bas-data/bas-data";
     NearbyBankPage,
     ApplyStatusPipe,
     PerDataPage,
-    BasDataPage
+    BasDataPage,
+    CreDataPage
   ],
   imports: [
     BrowserModule,
@@ -136,7 +138,8 @@ import {BasDataPage} from "../pages/myData/bas-data/bas-data";
     ImgViewPage,
     NearbyBankPage,
     PerDataPage,
-    BasDataPage
+    BasDataPage,
+    CreDataPage
   ],
   providers: [
     StatusBar,
