@@ -52,6 +52,8 @@ import {LoanStepFourPage} from "../pages/myHome/loan-progress/loan-step-foure/lo
 import {LoanStepFivePage} from "../pages/myHome/loan-progress/loan-step-five/loan-step-five";
 import {ImgViewPage} from "../pages/components/img-view/img-view";
 import {NearbyBankPage} from "../pages/components/nearby-bank/nearby-bank";
+import {PerDataPage} from "../pages/myData/per-data/per-data";
+import {BasDataPage} from "../pages/myData/bas-data/bas-data";
 
 
 
@@ -83,7 +85,9 @@ import {NearbyBankPage} from "../pages/components/nearby-bank/nearby-bank";
     LoanStepFivePage,
     ImgViewPage,
     NearbyBankPage,
-    ApplyStatusPipe
+    ApplyStatusPipe,
+    PerDataPage,
+    BasDataPage
   ],
   imports: [
     BrowserModule,
@@ -130,7 +134,9 @@ import {NearbyBankPage} from "../pages/components/nearby-bank/nearby-bank";
     LoanStepFourPage,
     LoanStepFivePage,
     ImgViewPage,
-    NearbyBankPage
+    NearbyBankPage,
+    PerDataPage,
+    BasDataPage
   ],
   providers: [
     StatusBar,

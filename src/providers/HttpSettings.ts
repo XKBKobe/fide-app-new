@@ -43,6 +43,10 @@ export const HTTP_URL_JSON = {
     server: "fideCheifServer",
     url: "/loan/myLoans"
   },
+  queryPersonalMaterialSetting: {  //查询个人信息配置项
+    server: "fideUserServer",
+    url: "/user/queryPersonalMaterialSetting"
+  },
 
 
 };

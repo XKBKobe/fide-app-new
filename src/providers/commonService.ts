@@ -10,9 +10,10 @@ export class CommonService {
   }
 
   //资料基础资料配置
-  checkMaterial(personData, settings, step, cb) {
+  checkMaterial(settings, step, cb) {
     switch (step) {
       case 'step2':
+        console.log(settings);
         let privateMat = settings.split("|");
         for (var i in PERSON_DATA) {
           if (_.contains(privateMat, i)) {

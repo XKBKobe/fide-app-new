@@ -23,12 +23,9 @@ export class LoanProgress {
     step5: false //在线申请（是否贷款申请流程中）
   };
 
-  personData: any;
-
+  personData: any; //个人信息
   step2Set: any; //个人资料显示
-
   step3Set: any; //基础资料显示
-
   step4Set: any; //信贷资料
 
   constructor(public navCtrl: NavController,
@@ -93,7 +90,7 @@ export class LoanProgress {
     //保存purpose
     that.dataSave.setPurpose(data.purpose);
     let stepTwoSetting = that.product.privateMat;
-    this.comm.checkMaterial(data, stepTwoSetting, 'step2', data => {
+    this.comm.checkMaterial(stepTwoSetting, 'step2', data => {
       //个人资料配置
       that.step2Set = data;
       let personalAllData = that.personData;
@@ -121,7 +118,7 @@ export class LoanProgress {
   checkStepThree(data) {
     let that = this;
     let stepThreeSetting = that.product.basicMat;
-    this.comm.checkMaterial(data, stepThreeSetting, 'step3', data => {
+    this.comm.checkMaterial(stepThreeSetting, 'step3', data => {
       //基础资料配置
       that.step3Set = data;
       let personalAllData = that.personData;
@@ -252,7 +249,7 @@ export class LoanProgress {
     let stepFourSetting = that.product.dataSource;
     //查询信贷资料的数目
     that.http.post('isDataFill', {}).then(res => {
-      that.comm.checkMaterial('', stepFourSetting, 'step4', data => {
+      that.comm.checkMaterial(stepFourSetting, 'step4', data => {
         that.step4Set = data;
         for (let i in data) {
           if (data[i].isRequire) {

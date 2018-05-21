@@ -77,7 +77,7 @@ export class BasicsDataPage {
       that.product['merchantUuid'] = that.product['preLoanMerchantUuid'];
       that.merchantDisabled = true;
       that.dataSave.setMerchant(that.product['preLoanMerchantUuid']);
-    } else if (!!that.loanStep.step5 && that.product['merchantUuid']) {
+    } else if (!!that.loanStep && !!that.loanStep.step5 && that.product['merchantUuid']) {
       that.merchantDisabled = true;
       that.dataSave.setMerchant(that.product['merchantUuid']);
     } else {
