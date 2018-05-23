@@ -3,12 +3,14 @@ import {ModalController, NavController} from 'ionic-angular';
 import {LoginPage} from "../welcome/login";
 import {MessageService} from "../../providers/MessageService";
 import {StorageService} from "../../providers/StorageService";
+import {BasicInfoPage} from "./basic-info/basic-info";
 
 @Component({
   selector: 'page-my-center',
   templateUrl: 'my-center.html'
 })
 export class MyCenterPage {
+  BasicInfoPage = BasicInfoPage;
 
   constructor(public navCtrl: NavController,
               public modalCtrl: ModalController,
@@ -18,6 +20,7 @@ export class MyCenterPage {
   }
 
   loginOut(){
+
     let that = this;
     that.message.presentConfirm("提示", "退出当前账号", () => {
       localStorage.clear();

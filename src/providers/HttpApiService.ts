@@ -46,7 +46,7 @@ export class HttpApiService {
           let respCode = res['respCode'];
           if (respCode != '100200') {
             // if (respCode != '101704' && respCode != '101705' && respCode != '101604') {
-              this.message.showToast(res['respMsg']);
+              this.message.showToastTop(res['respMsg']);
             // }
             reject(res);
           } else {

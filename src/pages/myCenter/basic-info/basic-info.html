@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      基础信息
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="!!personData">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/myCenter/userinfomation.png">
+      </ion-avatar>
+      <ion-input type="text" placeholder="请输入姓名"
+                 [disabled]="!!status.hasApplyed || status.checkIdentity == 1  || status.bindCard == 1"
+                 [(ngModel)]="personData.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/myCenter/uinfo.png">
+      </ion-avatar>
+      <ion-input type="number" placeholder="请输入身份证号"
+                 [disabled]="!!status.hasApplyed || status.checkIdentity == 1 || status.bindCard == 1"
+                 [(ngModel)]="personData.idNumber"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/myCenter/phone.png">
+      </ion-avatar>
+      <ion-input type="number" placeholder="请输入手机号" value="{{personData.mobile}}" disabled></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="!!personData">
+    <button [hidden]="!!status.hasApplyed || status.checkIdentity == 1 || status.bindCard == 1" ion-button block
+            class="default-button-size" (click)="save()" tappable>保存
+    </button>
+  </div>
+
+</ion-content>

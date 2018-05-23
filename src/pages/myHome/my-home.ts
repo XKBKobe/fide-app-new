@@ -40,9 +40,7 @@ export class MyHomePage {
       refresher && refresher.complete();
     }, err => {
       if (err && err['respCode'] == 101604) {
-        localStorage.clear();
-        this.modalCtrl.create(LoginPage).present();
-        return false;
+        return this.modalCtrl.create(LoginPage).present();
       }
       refresher && refresher.complete();
     })
