@@ -8,7 +8,7 @@
 
 <ion-content>
   <ion-list *ngIf="!!data">
-    <ion-item class="bg-white" style="padding-left: 10px;">
+    <ion-item class="bg-white" style="padding-left: 10px;border: none;">
       <ion-avatar item-start style="margin-right: 10px;">
         <img src="assets/imgs/myLoan/fdlog.png">
       </ion-avatar>
@@ -23,26 +23,32 @@
     </ion-item>
   </ion-list>
 
-  <ion-list *ngIf="!!data">
-    <ion-item *ngFor="let item of data.loanAuditLogList">
+  <ion-list *ngIf="!!data" style="margin: 0;position: relative;">
+    <ion-item *ngFor="let item of data.loanAuditLogList,let i = index"
+              [ngStyle]="{'background-color':i % 2 != 0 ? '#EAF3FE' : '#F6F9FD' }"
+              style="height: 120px;padding-left: 40px;position: relative;">
       <div *ngIf="!item.showCM">
         <h3>{{item.sufAuditStatus | applyStatus}}</h3>
         <p>{{item.auditIdea}}</p>
         <p>{{item.auditTime | date: 'yyyy-MM-dd HH:mm'}}</p>
       </div>
-
       <div [hidden]="!item.showCM">
-        <ion-avatar item-start>
-          <img src="{{item.cManagerPngUrl}}">
+        <ion-avatar class="fl">
+          <img src="{{item.cManagerPngUrl}}" style="border-radius: 50%;width: 70px;height: 70px;">
         </ion-avatar>
-        <div item-end>
-          <h3>{{item.cManagerName}}</h3>
+        <div class="fl" style="padding-left: 10px;">
+          <h3 [style.color]="i == 0 ?'#11cd6e' :'#3c3b3b'">分配客户经理</h3>
+          <p>{{item.cManagerName}}</p>
           <p>{{item.cManagerMobile}}</p>
           <p>{{item.auditTime | date: 'yyyy-MM-dd HH:mm'}}</p>
         </div>
-
       </div>
+      <div class="clear"></div>
+      <div *ngIf="i ==0" class="approve-high"></div>
+      <div *ngIf="i !=0" class="approve-normal"></div>
     </ion-item>
+    <div *ngIf="data"
+         style="position: absolute;width: 1px;background-color: #c1c1c1;top: 67px;left: 17px;z-index: 99;"
+         [ngStyle]="{'height':120 * (data.loanAuditLogList.length-1) +'px' }"></div>
   </ion-list>
-
 </ion-content>

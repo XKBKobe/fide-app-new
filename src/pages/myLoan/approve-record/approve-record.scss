@@ -1,7 +1,42 @@
-page-approve-record{
+page-approve-record {
   .item-ios ion-avatar img {
     width: 60px;
     height: 60px;
     border-radius: 0;
   }
+
+  .list-ios {
+    margin: 0;
+  }
+
+  .list-ios .item-block .item-inner {
+    border: none;
+  }
+
+  .list-md .item-block .item-inner {
+    border: none;
+  }
+
+  .approve-normal {
+    position: absolute;
+    left: 10px;
+    top: 53px;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background-color: #c1c1c1;
+    z-index: 1000;
+  }
+
+  .approve-high {
+    position: absolute;
+    left: 10px;
+    top: 53px;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background-color: color($colors, primary);;
+    z-index: 1000;
+  }
+
 }
