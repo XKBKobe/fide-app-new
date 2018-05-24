@@ -12,6 +12,8 @@ import {APPSTATUS} from "../../providers/BaseConfig";
 })
 export class LoginPage {
 
+  account: { accNum?: any, pass?: any} = {accNum: "", pass: ""};
+
   constructor(public navCtrl: NavController,
               public http: HttpApiService,
               public storage: StorageService,
@@ -22,8 +24,8 @@ export class LoginPage {
 
   login() {
     let params = {
-      "loginName": 18072717067,
-      "password": this.utils.Md5('000000'),
+      "loginName": this.account.accNum,
+      "password": this.utils.Md5(this.account.pass),
       "sysSource": '1',
       "cid": ''
     };

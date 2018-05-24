@@ -58,6 +58,7 @@ import {BasDataPage} from "../pages/myData/bas-data/bas-data";
 import {CreDataPage} from "../pages/myData/cre-data/cre-data";
 import {ApproveRecordPage} from "../pages/myLoan/approve-record/approve-record";
 import {BasicInfoPage} from "../pages/myCenter/basic-info/basic-info";
+import {ChangePasswordPage} from "../pages/myCenter/change-password/change-password";
 
 
 
@@ -96,7 +97,8 @@ import {BasicInfoPage} from "../pages/myCenter/basic-info/basic-info";
     CreDataPage,
     ApproveRecordPage,
     LoanAmountPipe,
-    BasicInfoPage
+    BasicInfoPage,
+    ChangePasswordPage
   ],
   imports: [
     BrowserModule,
@@ -148,7 +150,8 @@ import {BasicInfoPage} from "../pages/myCenter/basic-info/basic-info";
     BasDataPage,
     CreDataPage,
     ApproveRecordPage,
-    BasicInfoPage
+    BasicInfoPage,
+    ChangePasswordPage
   ],
   providers: [
     StatusBar,

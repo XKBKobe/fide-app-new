@@ -51,6 +51,10 @@ export const HTTP_URL_JSON = {
     server: "fideCheifServer",
     url: "/loan/queryLoanLog"
   },
+  updatepwd: {   //修改密码
+    server: "fideUserServer",
+    url: "/user/updatepwd"
+  },
 
 
 };

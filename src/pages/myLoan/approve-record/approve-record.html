@@ -25,7 +25,7 @@
 
   <ion-list *ngIf="!!data" style="margin: 0;position: relative;">
     <ion-item *ngFor="let item of data.loanAuditLogList,let i = index"
-              [ngStyle]="{'background-color':i % 2 != 0 ? '#EAF3FE' : '#F6F9FD' }"
+              [ngStyle]="{'background-color':i % 2 != 0 ? '#f3f3f4' : '#edeeef' }"
               style="height: 120px;padding-left: 40px;position: relative;">
       <div *ngIf="!item.showCM">
         <h3>{{item.sufAuditStatus | applyStatus}}</h3>

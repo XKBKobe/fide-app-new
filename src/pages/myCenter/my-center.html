@@ -13,7 +13,8 @@
         <img src="assets/imgs/myCenter/user_pic_default.png" style="width: 80px;height: 80px;">
       </ion-thumbnail>
       <h2 style="color: #ffffff;">18055417483</h2>
-      <button ion-button clear item-end outline style="background-color: #ffffff;width: 60px;" (click)="loginOut()">退出</button>
+      <button ion-button clear item-end outline style="background-color: #ffffff;width: 60px;" (click)="loginOut()">退出
+      </button>
     </ion-item>
   </ion-list>
 
@@ -24,7 +25,7 @@
       </ion-avatar>
       <div style="font-size: 1.5rem;padding-left: 8px;">基本信息</div>
     </ion-item>
-    <ion-item class="right-arrow">
+    <ion-item class="right-arrow" [navPush]="ChangePasswordPage">
       <ion-avatar class="my-center-img" item-start>
         <img src="assets/imgs/myCenter/name_inputIcon_select.png">
       </ion-avatar>

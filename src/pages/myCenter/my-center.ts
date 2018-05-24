@@ -4,6 +4,7 @@ import {LoginPage} from "../welcome/login";
 import {MessageService} from "../../providers/MessageService";
 import {StorageService} from "../../providers/StorageService";
 import {BasicInfoPage} from "./basic-info/basic-info";
+import {ChangePasswordPage} from "./change-password/change-password";
 
 @Component({
   selector: 'page-my-center',
@@ -11,20 +12,22 @@ import {BasicInfoPage} from "./basic-info/basic-info";
 })
 export class MyCenterPage {
   BasicInfoPage = BasicInfoPage;
+  ChangePasswordPage = ChangePasswordPage;
 
   constructor(public navCtrl: NavController,
               public modalCtrl: ModalController,
-              public message:MessageService,
-              public storage:StorageService) {
+              public message: MessageService,
+              public storage: StorageService) {
+
 
   }
 
-  loginOut(){
+  loginOut() {
 
     let that = this;
     that.message.presentConfirm("提示", "退出当前账号", () => {
       localStorage.clear();
-      that.storage.clearStorage(data =>{
+      that.storage.clearStorage(data => {
         that.modalCtrl.create(LoginPage).present();
       })
     });
