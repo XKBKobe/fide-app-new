@@ -1,4 +1,9 @@
 page-basics-data {
+  ion-select {
+    max-width: 100%;
+    flex: 1;
+  }
+
   .item-block {
     min-height: auto;
   }

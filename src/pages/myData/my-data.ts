@@ -12,7 +12,7 @@ import {CreDataPage} from "./cre-data/cre-data";
 })
 export class MyDataPage {
   //信息配置
-  personSetting:any;
+  personSetting: any;
 
   constructor(public navCtrl: NavController,
               public http: HttpApiService) {
@@ -20,7 +20,11 @@ export class MyDataPage {
   }
 
   ionViewDidEnter() {
-
+    this.http.post('queryPersonalMaterialSetting', {}, false).then(res => {
+      this.personSetting = res;
+      this.getPercentage();
+      console.log(res);
+    });
   }
 
   ionViewDidLoad() {
@@ -37,37 +41,37 @@ export class MyDataPage {
         stretch: 0,
         depth: 100,
         modifier: 1,
-        slideShadows : true,
+        slideShadows: true,
       },
       pagination: {
         el: '.swiper-pagination',
       },
     });
-
-    this.http.post('queryPersonalMaterialSetting', {}, false).then(res => {
-     this.personSetting = res;
-      console.log(res);
-    });
   }
 
   //个人资料
-  goPer(){
-    this.navCtrl.push(PerDataPage,{
-      personSetting:JSON.parse(this.personSetting)
+  goPer() {
+    this.navCtrl.push(PerDataPage, {
+      personSetting: JSON.parse(this.personSetting)
     })
   }
 
   //个人资料
-  goBas(){
-    this.navCtrl.push(BasDataPage,{
-      personSetting:JSON.parse(this.personSetting)
+  goBas() {
+    this.navCtrl.push(BasDataPage, {
+      personSetting: JSON.parse(this.personSetting)
     })
   }
 
   //信贷资料
-  goCre(){
-    this.navCtrl.push(CreDataPage,{
-      personSetting:JSON.parse(this.personSetting)
+  goCre() {
+    this.navCtrl.push(CreDataPage, {
+      personSetting: JSON.parse(this.personSetting)
     })
+  }
+
+  getPercentage(){
+    let setting = this.personSetting;
+
   }
 }
