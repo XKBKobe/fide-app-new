@@ -59,6 +59,9 @@ import {CreDataPage} from "../pages/myData/cre-data/cre-data";
 import {ApproveRecordPage} from "../pages/myLoan/approve-record/approve-record";
 import {BasicInfoPage} from "../pages/myCenter/basic-info/basic-info";
 import {ChangePasswordPage} from "../pages/myCenter/change-password/change-password";
+import {AlipayPage} from "../pages/myData/cre-data/alipay/alipay";
+import {TobaccoPage} from "../pages/myData/cre-data/tobacco/tobacco";
+import {FundPage} from "../pages/myData/cre-data/fund/fund";
 
 
 
@@ -98,7 +101,10 @@ import {ChangePasswordPage} from "../pages/myCenter/change-password/change-passw
     ApproveRecordPage,
     LoanAmountPipe,
     BasicInfoPage,
-    ChangePasswordPage
+    ChangePasswordPage,
+    AlipayPage,
+    TobaccoPage,
+    FundPage
   ],
   imports: [
     BrowserModule,
@@ -151,7 +157,10 @@ import {ChangePasswordPage} from "../pages/myCenter/change-password/change-passw
     CreDataPage,
     ApproveRecordPage,
     BasicInfoPage,
-    ChangePasswordPage
+    ChangePasswordPage,
+    AlipayPage,
+    TobaccoPage,
+    FundPage
   ],
   providers: [
     StatusBar,

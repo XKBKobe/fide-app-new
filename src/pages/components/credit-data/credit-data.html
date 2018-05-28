@@ -1,6 +1,6 @@
 <div style="margin-top: 10px;">
   <ion-list style="margin: 0;">
-    <ion-item class="credit-item right-arrow" [hidden]="!step4Set.ALIPAY.isShow">
+    <ion-item class="credit-item right-arrow" [hidden]="!step4Set.ALIPAY.isShow" [navPush]="AlipayPage">
       <ion-avatar item-start style="margin: 0">
         <img class="credit-img" src="/assets/imgs/myData/creditData/alipay.png">
       </ion-avatar>
@@ -16,7 +16,7 @@
       <span [hidden]="!step4Set.BANK_CARD.isRequire" class="require-star">*</span>
     </ion-item>
 
-    <ion-item class="credit-item right-arrow" [hidden]="!step4Set.TOBACCO.isShow">
+    <ion-item class="credit-item right-arrow" [hidden]="!step4Set.TOBACCO.isShow" [navPush]="TobaccoPage">
       <ion-avatar item-start style="margin: 0">
         <img class="credit-img" src="/assets/imgs/myData/creditData/tobacco.png">
       </ion-avatar>
