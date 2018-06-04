@@ -30,7 +30,9 @@ import {TargetCustomerPipe} from "../pipes/target-customer.pipe";
 import {ProductRowPipe} from "../pipes/productRow.pipe";
 import {ApplyStatusPipe} from "../pipes/apply-status.pipe";
 import {LoanAmountPipe} from "../pipes/loan-amount.pipe";
-import {BankFormatPipe} from "../pipes/bank-format";
+import {BankFormatPipe} from "../pipes/bank-format.pipe";
+import {PosTypePipe} from "../pipes/pos-type.pipe";
+
 
 
 //pages
@@ -64,6 +66,7 @@ import {AlipayPage} from "../pages/myData/cre-data/alipay/alipay";
 import {TobaccoPage} from "../pages/myData/cre-data/tobacco/tobacco";
 import {FundPage} from "../pages/myData/cre-data/fund/fund";
 import {BankPage} from "../pages/myData/cre-data/bank/bank";
+import {PosPage} from "../pages/myData/cre-data/pos/pos";
 
 
 
@@ -108,7 +111,9 @@ import {BankPage} from "../pages/myData/cre-data/bank/bank";
     TobaccoPage,
     FundPage,
     BankPage,
-    BankFormatPipe
+    BankFormatPipe,
+    PosPage,
+    PosTypePipe
   ],
   imports: [
     BrowserModule,
@@ -165,7 +170,8 @@ import {BankPage} from "../pages/myData/cre-data/bank/bank";
     AlipayPage,
     TobaccoPage,
     FundPage,
-    BankPage
+    BankPage,
+    PosPage
   ],
   providers: [
     StatusBar,

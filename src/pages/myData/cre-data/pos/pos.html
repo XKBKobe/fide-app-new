@@ -7,37 +7,45 @@
 </ion-header>
 
 <ion-content>
-  <ion-list *ngIf="!!data.length && !isBankList">
-    <ion-label class="cre-data-title">已绑银行账户</ion-label>
+  <ion-list *ngIf="!!data.length && !isPosList">
+    <ion-label class="cre-data-title">已绑POS账户</ion-label>
     <ion-item-sliding style="margin: 10px;border-radius: 5px;width: auto;">
       <ion-item *ngFor="let item of data" style="border: none;">
         <ion-avatar item-start>
-          <img src="/assets/imgs/myData/creditData/fund.png">
+          <img src="assets/imgs/myData/creditData/{{item.category}}.png">
         </ion-avatar>
-        <h3>{{data.categoryName}}</h3>
-        <p>{{data.acct | bankFormat}}</p>
+        <h3>{{data.category | posType}}</h3>
+        <p>{{data.acct}}</p>
       </ion-item>
     </ion-item-sliding>
   </ion-list>
 
-  <ion-list *ngIf="!isBankList" tappable (click)="addBank()">
+  <ion-list *ngIf="!isPosList" tappable (click)="addPos()">
     <ion-item-sliding style="margin: 10px;width: auto;">
       <ion-item class="add-item">
         <ion-avatar item-start>
           <img src="/assets/imgs/myData/creditData/addicon.png">
         </ion-avatar>
-        <h3>添加银行账户</h3>
+        <h3>添加POS账户</h3>
       </ion-item>
     </ion-item-sliding>
   </ion-list>
 
-  <ion-list *ngIf="!!bankList.length && !!isBankList">
+  <ion-list *ngIf="!!isPosList">
     <ion-item-sliding>
-      <ion-item *ngFor="let item of bankList" class="right-arrow">
+      <ion-item class="right-arrow">
         <ion-avatar item-start>
-          <img src="{{fideStatic}}{{item.bankCode}}.png">
+          <img src="assets/imgs/myData/creditData/tl.png">
         </ion-avatar>
-        <h3>{{item.bankName}}</h3>
+        <h3>银联</h3>
+      </ion-item>
+    </ion-item-sliding>
+    <ion-item-sliding>
+      <ion-item class="right-arrow">
+        <ion-avatar item-start>
+          <img src="assets/imgs/myData/creditData/yl.png">
+        </ion-avatar>
+        <h3>通联</h3>
       </ion-item>
     </ion-item-sliding>
   </ion-list>

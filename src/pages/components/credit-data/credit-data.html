@@ -32,7 +32,7 @@
       <span [hidden]="!step4Set.ACCUMULATIONFUND.isRequire" class="require-star">*</span>
     </ion-item>
 
-    <ion-item class="credit-item right-arrow" [hidden]="!step4Set.POS.isShow">
+    <ion-item class="credit-item right-arrow" [hidden]="!step4Set.POS.isShow" [navPush]="PosPage">
       <ion-avatar item-start style="margin: 0;">
         <img class="credit-img" src="/assets/imgs/myData/creditData/pos.png">
       </ion-avatar>
