@@ -58,7 +58,11 @@ export const HTTP_URL_JSON = {
   queryAccountByType: { //查询数据源列表
     server: "fideDataGServer",
     url: "/account/queryAccountByType"
-  }
+  },
+  getOrgBankInfo4App: { //数据源银行卡
+    server: "fideCheifServer",
+    url: "/bankcard/getOrgBankInfo4App"
+  },
 
 
 };

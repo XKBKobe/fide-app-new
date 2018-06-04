@@ -1,35 +1,45 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      公积金账户
+      银行账户
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list *ngIf="!!data.length">
-    <ion-label class="cre-data-title">已绑公积金账户</ion-label>
+  <ion-list *ngIf="!!data.length && !isBankList">
+    <ion-label class="cre-data-title">已绑银行账户</ion-label>
     <ion-item-sliding style="margin: 10px;border-radius: 5px;width: auto;">
       <ion-item *ngFor="let item of data" style="border: none;">
         <ion-avatar item-start>
           <img src="/assets/imgs/myData/creditData/fund.png">
         </ion-avatar>
-        <h3>公积金账户</h3>
-        <p>{{item.acct}}</p>
+        <h3>{{data.categoryName}}}</h3>
+        <p>{{data.acct | bankFormat}}</p>
       </ion-item>
     </ion-item-sliding>
   </ion-list>
 
-  <ion-list>
+  <ion-list *ngIf="!isBankList" tappable (click)="addBank()">
     <ion-item-sliding style="margin: 10px;width: auto;">
       <ion-item class="add-item">
         <ion-avatar item-start>
           <img src="/assets/imgs/myData/creditData/addicon.png">
         </ion-avatar>
-        <h3>添加公积金账户</h3>
+        <h3>添加银行账户</h3>
       </ion-item>
     </ion-item-sliding>
   </ion-list>
 
+  <ion-list *ngIf="!!bankList.length && !!isBankList">
+    <ion-item-sliding>
+      <ion-item *ngFor="let item of bankList" class="right-arrow">
+        <ion-avatar item-start>
+          <img src="{{fideStatic}}{{item.bankCode}}.png">
+        </ion-avatar>
+        <h3>{{item.bankName}}</h3>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
 
 </ion-content>

@@ -4,14 +4,19 @@ import {TabsPage} from "../tabs/tabs";
 import {LoginPage} from "../../welcome/login";
 import {HttpApiService} from "../../../../providers/HttpApiService";
 import {MessageService} from "../../../../providers/MessageService";
+import {BASIC_SETTINGS_JSON} from "../../../../providers/BaseConfig";
 
 
 @Component({
-  selector: 'page-fund',
-  templateUrl: 'fund.html'
+  selector: 'page-bank',
+  templateUrl: 'bank.html'
 })
-export class FundPage {
+export class BankPage {
   data: any = [];
+  bankList: any = [];
+  fideStatic: any;
+  isBankList: boolean = false;
+
 
   constructor(public navCtrl: NavController,
               public http: HttpApiService,
@@ -22,8 +27,17 @@ export class FundPage {
   }
 
   ionViewDidLoad() {
-    this.http.post("queryAccountByType", {acctType: 'ACCUMULATIONFUND'}).then(result => {
+    this.fideStatic = BASIC_SETTINGS_JSON.fideStatic;
+    this.http.post("queryAccountByType", {acctType: 'BANK_CARD'}).then(result => {
       this.data = result;
+      console.log(result);
+    })
+  }
+
+  addBank() {
+    this.http.post("getOrgBankInfo4App", {}).then(result => {
+      this.bankList = result;
+      this.isBankList = true;
       console.log(result);
     })
   }

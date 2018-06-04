@@ -2,6 +2,8 @@ import {Component, Input} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {AlipayPage} from "../../myData/cre-data/alipay/alipay";
 import {TobaccoPage} from "../../myData/cre-data/tobacco/tobacco";
+import {FundPage} from "../../myData/cre-data/fund/fund";
+import {BankPage} from "../../myData/cre-data/bank/bank";
 
 @Component({
   selector: 'page-credit-data',
@@ -16,12 +18,17 @@ export class CreditDataPage {
   AlipayPage = AlipayPage;
   //烟草
   TobaccoPage = TobaccoPage;
+  //公积金
+  FundPage = FundPage;
+  //银行卡
+  BankPage = BankPage;
 
   constructor(public navCtrl: NavController) {
 
   }
 
   ngOnInit() {
+
     console.log(this.step4Set);
   }
 

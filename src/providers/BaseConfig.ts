@@ -7,7 +7,11 @@ export const BASIC_SETTINGS_JSON = {
   //"https://fidebsz.yuanbaopu.com/api/"线上
   //"https://fidebszltest.yuanbaopu.com/api/"云测
 
-  "fideServer": "https://fidebszltest.yuanbaopu.com/api/"
+  //fide_access服务
+  fideServer: "https://fidebszltest.yuanbaopu.com/api/",
+
+  //fide静态文件
+  fideStatic: "http://static.yuanbaopu.com/ui/fide/image/dataSource/bank_card/", //"http://static.yuanbaopu.com/ui/fide/image/bank_icon/"线上/
 };
 
 
