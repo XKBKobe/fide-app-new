@@ -27,7 +27,13 @@ export class LoanStepFourPage {
 
   ngOnInit() {
     this.http.post('isDataFill', {}).then(res => {
-      this.creditData = res;
+      let data =  this.step4Set;
+      for (let i in data) {
+        if (res[i]) {
+          data[i].num = res[i];
+        }
+      }
+      this.step4Set = data;
     })
   }
 
@@ -37,7 +43,7 @@ export class LoanStepFourPage {
       for (let i in that.step4Set) {
         let credit = that.step4Set[i];
         if (!!credit.isRequire) {
-          if (that.creditData[i] > 0) {
+          if (credit.num > 0) {
             continue;
           } else {
             return that.message.presentAlert(credit.requireText);

@@ -23,9 +23,17 @@ export class CreDataPage {
   ionViewDidLoad() {
     let that = this;
     let creSet = that.personSetting.availableDataSource;
-    //查询信贷资料的数目
-    that.comm.checkMaterial(creSet, 'step4', data => {
-      that.step4Set = data;
+    that.http.post('isDataFill', {}).then(res => {
+      console.log('isDataFill ', res);
+      //查询信贷资料的数目
+      that.comm.checkMaterial(creSet, 'step4', data => {
+        for (let i in data) {
+          if (res[i]) {
+            data[i].num = res[i];
+          }
+        }
+        that.step4Set = data;
+      });
     })
   }
 }

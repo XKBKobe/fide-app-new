@@ -1,51 +1,51 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      POS账户
+      外卖团购账户
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list *ngIf="!!data.length && !isPosList">
-    <ion-label class="cre-data-title">已绑POS账户</ion-label>
+  <ion-list *ngIf="!!data.length && !isOtoList">
+    <ion-label class="cre-data-title">已绑外卖团购账户</ion-label>
     <ion-item-sliding style="margin: 10px;border-radius: 5px;width: auto;">
       <ion-item *ngFor="let item of data" style="border: none;">
         <ion-avatar item-start>
           <img src="assets/imgs/myData/creditData/{{item.category}}.png">
         </ion-avatar>
-        <h3>{{item.category | posType}}</h3>
+        <h3>{{item.category | otoType}}</h3>
         <p>{{item.acct}}</p>
       </ion-item>
     </ion-item-sliding>
   </ion-list>
 
-  <ion-list *ngIf="!isPosList" tappable (click)="addPos()">
+  <ion-list *ngIf="!isOtoList" tappable (click)="addOto()">
     <ion-item-sliding style="margin: 10px;width: auto;">
       <ion-item class="add-item">
         <ion-avatar item-start>
           <img src="/assets/imgs/myData/creditData/addicon.png">
         </ion-avatar>
-        <h3>添加POS账户</h3>
+        <h3>添加外卖团购账户</h3>
       </ion-item>
     </ion-item-sliding>
   </ion-list>
 
-  <ion-list *ngIf="!!isPosList">
+  <ion-list *ngIf="!!isOtoList">
     <ion-item-sliding>
       <ion-item class="right-arrow">
         <ion-avatar item-start>
-          <img src="assets/imgs/myData/creditData/tl.png">
+          <img src="assets/imgs/myData/creditData/dzdp.png">
         </ion-avatar>
-        <h3>银联</h3>
+        <h3>大众点评</h3>
       </ion-item>
     </ion-item-sliding>
     <ion-item-sliding>
       <ion-item class="right-arrow">
         <ion-avatar item-start>
-          <img src="assets/imgs/myData/creditData/yl.png">
+          <img src="assets/imgs/myData/creditData/mtsj.png">
         </ion-avatar>
-        <h3>通联</h3>
+        <h3>美团商家</h3>
       </ion-item>
     </ion-item-sliding>
   </ion-list>

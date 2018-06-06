@@ -7,12 +7,12 @@ import {MessageService} from "../../../../providers/MessageService";
 
 
 @Component({
-  selector: 'page-pos',
-  templateUrl: 'pos.html'
+  selector: 'page-oto',
+  templateUrl: 'oto.html'
 })
-export class PosPage {
+export class OtoPage {
   data: any = [];
-  isPosList: boolean = false;
+  isOtoList: boolean = false;
 
 
   constructor(public navCtrl: NavController,
@@ -24,13 +24,14 @@ export class PosPage {
   }
 
   ionViewDidLoad() {
-    this.http.post("queryAccountByType", {acctType: 'POS'}).then(result => {
+    console.log('1111');
+    this.http.post("queryAccountByType", {acctType: 'OTO'}).then(result => {
       this.data = result;
       console.log(result);
     })
   }
 
-  addPos() {
-    this.isPosList = true;
+  addOto() {
+    this.isOtoList = true;
   }
 }

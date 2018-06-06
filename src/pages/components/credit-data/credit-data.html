@@ -5,6 +5,7 @@
         <img class="credit-img" src="/assets/imgs/myData/creditData/alipay.png">
       </ion-avatar>
       <h4 style="padding-left: 8px;">支付宝</h4>
+      <button item-end ion-button outline>{{step4Set.ALIPAY.num}}</button>
       <span [hidden]="!step4Set.ALIPAY.isRequire" class="require-star">*</span>
     </ion-item>
 
@@ -13,6 +14,7 @@
         <img class="credit-img" src="/assets/imgs/myData/creditData/bank.png">
       </ion-avatar>
       <h4 style="padding-left: 8px;">银行卡</h4>
+      <button item-end ion-button outline>{{step4Set.BANK_CARD.num}}</button>
       <span [hidden]="!step4Set.BANK_CARD.isRequire" class="require-star">*</span>
     </ion-item>
 
@@ -21,6 +23,7 @@
         <img class="credit-img" src="/assets/imgs/myData/creditData/tobacco.png">
       </ion-avatar>
       <h4 style="padding-left: 8px;">烟草账户</h4>
+      <button item-end ion-button outline>{{step4Set.TOBACCO.num}}</button>
       <span [hidden]="!step4Set.TOBACCO.isRequire" class="require-star">*</span>
     </ion-item>
 
@@ -29,6 +32,7 @@
         <img class="credit-img" src="/assets/imgs/myData/creditData/fund.png">
       </ion-avatar>
       <h4 style="padding-left: 8px;">公积金</h4>
+      <button item-end ion-button outline>{{step4Set.ACCUMULATIONFUND.num}}</button>
       <span [hidden]="!step4Set.ACCUMULATIONFUND.isRequire" class="require-star">*</span>
     </ion-item>
 
@@ -37,30 +41,35 @@
         <img class="credit-img" src="/assets/imgs/myData/creditData/pos.png">
       </ion-avatar>
       <h4 style="padding-left: 8px;">POS</h4>
+      <button item-end ion-button outline>{{step4Set.POS.num}}</button>
       <span [hidden]="!step4Set.POS.isRequire" class="require-star">*</span>
     </ion-item>
 
-    <ion-item class="credit-item right-arrow" [hidden]="!step4Set.OTO.isShow">
+    <ion-item class="credit-item right-arrow" [hidden]="!step4Set.OTO.isShow" [navPush]="OtoPage">
       <ion-avatar item-start style="margin: 0;">
         <img class="credit-img" src="/assets/imgs/myData/creditData/takeout.png">
       </ion-avatar>
       <h4 style="padding-left: 8px;">外卖团购</h4>
+      <button item-end ion-button outline>{{step4Set.OTO.num}}</button>
       <span [hidden]="!step4Set.OTO.isRequire" class="require-star">*</span>
     </ion-item>
 
-    <ion-item class="credit-item right-arrow" [hidden]="!step4Set.YHZX.isShow">
+    <ion-item class="credit-item right-arrow" [hidden]="!step4Set.YHZX.isShow" [navPush]="PerCreditPage">
       <ion-avatar item-start style="margin: 0;">
         <img class="credit-img" src="/assets/imgs/myData/creditData/yhzx.png">
       </ion-avatar>
       <h4 style="padding-left: 8px;">个人简版征信</h4>
+      <button item-end ion-button outline>{{step4Set.YHZX.num}}</button>
       <span [hidden]="!step4Set.YHZX.isRequire" class="require-star">*</span>
     </ion-item>
 
-    <ion-item class="credit-item right-arrow" [hidden]="!step4Set.PERSONAL_CREDIT.isShow">
+    <ion-item class="credit-item right-arrow" [hidden]="!step4Set.PERSONAL_CREDIT.isShow" [navPush]="PerCreditPage"
+              [navParams]="">
       <ion-avatar item-start style="margin: 0;">
         <img class="credit-img" src="/assets/imgs/myData/creditData/perCredit.png">
       </ion-avatar>
       <h4 style="padding-left: 8px;">个人征信授权</h4>
+      <button item-end ion-button outline>{{step4Set.PERSONAL_CREDIT.num}}</button>
       <span [hidden]="!step4Set.PERSONAL_CREDIT.isRequire" class="require-star">*</span>
     </ion-item>
 
@@ -70,6 +79,7 @@
              src="/assets/imgs/myData/creditData/huimin.png">
       </ion-avatar>
       <h4 style="padding-left: 8px;">惠民征信授权</h4>
+      <button item-end ion-button outline>{{step4Set.HUIMIN_CREDIT.num}}</button>
       <span [hidden]="!step4Set.HUIMIN_CREDIT.isRequire" class="require-star">*</span>
     </ion-item>
   </ion-list>

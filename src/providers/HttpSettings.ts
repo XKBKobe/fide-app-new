@@ -1,7 +1,11 @@
 export const HTTP_URL_JSON = {
-  login: {  //登录
+  login: { //登录
     server: 'fideUserServer',
     url: '/user/login'
+  },
+  getPerson: { //获取用户信息
+    server: "fideUserServer",
+    url: "/user/getPerson"
   },
   queryProductList: { //查询产品列表
     server: 'fideCheifServer',
@@ -11,7 +15,7 @@ export const HTTP_URL_JSON = {
     server: 'fideCheifServer',
     url: '/product/queryProductInfo'
   },
-  queryOrg: {  //查询附近银行机构
+  queryOrg: { //查询附近银行机构
     server: 'fideUserServer',
     url: '/org/queryOrg'
   },
@@ -63,6 +67,9 @@ export const HTTP_URL_JSON = {
     server: "fideCheifServer",
     url: "/bankcard/getOrgBankInfo4App"
   },
-
+  perCredit: { //percredit 个人征信
+    server: "fideCreditServer",
+    url: "/loan/percredit"
+  },
 
 };

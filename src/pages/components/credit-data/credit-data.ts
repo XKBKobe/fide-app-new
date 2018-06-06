@@ -5,6 +5,8 @@ import {TobaccoPage} from "../../myData/cre-data/tobacco/tobacco";
 import {FundPage} from "../../myData/cre-data/fund/fund";
 import {BankPage} from "../../myData/cre-data/bank/bank";
 import {PosPage} from "../../myData/cre-data/pos/pos";
+import {OtoPage} from "../../myData/cre-data/oto/oto";
+import {PerCreditPage} from "../../myData/cre-data/per-credit/per-credit";
 
 @Component({
   selector: 'page-credit-data',
@@ -25,13 +27,16 @@ export class CreditDataPage {
   BankPage = BankPage;
   //pos
   PosPage = PosPage;
+  //oto
+  OtoPage = OtoPage;
+  //个人征信授权
+  PerCreditPage = PerCreditPage;
 
   constructor(public navCtrl: NavController) {
 
   }
 
   ngOnInit() {
-
     console.log(this.step4Set);
   }
 

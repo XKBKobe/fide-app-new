@@ -32,7 +32,7 @@ import {ApplyStatusPipe} from "../pipes/apply-status.pipe";
 import {LoanAmountPipe} from "../pipes/loan-amount.pipe";
 import {BankFormatPipe} from "../pipes/bank-format.pipe";
 import {PosTypePipe} from "../pipes/pos-type.pipe";
-
+import {OtoTypePipe} from "../pipes/oto-type.pipe";
 
 
 //pages
@@ -67,8 +67,8 @@ import {TobaccoPage} from "../pages/myData/cre-data/tobacco/tobacco";
 import {FundPage} from "../pages/myData/cre-data/fund/fund";
 import {BankPage} from "../pages/myData/cre-data/bank/bank";
 import {PosPage} from "../pages/myData/cre-data/pos/pos";
-
-
+import {OtoPage} from "../pages/myData/cre-data/oto/oto";
+import {PerCreditPage} from "../pages/myData/cre-data/per-credit/per-credit";
 
 
 @NgModule({
@@ -113,7 +113,10 @@ import {PosPage} from "../pages/myData/cre-data/pos/pos";
     BankPage,
     BankFormatPipe,
     PosPage,
-    PosTypePipe
+    PosTypePipe,
+    OtoTypePipe,
+    OtoPage,
+    PerCreditPage
   ],
   imports: [
     BrowserModule,
@@ -171,7 +174,9 @@ import {PosPage} from "../pages/myData/cre-data/pos/pos";
     TobaccoPage,
     FundPage,
     BankPage,
-    PosPage
+    PosPage,
+    OtoPage,
+    PerCreditPage
   ],
   providers: [
     StatusBar,

@@ -12,7 +12,7 @@ import {APPSTATUS} from "../../providers/BaseConfig";
 })
 export class LoginPage {
 
-  account: { accNum?: any, pass?: any} = {accNum: "", pass: ""};
+  account: { accNum?: any, pass?: any } = {accNum: "", pass: ""};
 
   constructor(public navCtrl: NavController,
               public http: HttpApiService,
@@ -23,16 +23,24 @@ export class LoginPage {
   }
 
   login() {
+    let that = this;
     let params = {
-      "loginName": this.account.accNum,
-      "password": this.utils.Md5(this.account.pass),
+      "loginName": that.account.accNum,
+      "password": that.utils.Md5(that.account.pass),
       "sysSource": '1',
       "cid": ''
     };
-    this.http.post('login', params).then(token => {
+    that.http.post('login', params).then(token => {
       console.log(token);
-      this.storage.setItem(APPSTATUS.SUCCESS_TOKEN, token).then(data => {
-        this.navCtrl.setRoot(TabsPage);
+      that.storage.setItem(APPSTATUS.SUCCESS_TOKEN, token).then(data => {
+        //获取用户信息
+        that.http.post('getPerson', {}).then(data => {
+          //存储用户的uuid
+          localStorage.setItem('userUuid', data['userUuid']);
+          that.navCtrl.setRoot(TabsPage);
+        }, err => {
+          console.log("请求错误", err);
+        });
       });
     }, err => {
       console.log(err);
