@@ -32,7 +32,7 @@
   </ion-list>
 
   <ion-list *ngIf="!!isPosList">
-    <ion-item-sliding>
+    <ion-item-sliding tappable (click)="openUrl('yl')">
       <ion-item class="right-arrow">
         <ion-avatar item-start>
           <img src="assets/imgs/myData/creditData/tl.png">
@@ -40,7 +40,7 @@
         <h3>银联</h3>
       </ion-item>
     </ion-item-sliding>
-    <ion-item-sliding>
+    <ion-item-sliding tappable (click)="openUrl('tl')">
       <ion-item class="right-arrow">
         <ion-avatar item-start>
           <img src="assets/imgs/myData/creditData/yl.png">

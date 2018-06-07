@@ -67,9 +67,13 @@ export const HTTP_URL_JSON = {
     server: "fideCheifServer",
     url: "/bankcard/getOrgBankInfo4App"
   },
-  perCredit: { //percredit 个人征信
+  perCredit: { //percredit个人征信
     server: "fideCreditServer",
     url: "/loan/percredit"
+  },
+  getDatagUrl: { //DatagUrl
+    server: "fideDataGServer",
+    url: "/dataG/getDataBindLoginPage"
   },
 
 };

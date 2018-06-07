@@ -4,6 +4,7 @@ import {TabsPage} from "../tabs/tabs";
 import {LoginPage} from "../../welcome/login";
 import {HttpApiService} from "../../../../providers/HttpApiService";
 import {MessageService} from "../../../../providers/MessageService";
+import {OpenUrlPage} from "../../../components/open-url/open-url";
 
 
 @Component({
@@ -32,5 +33,19 @@ export class PosPage {
 
   addPos() {
     this.isPosList = true;
+  }
+
+  openUrl(type) {
+    this.http.get('getDatagUrl', {kind: type}).then(data => {
+      let url = data['redirectUrl'];
+      let accessToken = data['accesstoken'];
+      url && accessToken && this.navCtrl.push(OpenUrlPage, {
+        title: '绑定POS账户',
+        url: url
+      },{},data =>{
+        console.log(data);
+        this.isPosList = false;
+      });
+    })
   }
 }

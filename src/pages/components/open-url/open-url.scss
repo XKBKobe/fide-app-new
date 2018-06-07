@@ -1,0 +1,30 @@
+.open-url-modal-content > .scroll-content {
+  height: 100%;
+}
+.open-url-modal-content > .scroll-content > iframe {
+  min-width: 100%;
+  min-height: 100%;
+  border: none;
+}
+
+
+.open-url-view-content {
+  min-width: 100%;
+  min-height: 100%;
+  border: none;
+}
+
+#iframeContainer iframe{
+  min-width: 100%;
+  min-height: 100%;
+  border: none;
+}
+
+
+
+#iframeContainer{
+  min-width: 100%;
+  min-height: 100%;
+  height: 100%;
+  border: none;
+}

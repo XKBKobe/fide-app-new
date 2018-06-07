@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      银行账户
+      银行卡账户
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -33,7 +33,7 @@
 
   <ion-list *ngIf="!!bankList.length && !!isBankList">
     <ion-item-sliding>
-      <ion-item *ngFor="let item of bankList" class="right-arrow">
+      <ion-item *ngFor="let item of bankList" class="right-arrow" tappable (click)="openUrl(item.bankCode)">
         <ion-avatar item-start>
           <img src="{{fideStatic}}{{item.bankCode}}.png">
         </ion-avatar>

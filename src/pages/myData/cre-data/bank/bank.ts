@@ -5,6 +5,7 @@ import {LoginPage} from "../../welcome/login";
 import {HttpApiService} from "../../../../providers/HttpApiService";
 import {MessageService} from "../../../../providers/MessageService";
 import {BASIC_SETTINGS_JSON} from "../../../../providers/BaseConfig";
+import {OpenUrlPage} from "../../../components/open-url/open-url";
 
 
 @Component({
@@ -39,6 +40,20 @@ export class BankPage {
       this.bankList = result;
       this.isBankList = true;
       console.log(result);
+    })
+  }
+
+  openUrl(type) {
+    this.http.get('getDatagUrl', {kind: type}).then(data => {
+      let url = data['redirectUrl'];
+      let accessToken = data['accesstoken'];
+      url && accessToken && this.navCtrl.push(OpenUrlPage, {
+        title: '绑定银行卡账户',
+        url: url
+      },{},data =>{
+        console.log(data);
+        this.isBankList = false;
+      });
     })
   }
 }

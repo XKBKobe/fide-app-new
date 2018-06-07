@@ -69,6 +69,7 @@ import {BankPage} from "../pages/myData/cre-data/bank/bank";
 import {PosPage} from "../pages/myData/cre-data/pos/pos";
 import {OtoPage} from "../pages/myData/cre-data/oto/oto";
 import {PerCreditPage} from "../pages/myData/cre-data/per-credit/per-credit";
+import {OpenUrlPage} from "../pages/components/open-url/open-url";
 
 
 @NgModule({
@@ -116,7 +117,8 @@ import {PerCreditPage} from "../pages/myData/cre-data/per-credit/per-credit";
     PosTypePipe,
     OtoTypePipe,
     OtoPage,
-    PerCreditPage
+    PerCreditPage,
+    OpenUrlPage
   ],
   imports: [
     BrowserModule,
@@ -176,7 +178,8 @@ import {PerCreditPage} from "../pages/myData/cre-data/per-credit/per-credit";
     BankPage,
     PosPage,
     OtoPage,
-    PerCreditPage
+    PerCreditPage,
+    OpenUrlPage
   ],
   providers: [
     StatusBar,

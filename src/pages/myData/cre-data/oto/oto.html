@@ -32,7 +32,7 @@
   </ion-list>
 
   <ion-list *ngIf="!!isOtoList">
-    <ion-item-sliding>
+    <ion-item-sliding tappable (click)="openUrl('dzdp')">
       <ion-item class="right-arrow">
         <ion-avatar item-start>
           <img src="assets/imgs/myData/creditData/dzdp.png">
@@ -40,7 +40,7 @@
         <h3>大众点评</h3>
       </ion-item>
     </ion-item-sliding>
-    <ion-item-sliding>
+    <ion-item-sliding tappable (click)="openUrl('mtsj')">
       <ion-item class="right-arrow">
         <ion-avatar item-start>
           <img src="assets/imgs/myData/creditData/mtsj.png">

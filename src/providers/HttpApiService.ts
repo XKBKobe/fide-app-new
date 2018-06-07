@@ -46,7 +46,7 @@ export class HttpApiService {
           let respCode = res['respCode'];
           if (respCode != '100200') {
             // if (respCode != '101704' && respCode != '101705' && respCode != '101604') {
-              this.message.showToastTop(res['respMsg']);
+            this.message.showToastTop(res['respMsg']);
             // }
             reject(res);
           } else {
@@ -59,5 +59,40 @@ export class HttpApiService {
         })
       });
     })
+  }
+
+
+  get(url: string, data: any, isLoading: boolean = true) {
+
+    let path = HTTP_URL_JSON[url].server + HTTP_URL_JSON[url].url;
+    let requestUrl = BASIC_SETTINGS_JSON.fideServer + CryptoJS.AES.encrypt(path, 'fide');
+
+    return new Promise((resolve, reject) => {
+      this.storage.getItem(APPSTATUS.SUCCESS_TOKEN).then(token => {
+        data.token = token;
+        data.orgCode = CONSTANTS.orgCode;
+        // data.agent = CONSTANTS.agent;
+        console.log('data ', data);
+        requestUrl = requestUrl + "?" + Object.keys(data).map(key => {
+          return encodeURIComponent(key) + "=" + encodeURIComponent(data[key]);
+        }).join('&');
+
+        !!isLoading ? this.message.showLoading() : null;
+        this.http.get(requestUrl).subscribe(res => {
+          this.message.hideLoading();
+          let respCode = res['respCode'];
+          if (respCode != '100200') {
+            if (respCode != '101704' && respCode != '101705' && respCode != '101604') {
+              this.message.showToast(res['respMsg']);
+            }
+            reject(res);
+          } else {
+            res.hasOwnProperty('data') ? resolve(res['data']) : resolve(res);
+          }
+          console.log(res);
+        })
+      })
+    })
+
   }
 }
