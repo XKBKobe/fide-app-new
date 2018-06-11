@@ -75,5 +75,9 @@ export const HTTP_URL_JSON = {
     server: "fideDataGServer",
     url: "/dataG/getDataBindLoginPage"
   },
+  signPersonalCreditForWx: {  //个人征信授权
+    server: "fideThirdServer",
+    url: "/sign/signPersonalCreditForWx"
+  }
 
 };

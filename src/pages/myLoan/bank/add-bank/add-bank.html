@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      签约
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list style="margin: 0;">
+    <ion-item>
+      <ion-label fixed>姓名</ion-label>
+      <ion-input type="text" [(ngModel)]="addBank.name" [disabled]="perDisabled"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>身份证号</ion-label>
+      <ion-input type="text" [(ngModel)]="addBank.idNumber" [disabled]="perDisabled"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-label style="padding-left: 10px;">请绑定申请人所持银行卡</ion-label>
+  <ion-list style="margin: 0;">
+    <ion-item>
+      <ion-label fixed>银行卡号</ion-label>
+      <ion-input type="number" placeholder="请输入新银行卡号" [(ngModel)]="addBank.bankNum"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>手机号码</ion-label>
+      <ion-input type="number" placeholder="请输入银行预留手机号码" [(ngModel)]="addBank.mobile"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button block class="default-button-size" (click)="submit()" tappable>提交</button>
+
+</ion-content>

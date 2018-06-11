@@ -44,9 +44,35 @@ export class UtilsService {
     return checkPersonIdcard(num, that);
   }
 
+  //校验银行卡号
+  checkBankNum(cardNumber) {
+    let that = this;
+    let reg = /^\d{16}$|^\d{17}$|^\d{18}$|^\d{19}$/;
+    if (!reg.test(cardNumber)) {
+      that.message.presentAlert('请输入正确的银行卡账号');
+      return false;
+    }
+    return true;
+  }
+
+  //手机号的校验
+  checkMobile(mobile) {
+    let that = this;
+    if (!!mobile) {
+      var reg = /^[1][345789]\d{9}$/;
+      if (!reg.test(mobile)) {
+        that.message.presentAlert("手机号码输入有误");
+        return false;
+      }
+    } else {
+      that.message.presentAlert("手机号不能为空");
+      return false;
+    }
+    return true;
+  }
 
   //检验邮箱
-  checkEmail(email){
+  checkEmail(email) {
     var reg = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     return reg.test(email);
   }
@@ -62,7 +88,7 @@ export class UtilsService {
   };
 
   //检验邮编
-  checkhouseCode(code){
+  checkhouseCode(code) {
     var reg = /^[1-9][0-9]{5}$/;
     return reg.test(code);
   }

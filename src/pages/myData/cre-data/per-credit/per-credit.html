@@ -8,13 +8,12 @@
 
 
 <ion-content>
-  <!--<iframe *ngIf="status != '1' && loanUrl" [src]="loanUrl" style="width: 100%;height: 90%;"></iframe>-->
-  <!--<ion-grid *ngIf="status != '1'" style="position: absolute;bottom: 0;width: 100%;background-color: #fff;">-->
-  <!--<button ion-button item-center (click)="sign()">签约</button>-->
-  <!--</ion-grid>-->
+  <iframe *ngIf="status != 1 && loanUrl" [src]="loanUrl" style="width: 100%;height: 90%;"></iframe>
+  <ion-grid *ngIf="status != 1" style="position: absolute;bottom: 0;width: 100%;background-color: #fff;">
+    <button ion-button item-center (click)="sign()">签约</button>
+  </ion-grid>
 
-  <iframe *ngIf="!!loanUrl" [src]="loanUrl" style="width: 100%;height: 100%;"></iframe>
-
+  <iframe *ngIf="status == 1 && loanUrl" [src]="loanUrl" style="width: 100%;height: 100%;"></iframe>
 </ion-content>
 
 

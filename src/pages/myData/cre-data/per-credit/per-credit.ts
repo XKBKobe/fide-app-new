@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
-import {ModalController, NavController} from 'ionic-angular';
+import {ModalController, NavController, NavParams} from 'ionic-angular';
 import {TabsPage} from "../tabs/tabs";
 import {LoginPage} from "../../welcome/login";
 import {HttpApiService} from "../../../../providers/HttpApiService";
 import {MessageService} from "../../../../providers/MessageService";
 import {DomSanitizer} from "@angular/platform-browser";
+import {AddBankPage} from "../../../myLoan/bank/add-bank/add-bank";
 
 
 @Component({
@@ -13,13 +14,15 @@ import {DomSanitizer} from "@angular/platform-browser";
 })
 export class PerCreditPage {
   loanUrl: any;
+  status:any;
 
   constructor(public navCtrl: NavController,
               public http: HttpApiService,
               public message: MessageService,
-              public sanitizer: DomSanitizer,) {
-
-
+              public sanitizer: DomSanitizer,
+              public navParams: NavParams) {
+    this.status = navParams.get('status');
+    console.log(this.status);
   }
 
   ionViewDidLoad() {
@@ -28,7 +31,6 @@ export class PerCreditPage {
       "pdfServer": "fideUserServer",
       "userUuid": localStorage.getItem('userUuid'),
       "time": new Date()
-
     };
 
     //贷款合同
@@ -37,5 +39,10 @@ export class PerCreditPage {
       this.loanUrl = this.sanitizer.bypassSecurityTrustResourceUrl(res['pdf']);
     }, err => {
     });
+  }
+
+  sign(){
+    console.log(999999)
+    this.navCtrl.push(AddBankPage);
   }
 }

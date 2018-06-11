@@ -54,7 +54,7 @@
       <span [hidden]="!step4Set.OTO.isRequire" class="require-star">*</span>
     </ion-item>
 
-    <ion-item class="credit-item right-arrow" [hidden]="!step4Set.YHZX.isShow" [navPush]="PerCreditPage">
+    <ion-item class="credit-item right-arrow" [hidden]="!step4Set.YHZX.isShow">
       <ion-avatar item-start style="margin: 0;">
         <img class="credit-img" src="/assets/imgs/myData/creditData/yhzx.png">
       </ion-avatar>
@@ -64,7 +64,7 @@
     </ion-item>
 
     <ion-item class="credit-item right-arrow" [hidden]="!step4Set.PERSONAL_CREDIT.isShow" [navPush]="PerCreditPage"
-              [navParams]="">
+              [navParams]="{status:step4Set.PERSONAL_CREDIT.num}">
       <ion-avatar item-start style="margin: 0;">
         <img class="credit-img" src="/assets/imgs/myData/creditData/perCredit.png">
       </ion-avatar>
