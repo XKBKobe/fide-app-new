@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {Events, NavController, NavParams} from 'ionic-angular';
 import {HttpApiService} from "../../../providers/HttpApiService";
 import {CommonService} from "../../../providers/commonService";
 
@@ -16,7 +16,8 @@ export class CreDataPage {
   constructor(public navCtrl: NavController,
               public http: HttpApiService,
               public navParams: NavParams,
-              public comm: CommonService) {
+              public comm: CommonService,
+              public events: Events) {
     this.personSetting = navParams.get('personSetting')
   }
 
@@ -34,6 +35,9 @@ export class CreDataPage {
         }
         that.step4Set = data;
       });
-    })
+    });
+    //取消发布订阅
+    that.events.unsubscribe('notifyResult')
   }
+
 }

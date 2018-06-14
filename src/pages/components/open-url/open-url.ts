@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
-import {NavParams} from 'ionic-angular';
+import {Events, NavParams} from 'ionic-angular';
 
 
 @Component({
@@ -22,18 +22,24 @@ import {NavParams} from 'ionic-angular';
 export class OpenUrlPage {
   title: String;
   safeUrl: SafeResourceUrl;
+  notifyResult: any;
   onMessage: any;
   accessToken: any;
   timer: any;
 
+  //点击跳转到指定界面
+  @Output() refresh: EventEmitter<any> = new EventEmitter<any>();
+
   constructor(public navParams: NavParams,
-              public sanitizer: DomSanitizer) {
+              public sanitizer: DomSanitizer,
+              public events: Events) {
     this.title = navParams.get('title');
     this.onMessage = navParams.get('onMessage');
     this.accessToken = navParams.get('accessToken');
 
     let url = navParams.get('url');
     this.safeUrl = sanitizer.bypassSecurityTrustResourceUrl(url);
+    this.notifyResult = navParams.get('notifyResult');
 
   }
 
@@ -42,6 +48,6 @@ export class OpenUrlPage {
   }
 
   ionViewDidLeave() {
-
+    this.events.publish('notifyResult', true);
   }
 }

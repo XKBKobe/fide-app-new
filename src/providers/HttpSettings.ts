@@ -78,6 +78,10 @@ export const HTTP_URL_JSON = {
   signPersonalCreditForWx: {  //个人征信授权
     server: "fideThirdServer",
     url: "/sign/signPersonalCreditForWx"
-  }
+  },
+  getNotifyResult: {
+    server: "fideDataGServer",
+    url: "/dataG/notifyResult"
+  },
 
 };
