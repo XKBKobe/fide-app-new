@@ -11,7 +11,14 @@ export const BASIC_SETTINGS_JSON = {
   fideServer: "https://fidebszltest.yuanbaopu.com/api/",
 
   //fide静态文件
+
   fideStatic: "http://static.yuanbaopu.com/ui/fide/image/dataSource/bank_card/", //"http://static.yuanbaopu.com/ui/fide/image/bank_icon/"线上/
+
+  //face++ 配置
+  faceCheckSettings: {
+    api_key: "MlMBqvFsSDUEtwEpcDtyX4wQ4fO8JsEd",
+    api_secret: "FB0Tj5y2RvHRa9cE3y3j0AF9N7FnUkLI"
+  },
 };
 
 
@@ -19,6 +26,7 @@ export const CONSTANTS = {
   orgCode: "400000", //机构编码
   defaultCode: "330100", //默认城市code
   defaultCity: "杭州市", //默认城市
+
 };
 
 //常用数据
@@ -205,11 +213,11 @@ export const CREDIT_DATA_SETTING = {
 };
 
 
-export const  CITY_DATA = [
+export const CITY_DATA = [
   {
     "name": "北京市",
     "code": "110000",
-    "children":[{
+    "children": [{
       "name": "北京市",
       "code": "110000",
       "children": [
@@ -283,7 +291,7 @@ export const  CITY_DATA = [
   {
     "name": "天津市",
     "code": "120000",
-    "children":[
+    "children": [
       {
         "name": "天津市",
         "code": "120000",
@@ -3800,7 +3808,7 @@ export const  CITY_DATA = [
   {
     "name": "上海市",
     "code": "310000",
-    "children":[
+    "children": [
       {
         "name": "上海市",
         "code": "310000",
@@ -10573,7 +10581,7 @@ export const  CITY_DATA = [
   {
     "name": "重庆市",
     "code": "500000",
-    "children":[
+    "children": [
       {
         "name": "重庆市",
         "code": "500000",
@@ -14994,11 +15002,11 @@ export const  CITY_DATA = [
   {
     "name": "台湾省",
     "code": "710000",
-    "children":[
+    "children": [
       {
         "name": "台湾市",
         "code": "710000",
-        "children":[
+        "children": [
           {
             "name": "台湾市",
             "code": "710000"
@@ -15010,11 +15018,11 @@ export const  CITY_DATA = [
   {
     "name": "香港特别行政区",
     "code": "810000",
-    "children":[
+    "children": [
       {
         "name": "香港特别行政区",
         "code": "810000",
-        "children":[
+        "children": [
           {
             "name": "香港特别行政区",
             "code": "810000"
@@ -15026,11 +15034,11 @@ export const  CITY_DATA = [
   {
     "name": "澳门特别行政区",
     "code": "820000",
-    "children":[
+    "children": [
       {
         "name": "澳门特别行政区",
         "code": "820000",
-        "children":[
+        "children": [
           {
             "name": "澳门特别行政区",
             "code": "820000"

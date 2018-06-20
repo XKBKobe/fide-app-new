@@ -12,6 +12,8 @@ import {Toast} from '@ionic-native/toast';
 import {IonicStorageModule} from '@ionic/storage';
 import {IonicImageViewerModule} from 'ionic-img-viewer';
 import {CityPickerModule} from "ionic2-city-picker";
+import {AppMinimize} from '@ionic-native/app-minimize';
+import {FileTransfer} from '@ionic-native/file-transfer';
 // import {CityPickerModule} from  "../modules/picker";
 
 //service
@@ -191,6 +193,8 @@ import {SelectCityPage} from "../pages/myHome/select-city/select-city";
     StatusBar,
     SplashScreen,
     Toast,
+    AppMinimize,
+    FileTransfer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpApiService,
     MessageService,

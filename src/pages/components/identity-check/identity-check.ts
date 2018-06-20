@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {ImageViewerController} from 'ionic-img-viewer';
+import {CordovaService} from "../../../providers/CordovaService";
+import {StorageService} from "../../../providers/StorageService";
 
 @Component({
   selector: 'page-identity-check',
@@ -28,8 +30,10 @@ export class IdentityCheckPage {
   IDbackBigImg: any;
 
   constructor(public navCtrl: NavController,
-              public imageViewerCtrl: ImageViewerController) {
-    this._imageViewerCtrl = imageViewerCtrl;
+              public imageViewerCtrl: ImageViewerController,
+              public CordovaService: CordovaService,
+              public storage: StorageService,) {
+
 
   }
 
@@ -39,6 +43,23 @@ export class IdentityCheckPage {
     this.IDbackBase64 = 'assets/imgs/datum/ID_back_photo.png';
     this.IDfrontBigImg = 'assets/imgs/datum/big/IDfrontphotoBig.png';
     this.IDbackBigImg = 'assets/imgs/datum/big/IDbackphotoBig.png';
+  }
+
+  checkFrontID(type) {
+    let that = this;
+    this.CordovaService.checkIDCard(type).then(res => {
+      //正面
+      that.storage.getItem('IDfrontBase64').then(data => {
+        that.IDfrontBase64 = data;
+        that.IDfrontBigImg = data;
+        console.log(data);
+      }, err => {
+        console.log('IDfrontBase64 ' + err);
+      });
+      //OCR正面完成
+    }, err => {
+      console.log(err);
+    });
   }
 
   // presentImage(myImage) {

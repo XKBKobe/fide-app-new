@@ -43,6 +43,17 @@ export class StorageService {
     });
   }
 
+  //为了解决历史遗留问题没有回调
+  setItemCb(name: string, value: any) {
+    return new Promise((resolve, reject)=> {
+      this.storage.set(name, value).then(data => {
+        resolve(data);
+      }, err => {
+        reject(err);
+      })
+    });
+  }
+
   //清除storage
   clearItem(cbFun?) {
     this.storage.clear().then(function () {
