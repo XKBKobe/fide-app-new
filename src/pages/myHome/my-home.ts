@@ -6,6 +6,7 @@ import {CONSTANTS} from "../../providers/BaseConfig";
 import {LoginPage} from "../welcome/login";
 import {DataSaveService} from "../../providers/DataSaveService";
 import {LoanProgress} from "./loan-progress/loan-progress";
+import {SelectCityPage} from "./select-city/select-city";
 
 @Component({
   selector: 'page-my-home',
@@ -105,5 +106,9 @@ export class MyHomePage {
       //设置还款方式
       this.dataSave.setAvaPeriods(repayWayData);
     }
+  }
+
+  openCity(){
+    this.navCtrl.push(SelectCityPage);
   }
 }

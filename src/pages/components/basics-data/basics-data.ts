@@ -85,15 +85,27 @@ export class BasicsDataPage {
     }
 
     let data = that.personData;
-    let provinceCode;
-    let index;
-    let cityIndex;
-    // if (!!data["householdZip"]) {
-    //   provinceCode = data["householdZip"].substr(0, 2) + '0000';
-    //   index = _.findIndex(this.cityData, {value: provinceCode});
-    //   cityIndex = _.findIndex(this.cityData[index].children, {value: data["householdZip"]});
-    //   this.household = this.cityData[index].name + ' - ' + this.cityData[index].children[cityIndex].name;
-    // }
+    //"320100"  //"110101"
+    //请选择户籍
+    if (!!data["householdZip"]) {
+      this.household = this.updatePicker('householdZip');
+    }
+
+    //住宅地址
+    if(!!data["liveZip"]){
+      this.liveAddress = this.updatePicker('liveZip');
+    }
+
+    //单位地址
+    if(!!data["companyAddressZip"]){
+      this.companyAddress = this.updatePicker('companyAddressZip');
+    }
+
+    //经营地址
+    if(!!data["manageAddress"]){
+      this.companyAddress = this.updatePicker('manageZip');
+    }
+
     //家庭联系人
     if (!data["primaryContact"]) {
       data["primaryContact"] = {};
@@ -146,7 +158,7 @@ export class BasicsDataPage {
 
   //请选择户籍
   householdChange(event) {
-    console.log(event);
+    this.personData.householdZip = event.region.value;
   }
 
   //请选择户籍
@@ -182,6 +194,26 @@ export class BasicsDataPage {
     } else {
       this.marriageShow = false;
     }
+  }
+
+  updatePicker(key) {
+    let zip = this.personData[key];
+    let provinceCode = zip.substr(0, 2) + '0000';
+    let pIndex = _.findIndex(this.cityData, {code: provinceCode});
+    let cityPickerText;
+    if (zip.substr(zip.length - 1, 1) == 0) {
+      let cityIndex = _.findIndex(this.cityData[pIndex].children, {code: zip});
+      zip = zip.substr(0, zip.length - 1) + '1';
+      let zoneIndex = _.findIndex(this.cityData[pIndex].children[cityIndex].children, {code: zip});
+      console.log(this.cityData[pIndex].name, this.cityData[pIndex].children[cityIndex].name, this.cityData[pIndex].children[cityIndex].children[zoneIndex].name);
+      cityPickerText = this.cityData[pIndex].name + ' - ' + this.cityData[pIndex].children[cityIndex].name + ' - ' + this.cityData[pIndex].children[cityIndex].children[zoneIndex].name;
+    } else {
+      let cityIndex = _.findIndex(this.cityData[pIndex].children, {code: provinceCode});
+      let zoneIndex = _.findIndex(this.cityData[pIndex].children[cityIndex].children, {code: zip});
+      console.log(this.cityData[pIndex].name, this.cityData[pIndex].children[cityIndex].name, this.cityData[pIndex].children[cityIndex].children[zoneIndex].name);
+      cityPickerText = this.cityData[pIndex].name + ' - ' + this.cityData[pIndex].children[cityIndex].name + ' - ' + this.cityData[pIndex].children[cityIndex].children[zoneIndex].name;
+    }
+    return cityPickerText;
   }
 
   //商铺

@@ -71,6 +71,7 @@ import {OtoPage} from "../pages/myData/cre-data/oto/oto";
 import {PerCreditPage} from "../pages/myData/cre-data/per-credit/per-credit";
 import {OpenUrlPage} from "../pages/components/open-url/open-url";
 import {AddBankPage} from "../pages/myLoan/bank/add-bank/add-bank";
+import {SelectCityPage} from "../pages/myHome/select-city/select-city";
 
 
 @NgModule({
@@ -120,7 +121,8 @@ import {AddBankPage} from "../pages/myLoan/bank/add-bank/add-bank";
     OtoPage,
     PerCreditPage,
     OpenUrlPage,
-    AddBankPage
+    AddBankPage,
+    SelectCityPage
   ],
   imports: [
     BrowserModule,
@@ -182,7 +184,8 @@ import {AddBankPage} from "../pages/myLoan/bank/add-bank/add-bank";
     OtoPage,
     PerCreditPage,
     OpenUrlPage,
-    AddBankPage
+    AddBankPage,
+    SelectCityPage
   ],
   providers: [
     StatusBar,

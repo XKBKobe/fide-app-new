@@ -28,8 +28,8 @@ export const HTTP_URL_JSON = {
     url: '/user/queryPersonalMaterial'
   },
   isDataFill: { //判断是否填写信贷资料
-    "server": "fideUserServer",
-    "url": "/user/isDataFill"
+    server: "fideUserServer",
+    url: "/user/isDataFill"
   },
   editPersonalMaterial: { //编辑个人信息基础信息
     server: "fideUserServer",
