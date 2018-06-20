@@ -13,7 +13,7 @@
 */
 declare module '*';
 declare var _;
-declare var Cordova;
+declare var cordova;
 
 
 

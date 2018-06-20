@@ -63,6 +63,7 @@ export class MyHomePage {
   }
 
   queryProduct(productUuid) {
+    console.log('queryProduct')
     let that = this;
     //获取产品信息
     that.http.post('queryProductInfo', {productUuid: productUuid}).then(res => {
@@ -109,6 +110,7 @@ export class MyHomePage {
   }
 
   openCity(){
+    console.log('openCity')
     this.navCtrl.push(SelectCityPage);
   }
 }

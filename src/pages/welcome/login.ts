@@ -3,8 +3,8 @@ import {NavController} from 'ionic-angular';
 import {TabsPage} from "../tabs/tabs";
 import {HttpApiService} from "../../providers/HttpApiService";
 import {UtilsService} from "../../providers/UtilsService";
-import {StorageService} from "../../providers/StorageService";
 import {APPSTATUS} from "../../providers/BaseConfig";
+import {StorageService} from "../../providers/StorageService";
 
 @Component({
   selector: 'page-login',

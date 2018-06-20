@@ -31,8 +31,8 @@ export class IdentityCheckPage {
 
   constructor(public navCtrl: NavController,
               public imageViewerCtrl: ImageViewerController,
-              public CordovaService: CordovaService,
-              public storage: StorageService,) {
+              public cordovaService: CordovaService,
+              public storage: StorageService) {
 
 
   }
@@ -47,7 +47,8 @@ export class IdentityCheckPage {
 
   checkFrontID(type) {
     let that = this;
-    this.CordovaService.checkIDCard(type).then(res => {
+    alert('type' +type);
+    this.cordovaService.checkIDCard(type).then(res => {
       //正面
       that.storage.getItem('IDfrontBase64').then(data => {
         that.IDfrontBase64 = data;
