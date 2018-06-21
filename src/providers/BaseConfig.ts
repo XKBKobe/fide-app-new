@@ -16,8 +16,8 @@ export const BASIC_SETTINGS_JSON = {
 
   //face++ 配置
   faceCheckSettings: {
-    api_key: "MlMBqvFsSDUEtwEpcDtyX4wQ4fO8JsEd",
-    api_secret: "FB0Tj5y2RvHRa9cE3y3j0AF9N7FnUkLI"
+    api_key: "TJDY1lfV9BM0UqE3dn4wwtt7OyhsMvc8",
+    api_secret: "YzpILhwG3k5JRG2g3ag9U7aQkv1DKX7w"
   },
 };
 

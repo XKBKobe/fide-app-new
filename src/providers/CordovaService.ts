@@ -3,7 +3,6 @@ import {MessageService} from "./MessageService";
 import {HttpApiService} from "./HttpApiService";
 import {FileTransfer, FileTransferObject} from '@ionic-native/file-transfer';
 import {BASIC_SETTINGS_JSON} from "./BaseConfig";
-import {Platform} from "ionic-angular";
 import {StorageService} from "./StorageService";
 
 
@@ -14,15 +13,14 @@ export class CordovaService {
   constructor(public uiService: MessageService,
               public storage: StorageService,
               public http: HttpApiService,
-              public transfer: FileTransfer,
-              public platform:Platform) {
+              public transfer: FileTransfer) {
   }
 
 
   //OCR身份证信息 type :0正面，1反面
   checkIDCard(type) {
     console.log('身份证type', type);
-    alert('身份证type '+type);
+    alert('身份证type ' + type);
     let that = this;
     return new Promise((resolve, reject) => {
       if (that.uiService.isMobile()) {
@@ -53,22 +51,18 @@ export class CordovaService {
                 alert('身份证type 3');
                 console.log('上传照片成功', JSON.stringify(res));
                 that.uiService.hideLoading();
-
-                if (that.platform.is('cordova')) {
-                  //正面
-                  if (type == 0) {
-                    // localStorage.setItem('IDfrontBase64',data);
-                    that.storage.setItem('IDfrontBase64', data).then(data => {
-                      resolve(res);
-                    })
-                  } else { //反面
-                    // localStorage.setItem('IDbackBase64',data);
-                    that.storage.setItem('IDbackBase64', data).then(data => {
-                      resolve(res);
-                    })
-                  }
+                //正面
+                if (type == 0) {
+                  // localStorage.setItem('IDfrontBase64',data);
+                  that.storage.setItem('IDfrontBase64', data).then(data => {
+                    resolve(res);
+                  })
+                } else { //反面
+                  // localStorage.setItem('IDbackBase64',data);
+                  that.storage.setItem('IDbackBase64', data).then(data => {
+                    resolve(res);
+                  })
                 }
-
               }, (err) => {
                 alert('身份证type 4');
                 that.uiService.hideLoading();

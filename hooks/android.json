@@ -1,0 +1,17 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-face": {
+      "PACKAGE_NAME": "com.yuanbaopu.fideapp"
+    }
+  },
+  "dependent_plugins": {
+
+  }
+}

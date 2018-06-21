@@ -1,0 +1,387 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-face"
+        version="0.0.1"
+        xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+  <name>FacePlugin</name>
+  <description>FacePlugin for ybp</description>
+  <author>sunx@asto-inc.com</author>
+  <license>MIT</license>
+  <keywords>face</keywords>
+
+
+  <js-module name="FacePlugin" src="www/FacePlugin.js">
+    <clobbers target="cordova.plugins.FacePlugin"/>
+  </js-module>
+
+  <platform name="android">
+
+    <config-file parent="/*" target="res/xml/config.xml">
+      <feature name="FacePlugin">
+        <param name="android-package" value="com.yuanbaopu.databox.FacePlugin"/>
+        <param name="onload" value="true"/>
+      </feature>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <!-- IDCardScanActivity -->
+      <activity
+        android:name="com.yuanbaopu.databox.IDCardScanActivity"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar"
+        android:windowSoftInputMode="stateHidden|adjustResize"
+        android:screenOrientation="landscape"/>
+      <!-- LivenessActivity -->
+      <activity
+        android:name="com.yuanbaopu.databox.LivenessActivity"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar"
+        android:windowSoftInputMode="stateHidden|adjustResize"
+        android:screenOrientation="portrait"/>
+    </config-file>
+
+
+    <config-file target="AndroidManifest.xml" parent="/*">
+      <!-- IDCardScanActivity -->
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+      <uses-permission android:name="android.permission.CAMERA"/>
+      <uses-permission android:name="android.permission.INTERNET"/>
+      <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+      <uses-permission android:name="android.permission.VIBRATE"/>
+    </config-file>
+
+    <!-- libs -->
+    <source-file src="src/android/libs/arm64-v8a/liblivenessdetection_v2.4.5.so" target-dir="libs/arm64-v8a"/>
+    <source-file src="src/android/libs/arm64-v8a/libMegviiIDCardQuality_1.2.1.so" target-dir="libs/arm64-v8a"/>
+    <source-file src="src/android/libs/armeabi-v7a/liblivenessdetection_v2.4.5.so" target-dir="libs/armeabi-v7a"/>
+    <source-file src="src/android/libs/armeabi-v7a/libMegviiIDCardQuality_1.2.1.so" target-dir="libs/armeabi-v7a"/>
+    <source-file src="src/android/libs/x86/liblivenessdetection_v2.4.5.so" target-dir="libs/x86"/>
+    <source-file src="src/android/libs/licensemanager-v1.1.jar" target-dir="libs"/>
+    <source-file src="src/android/libs/livenessdetection-proguard-2.4.5.jar" target-dir="libs"/>
+    <source-file src="src/android/libs/MegviiIDCardQuality_1.2.1.jar" target-dir="libs"/>
+
+    <!-- res/anim-->
+    <source-file src="src/android/res/anim/liveness_leftout.xml" target-dir="res/anim"/>
+    <source-file src="src/android/res/anim/liveness_rightin.xml" target-dir="res/anim"/>
+
+    <!-- res/drawable-->
+    <source-file src="src/android/res/drawable/liveness_eye_open_closed.xml" target-dir="res/drawable"/>
+    <source-file src="src/android/res/drawable/liveness_head_pitch.xml" target-dir="res/drawable"/>
+    <source-file src="src/android/res/drawable/liveness_head_yaw.xml" target-dir="res/drawable"/>
+    <source-file src="src/android/res/drawable/liveness_mouth_open_closed.xml" target-dir="res/drawable"/>
+    <source-file src="src/android/res/drawable/rectangle.xml" target-dir="res/drawable"/>
+
+    <!-- res/drawable-xhdpi -->
+    <source-file src="src/android/res/drawable-xhdpi/bg_nothing.png" target-dir="res/drawable-xhdpi"/>
+    <source-file src="src/android/res/drawable-xhdpi/circle.png" target-dir="res/drawable-xhdpi"/>
+    <source-file src="src/android/res/drawable-xhdpi/ic_launcher.png" target-dir="res/drawable-xhdpi"/>
+    <source-file src="src/android/res/drawable-xhdpi/liveness_eye.png" target-dir="res/drawable-xhdpi"/>
+    <source-file src="src/android/res/drawable-xhdpi/liveness_faceppinside.png" target-dir="res/drawable-xhdpi"/>
+    <source-file src="src/android/res/drawable-xhdpi/liveness_head.png" target-dir="res/drawable-xhdpi"/>
+    <source-file src="src/android/res/drawable-xhdpi/liveness_head_down.png" target-dir="res/drawable-xhdpi"/>
+    <source-file src="src/android/res/drawable-xhdpi/liveness_head_left.png" target-dir="res/drawable-xhdpi"/>
+    <source-file src="src/android/res/drawable-xhdpi/liveness_head_right.png" target-dir="res/drawable-xhdpi"/>
+    <source-file src="src/android/res/drawable-xhdpi/liveness_head_up.png" target-dir="res/drawable-xhdpi"/>
+    <source-file src="src/android/res/drawable-xhdpi/liveness_layout_bottom_tips.png" target-dir="res/drawable-xhdpi"/>
+    <source-file src="src/android/res/drawable-xhdpi/liveness_layout_camera_mask.png" target-dir="res/drawable-xhdpi"/>
+    <source-file src="src/android/res/drawable-xhdpi/liveness_layout_head_mask.png" target-dir="res/drawable-xhdpi"/>
+    <source-file src="src/android/res/drawable-xhdpi/liveness_left.png" target-dir="res/drawable-xhdpi"/>
+    <source-file src="src/android/res/drawable-xhdpi/liveness_mouth.png" target-dir="res/drawable-xhdpi"/>
+    <source-file src="src/android/res/drawable-xhdpi/liveness_right.png" target-dir="res/drawable-xhdpi"/>
+    <source-file src="src/android/res/drawable-xhdpi/liveness_surfacemask.9.png" target-dir="res/drawable-xhdpi"/>
+
+
+    <!-- res/drawable-xxhdpi -->
+    <source-file src="src/android/res/drawable-xxhdpi/ic_launcher.png" target-dir="res/drawable-xxhdpi"/>
+    <source-file src="src/android/res/drawable-xxhdpi/liveness_phoneimage.png" target-dir="res/drawable-xxhdpi"/>
+    <source-file src="src/android/res/drawable-xxhdpi/loading_background.jpg" target-dir="res/drawable-xxhdpi"/>
+    <source-file src="src/android/res/drawable-xxhdpi/sfz_back.png" target-dir="res/drawable-xxhdpi"/>
+    <source-file src="src/android/res/drawable-xxhdpi/sfz_front.png" target-dir="res/drawable-xxhdpi"/>
+
+
+    <!-- res/layout 包名对应的需要修改-->
+    <source-file src="src/android/res/layout/bottom_title_layout.xml" target-dir="res/layout"/>
+    <source-file src="src/android/res/layout/idcardscan_layout.xml" target-dir="res/layout"/>
+    <source-file src="src/android/res/layout/liveness_detection_step.xml" target-dir="res/layout"/>
+    <source-file src="src/android/res/layout/liveness_layout.xml" target-dir="res/layout"/>
+
+    <!-- res/raw -->
+    <source-file src="src/android/res/raw/idcardmodel" target-dir="res/raw"/>
+    <source-file src="src/android/res/raw/livenessmodel" target-dir="res/raw"/>
+    <source-file src="src/android/res/raw/meglive_eye_blink.mp3" target-dir="res/raw"/>
+    <source-file src="src/android/res/raw/meglive_failed.mp3" target-dir="res/raw"/>
+    <source-file src="src/android/res/raw/meglive_mouth_open.mp3" target-dir="res/raw"/>
+    <source-file src="src/android/res/raw/meglive_pitch_down.mp3" target-dir="res/raw"/>
+    <source-file src="src/android/res/raw/meglive_success.mp3" target-dir="res/raw"/>
+    <source-file src="src/android/res/raw/meglive_well_done.mp3" target-dir="res/raw"/>
+    <source-file src="src/android/res/raw/meglive_yaw.mp3" target-dir="res/raw"/>
+    <source-file src="src/android/res/raw/model" target-dir="res/raw"/>
+
+    <!-- res/values -->
+    <!--<source-file src="src/android/res/values/color.xml" target-dir="res/values"/>-->
+    <!--<source-file src="src/android/res/values/dimens.xml" target-dir="res/values"/>-->
+    <!--<source-file src="src/android/res/values/strings.xml" target-dir="res/values"/>-->
+    <source-file src="src/android/res/values/styles.xml" target-dir="res/values"/>
+
+    <!-- res/values-en -->
+    <!--<source-file src="src/android/res/values-en/strings.xml" target-dir="res/values-en"/>-->
+
+    <!-- update 包名对应的需要修改 import com.yuanbaopu.bpapp.R-->
+    <source-file src="src/android/update/AutoRatioImageview.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/update/AutoRatioImageviewFront.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/update/CircleProgressBar.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/update/ConUtil.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/update/IDCardIndicatorView.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/update/IDCardNewIndicator.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/update/IDCardScanActivity.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/update/IDetection.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/update/IMediaPlayer.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/update/LivenessActivity.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/update/Util.java" target-dir="src/com/yuanbaopu/databox"/>
+
+    <!-- util -->
+    <source-file src="src/android/util/Constant.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/util/DialogUtil.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/util/DialogUtilFront.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/util/FaceMask.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/util/ICamera.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/util/ICameraFront.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/util/IDCardIndicator.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/util/IFile.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/util/MyTextView.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/util/RotaterUtil.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/util/Screen.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/util/SensorUtil.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/util/SharedUtil.java" target-dir="src/com/yuanbaopu/databox"/>
+    <source-file src="src/android/util/SharedUtilFront.java" target-dir="src/com/yuanbaopu/databox"/>
+
+    <!-- 插件js回调 -->
+    <source-file src="src/android/FacePlugin.java" target-dir="src/com/yuanbaopu/databox"/>
+
+    <!-- 下面可以直接引用也可以  这种添加 -->
+    <config-file target="res/values/color.xml" parent="/*">
+      <drawable name="red">#ffff0000</drawable>
+    </config-file>
+
+    <config-file target="res/values/dimens.xml" parent="/*">
+      <dimen name="title_hight">50dip</dimen>
+      <dimen name="activity_horizontal_margin">16dp</dimen>
+      <dimen name="activity_vertical_margin">16dp</dimen>
+    </config-file>
+
+    <config-file target="res/values/strings.xml" parent="/*">
+      <string name="meglive_prompt">请在光线充足的情况下进行检测</string>
+      <string name="meglive_detect_initfailed">检测器初始化失败</string>
+      <string name="meglive_camera_initfailed">打开前置摄像头失败</string>
+      <string name="meglive_getpermission_motion">请打开手机读取运动数据权限</string>
+      <string name="meglive_phone_vertical">请竖直握紧手机</string>
+      <string name="meglive_keep_eyes_open">请勿用手遮挡眼睛</string>
+      <string name="meglive_keep_mouth_open">请勿用手遮挡嘴巴</string>
+      <string name="face_not_found">请让我看到您的正脸</string>
+      <string name="face_too_dark">请让光线再亮点</string>
+      <string name="face_too_bright">请让光线再暗点</string>
+      <string name="face_too_small">请再靠近一些</string>
+      <string name="face_too_large">请再离远一些</string>
+      <string name="face_too_blurry">请避免侧光和背光</string>
+      <string name="face_out_of_rect">请保持脸在人脸框中</string>
+      <string name="meglive_pitch">缓慢点头</string>
+      <string name="meglive_yaw">左右摇头</string>
+      <string name="meglive_mouth_open_closed">张嘴</string>
+      <string name="meglive_eye_open_closed">眨眼</string>
+      <string name="meglive_pos_yaw_left">左转</string>
+      <string name="meglive_pos_yaw_right">右转</string>
+      <string name="tipsmouth">Open your mouth and close.</string>
+      <string name="tipblink">Do blink with your eyes.</string>
+      <string name="tippose">Rotate your pose vertically.</string>
+      <string name="facelost">Face Lost</string>
+      <string name="timeout">超时</string>
+      <string name="authok">Success</string>
+      <string name="aufail">Failed</string>
+      <string name="steps">活体检测:</string>
+      <string name="pos_detection">POS</string>
+      <string name="mouth_detection">MOUTH</string>
+      <string name="blink_detection">BLINK</string>
+
+      <array name="detect_type">
+        <item>眨眼</item>
+        <item>张嘴</item>
+        <item>摇头</item>
+      </array>
+      <array name="detect_result">
+        <item></item>
+        <item>LIVEPASS</item>
+        <item>人脸追踪失败</item>
+        <item>超时失败</item>
+        <item>LIVENOTPASS</item>
+      </array>
+
+      <string name="loading_text">
+        使用说明：\n1、首先您需要输入姓名；\n2、之后您需要按照屏幕上的提示完成3个动作，以通过活体检测，同时软件会将您的人脸图像发送至服务器进行人脸验证；\n3、如果您没有通过活体检测或者人脸验证，则登录失败，反之则登录成功。
+      </string>
+      <string name="loading_confirm">OK,I Know</string>
+      <string name="netowrk_parse_failed">解析服务器数据失败</string>
+      <string name="network_error">网络请求失败</string>
+      <string name="verify_error">验证失败</string>
+      <string name="verify_success">验证成功</string>
+      <string name="liveness_detection_failed">活体检测失败</string>
+      <string name="liveness_detection_failed_timeout">活体检测超时失败</string>
+      <string name="liveness_detection_failed_action_blend">活体检测动作错误</string>
+      <string name="liveness_detection_failed_not_video">活体检测连续性检测失败</string>
+      <string name="novalidframe">没有合适的图像用于人脸识别</string>
+
+    </config-file>
+
+  </platform>
+
+
+  <!-- ios -->
+  <platform name="ios">
+    <config-file parent="/*" target="config.xml">
+      <feature name="FacePlugin">
+        <param name="ios-package" value="FacePlugin"/>
+        <param name="onload" value="true"/>
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/FacePlugin.h"/>
+    <source-file src="src/ios/FacePlugin.m"/>
+
+
+    <!-- MGIDCardClass -->
+    <header-file src="src/ios/MGIDCardClass/MGIDCard.h"/>
+    <!-- MGIDCardClass/General -->
+    <header-file src="src/ios/MGIDCardClass/General/MGIDCardConfig.h"/>
+    <header-file src="src/ios/MGIDCardClass/General/MGIDCardDetectDelegate.h"/>
+    <header-file src="src/ios/MGIDCardClass/General/MGRBDMuteSwitch.h"/>
+    <source-file src="src/ios/MGIDCardClass/General/MGRBDMuteSwitch.m"/>
+    <!-- MGIDCardClass/Manager -->
+    <header-file src="src/ios/MGIDCardClass/Manager/MGIDCardBundle.h"/>
+    <source-file src="src/ios/MGIDCardClass/Manager/MGIDCardBundle.m"/>
+    <header-file src="src/ios/MGIDCardClass/Manager/MGIDCardDetectManager.h"/>
+    <source-file src="src/ios/MGIDCardClass/Manager/MGIDCardDetectManager.mm"/>
+    <header-file src="src/ios/MGIDCardClass/Manager/MGIDCardManager.h"/>
+    <source-file src="src/ios/MGIDCardClass/Manager/MGIDCardManager.mm"/>
+    <!-- MGIDCardClass/Model -->
+    <header-file src="src/ios/MGIDCardClass/Model/MGIDCardModel.h"/>
+    <source-file src="src/ios/MGIDCardClass/Model/MGIDCardModel.mm"/>
+    <header-file src="src/ios/MGIDCardClass/Model/MGIDCardQualityMessageResult.h"/>
+    <source-file src="src/ios/MGIDCardClass/Model/MGIDCardQualityMessageResult.m"/>
+    <!-- MGIDCardClass/View -->
+    <header-file src="src/ios/MGIDCardClass/View/MGIDBoxLayer.h"/>
+    <source-file src="src/ios/MGIDCardClass/View/MGIDBoxLayer.mm"/>
+    <!-- MGIDCardClass/ViewController -->
+    <header-file src="src/ios/MGIDCardClass/ViewController/MGIDCardDefaultViewController.h"/>
+    <source-file src="src/ios/MGIDCardClass/ViewController/MGIDCardDefaultViewController.mm"/>
+    <header-file src="src/ios/MGIDCardClass/ViewController/MGIDCardDetectBaseViewController.h"/>
+    <source-file src="src/ios/MGIDCardClass/ViewController/MGIDCardDetectBaseViewController.mm"/>
+    <header-file src="src/ios/MGIDCardClass/ViewController/MGIDCardViewController.h"/>
+    <source-file src="src/ios/MGIDCardClass/ViewController/MGIDCardViewController.mm"/>
+
+    <!-- MGIDCardResource -->
+    <resource-file src="src/ios/MGIDCardResource.bundle"/>
+
+    <!-- MGIDCardSDK -->
+    <source-file src="src/ios/MGIDCardSDK/libidcard_quality.a" framework="true"/>
+    <header-file src="src/ios/MGIDCardSDK/MGIDCardQualityAssessment.h"/>
+
+    <!-- MGBaseKitClass -->
+    <header-file src="src/ios/MGBaseKitClass/MGBaseKit.h"/>
+    <!-- MGBaseKitClass/Config -->
+    <header-file src="src/ios/MGBaseKitClass/Config/MGBaseDefine.h"/>
+    <!-- MGBaseKitClass/Delegate -->
+    <header-file src="src/ios/MGBaseKitClass/Delegate/MGMovieRecorderDelegate.h"/>
+    <header-file src="src/ios/MGBaseKitClass/Delegate/MGVideoDelegate.h"/>
+    <!-- MGBaseKitClass/General -->
+    <header-file src="src/ios/MGBaseKitClass/General/MGAnimation.h"/>
+    <source-file src="src/ios/MGBaseKitClass/General/MGAnimation.m"/>
+    <header-file src="src/ios/MGBaseKitClass/General/MGAutoSessionPreset.h"/>
+    <source-file src="src/ios/MGBaseKitClass/General/MGAutoSessionPreset.m"/>
+    <header-file src="src/ios/MGBaseKitClass/General/MGImage.h"/>
+    <source-file src="src/ios/MGBaseKitClass/General/MGImage.mm"/>
+    <!-- MGBaseKitClass/Manager -->
+    <header-file src="src/ios/MGBaseKitClass/Manager/MGLicenseManager.h"/>
+    <source-file src="src/ios/MGBaseKitClass/Manager/MGLicenseManager.m"/>
+    <header-file src="src/ios/MGBaseKitClass/Manager/MGLogManager.h"/>
+    <source-file src="src/ios/MGBaseKitClass/Manager/MGLogManager.mm"/>
+    <header-file src="src/ios/MGBaseKitClass/Manager/MGMovieRecorder.h"/>
+    <source-file src="src/ios/MGBaseKitClass/Manager/MGMovieRecorder.m"/>
+    <header-file src="src/ios/MGBaseKitClass/Manager/MGVideoManager.h"/>
+    <source-file src="src/ios/MGBaseKitClass/Manager/MGVideoManager.mm"/>
+
+    <!-- MGBaseKitSDK -->
+    <source-file src="src/ios/MGBaseKitSDK/libMobileSDKAuth.a" framework="true"/>
+    <header-file src="src/ios/MGBaseKitSDK/LicenseManager.h"/>
+
+
+    <!-- framework -->
+    <framework src="AVFoundation.framework"/>
+    <framework src="CoreMedia.framework"/>
+
+
+    <!-- MGIDCardResource -->
+    <resource-file src="src/ios/MGLivenessDetectionResource.bundle"/>
+
+    <!-- MGLiveDetectionClass -->
+    <header-file src="src/ios/MGLiveDetectionClass/MGLivenessDetection.h"/>
+    <!-- MGLiveDetectionClass/Category -->
+    <header-file src="src/ios/MGLiveDetectionClass/Category/UIImageView+MGReadImage.h"/>
+    <source-file src="src/ios/MGLiveDetectionClass/Category/UIImageView+MGReadImage.m"/>
+    <header-file src="src/ios/MGLiveDetectionClass/Category/UIView+MGDrawLine.h"/>
+    <source-file src="src/ios/MGLiveDetectionClass/Category/UIView+MGDrawLine.m"/>
+
+    <!-- MGLiveDetectionClass/Controller -->
+    <header-file src="src/ios/MGLiveDetectionClass/Controller/MGLiveBaseDetectViewController.h"/>
+    <source-file src="src/ios/MGLiveDetectionClass/Controller/MGLiveBaseDetectViewController.mm"/>
+    <header-file src="src/ios/MGLiveDetectionClass/Controller/MGLiveDefaultDetectVC.h"/>
+    <source-file src="src/ios/MGLiveDetectionClass/Controller/MGLiveDefaultDetectVC.mm"/>
+    <header-file src="src/ios/MGLiveDetectionClass/Controller/MGLiveDetectViewController.h"/>
+    <source-file src="src/ios/MGLiveDetectionClass/Controller/MGLiveDetectViewController.mm"/>
+
+    <!-- MGLiveDetectionClass/Delegate -->
+    <header-file src="src/ios/MGLiveDetectionClass/Delegate/MGLiveDetectionDelegate.h"/>
+
+    <!-- MGLiveDetectionClass/General -->
+    <header-file src="src/ios/MGLiveDetectionClass/General/MGLiveBundle.h"/>
+    <source-file src="src/ios/MGLiveDetectionClass/General/MGLiveBundle.m"/>
+    <header-file src="src/ios/MGLiveDetectionClass/General/MGPlayAudio.h"/>
+    <source-file src="src/ios/MGLiveDetectionClass/General/MGPlayAudio.m"/>
+    <header-file src="src/ios/MGLiveDetectionClass/General/MGLiveConfig.h"/>
+
+    <!-- MGLiveDetectionClass/Manager -->
+    <header-file src="src/ios/MGLiveDetectionClass/Manager/MGLiveActionManager.h"/>
+    <source-file src="src/ios/MGLiveDetectionClass/Manager/MGLiveActionManager.mm"/>
+    <header-file src="src/ios/MGLiveDetectionClass/Manager/MGLiveDetectionManager.h"/>
+    <source-file src="src/ios/MGLiveDetectionClass/Manager/MGLiveDetectionManager.mm"/>
+    <header-file src="src/ios/MGLiveDetectionClass/Manager/MGLiveErrorManager.h"/>
+    <source-file src="src/ios/MGLiveDetectionClass/Manager/MGLiveErrorManager.mm"/>
+    <header-file src="src/ios/MGLiveDetectionClass/Manager/MGLiveManager.h"/>
+    <source-file src="src/ios/MGLiveDetectionClass/Manager/MGLiveManager.mm"/>
+
+    <!-- MGLiveDetectionClass/View -->
+    <header-file src="src/ios/MGLiveDetectionClass/View/MGBaseBottomManager.h"/>
+    <source-file src="src/ios/MGLiveDetectionClass/View/MGBaseBottomManager.mm"/>
+    <header-file src="src/ios/MGLiveDetectionClass/View/MGBaseCountdownView.h"/>
+    <source-file src="src/ios/MGLiveDetectionClass/View/MGBaseCountdownView.m"/>
+    <header-file src="src/ios/MGLiveDetectionClass/View/MGBaseCountZeroView.h"/>
+    <source-file src="src/ios/MGLiveDetectionClass/View/MGBaseCountZeroView.m"/>
+    <header-file src="src/ios/MGLiveDetectionClass/View/MGCountDownRingView.h"/>
+    <source-file src="src/ios/MGLiveDetectionClass/View/MGCountDownRingView.m"/>
+    <header-file src="src/ios/MGLiveDetectionClass/View/MGCountDownTextView.h"/>
+    <source-file src="src/ios/MGLiveDetectionClass/View/MGCountDownTextView.m"/>
+    <header-file src="src/ios/MGLiveDetectionClass/View/MGDefaultBottomManager.h"/>
+    <source-file src="src/ios/MGLiveDetectionClass/View/MGDefaultBottomManager.mm"/>
+
+    <!-- MGLiveDetectionSDK -->
+    <source-file src="src/ios/MGLiveDetectionSDK/libliveness.a" framework="true"/>
+    <header-file src="src/ios/MGLiveDetectionSDK/LivenessDetector.h"/>
+    <header-file src="src/ios/MGLiveDetectionSDK/LivenessEnumType.h"/>
+    <header-file src="src/ios/MGLiveDetectionSDK/MGFaceQualityManager.h"/>
+
+    <!-- framework -->
+    <framework src="CoreMotion.framework"/>
+  </platform>
+</plugin>
