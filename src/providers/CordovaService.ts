@@ -19,12 +19,9 @@ export class CordovaService {
 
   //OCR身份证信息 type :0正面，1反面
   checkIDCard(type) {
-    console.log('身份证type', type);
-    alert('身份证type ' + type);
     let that = this;
     return new Promise((resolve, reject) => {
       if (that.uiService.isMobile()) {
-        alert('身份证type 1');
         //获取身份证照片，返回 **身份证照片(idCardImgBase64)** 和 **图像中头像照片(portraitImgBase64)**
         cordova.plugins.FacePlugin.checkIDCard(
           {
@@ -42,13 +39,11 @@ export class CordovaService {
                 api_secret: BASIC_SETTINGS_JSON.faceCheckSettings['api_secret'],
               }
             };
-            alert('身份证type 2');
             //为了兼容安卓华为手机核身照片存在回车换行符号
             data = data.replace(/\s/g, "");
             that.uiService.showLoading();
             fileTransfer.upload(data, "https://api.faceid.com/faceid/v1/ocridcard", options)
               .then((res) => {
-                alert('身份证type 3');
                 console.log('上传照片成功', JSON.stringify(res));
                 that.uiService.hideLoading();
                 //正面
@@ -64,7 +59,6 @@ export class CordovaService {
                   })
                 }
               }, (err) => {
-                alert('身份证type 4');
                 that.uiService.hideLoading();
                 reject('上传照片失败' + JSON.stringify(err));
               });

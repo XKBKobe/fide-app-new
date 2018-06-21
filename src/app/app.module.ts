@@ -15,6 +15,7 @@ import {AppMinimize} from '@ionic-native/app-minimize';
 import {File} from '@ionic-native/file';
 import {FileTransfer} from '@ionic-native/file-transfer';
 import {IonicStorageModule} from '@ionic/storage';
+import {AndroidPermissions} from '@ionic-native/android-permissions';
 // import {CityPickerModule} from  "../modules/picker";
 
 //service
@@ -76,7 +77,6 @@ import {PerCreditPage} from "../pages/myData/cre-data/per-credit/per-credit";
 import {OpenUrlPage} from "../pages/components/open-url/open-url";
 import {AddBankPage} from "../pages/myLoan/bank/add-bank/add-bank";
 import {SelectCityPage} from "../pages/myHome/select-city/select-city";
-
 
 
 @NgModule({
@@ -199,6 +199,7 @@ import {SelectCityPage} from "../pages/myHome/select-city/select-city";
     AppMinimize,
     File,
     FileTransfer,
+    AndroidPermissions,
     StorageService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpApiService,
