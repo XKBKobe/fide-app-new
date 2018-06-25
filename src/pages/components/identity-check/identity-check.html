@@ -26,20 +26,20 @@
     </ion-card>
   </div>
 
-  <div *ngSwitchCase="'OCRSHOW'">
+  <div *ngSwitchCase="'OCRSHOW'" style="margin-top: 10px;">
     <ion-item>
       <ion-label>
         <div class="person-data-name"></div>
       </ion-label>
       <ion-input
-        placeholder="请输入姓名"></ion-input>
+        placeholder="请输入姓名" disabled value="{{frontInfo.name}}"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>
         <div class="person-data-id"></div>
       </ion-label>
-      <ion-input placeholder="请输入身份证号"></ion-input>
+      <ion-input placeholder="请输入身份证号" disabled value="{{frontInfo.id_card_number}}"></ion-input>
     </ion-item>
 
     <div style="margin: 10px;">
@@ -99,7 +99,8 @@
            style="width: 46%;height: 11rem;margin-left: 3%;">
     </div>
 
-    <div style="text-align: center;color: #555555;height: 49px;line-height: 40px;background-color: #fff;">验证结果：<span class="check-success">核身成功</span></div>
+    <div style="text-align: center;color: #555555;height: 49px;line-height: 40px;background-color: #fff;">验证结果：<span
+      class="check-success">核身成功</span></div>
     <!-- todo  图片文字-->
     <ion-list>
       <ion-item class="item-border" style="color: #555555;font-size: 15px;" *ngIf="!!getIdInfoData.userName">
@@ -170,7 +171,8 @@
            style="width: 60%;margin-left: 20%;">
     </div>
 
-    <div style="text-align: center;color: #555555;height: 49px;line-height: 40px;background-color: #fff;">验证结果：<span class="check-fail">核身失败</span></div>
+    <div style="text-align: center;color: #555555;height: 49px;line-height: 40px;background-color: #fff;">验证结果：<span
+      class="check-fail">核身失败</span></div>
 
     <ion-list>
       <ion-item class="item-border" style="color: #555555;font-size: 15px;" *ngIf="!!getIdInfoData.userName">

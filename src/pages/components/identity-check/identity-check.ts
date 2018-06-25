@@ -97,7 +97,7 @@ export class IdentityCheckPage {
       this.loanStatus = this;
       //核身通过
       if (res['checkIdentity'] == "1") {
-        this.checkStatus = 'CHECKFAIL';
+        this.checkStatus = 'CHECKSUCCESS';
         //下一步不显示
         this.checkNext.hide = true;
         //下一步按钮
