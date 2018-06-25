@@ -73,4 +73,59 @@ export class CordovaService {
     })
   }
 
+  //活体检测
+  verifyFace(opt) {
+    let that = this;
+    return new Promise((resolve, reject) => {
+      if (this.uiService.isMobile()) {
+        cordova.plugins.FacePlugin.startFaceDecetion(
+          function (result) {
+
+            let data = 'data:image/jpeg;base64,' + result['imgBase64'];
+            data = data.replace(/\s/g, "");
+
+            const fileTransfer: FileTransferObject = that.transfer.create();
+            let options: any;
+            // console.log('活体最佳照片', result['imgBase64']);
+            // console.log('活体最佳照片', result['delta']);
+            options = {
+              fileKey: 'image_best',
+              params: {
+                api_key: BASIC_SETTINGS_JSON.faceCheckSettings['api_key'],
+                api_secret: BASIC_SETTINGS_JSON.faceCheckSettings['api_secret'],
+                comparison_type: 1,
+                face_image_type: 'meglive',
+                idcard_name: opt['name'],
+                idcard_number: opt['number'],
+                delta: result['delta']
+              }
+            };
+            //为了兼容安卓华为手机核身照片存在回车换行符号
+            data = data.replace(/\s/g, "");
+            that.uiService.showLoading();
+            fileTransfer.upload(data, "https://api.megvii.com/faceid/v2/verify", options)
+              .then((res) => {
+                console.log('验证活体成功', res);
+                that.uiService.hideLoading();
+                //保存最佳照片
+                // localStorage.setItem('imageBest',data);
+                that.storage.setItem('imageBest', data).then(data => {
+                  resolve(res);
+                });
+              }, (err) => {
+                that.uiService.hideLoading();
+                reject('verifyFail' + err);
+              });
+          },
+          function (err) {
+            // self.uiService.showToastBottom(err);
+            console.log('动作不标准', err);
+            reject('cordova' + err);
+          });
+      } else {
+        reject('该功能只能用于真机');
+      }
+    })
+  }
+
 }

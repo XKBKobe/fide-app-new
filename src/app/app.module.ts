@@ -16,6 +16,7 @@ import {File} from '@ionic-native/file';
 import {FileTransfer} from '@ionic-native/file-transfer';
 import {IonicStorageModule} from '@ionic/storage';
 import {AndroidPermissions} from '@ionic-native/android-permissions';
+import {Camera} from '@ionic-native/camera';
 // import {CityPickerModule} from  "../modules/picker";
 
 //service
@@ -26,6 +27,7 @@ import {DataSaveService} from "../providers/DataSaveService";
 import {UtilsService} from "../providers/UtilsService";
 import {StorageService} from "../providers/StorageService";
 import {CordovaService} from "../providers/CordovaService";
+import {ImgUploaderService} from "../providers/ImgUploaderService";
 
 //pipes
 import {ProductTypePipe} from "../pipes/product-type.pipe";
@@ -200,6 +202,7 @@ import {SelectCityPage} from "../pages/myHome/select-city/select-city";
     File,
     FileTransfer,
     AndroidPermissions,
+    Camera,
     StorageService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpApiService,
@@ -207,7 +210,8 @@ import {SelectCityPage} from "../pages/myHome/select-city/select-city";
     CordovaService,
     CommonService,
     DataSaveService,
-    UtilsService
+    UtilsService,
+    ImgUploaderService
   ]
 })
 export class AppModule {

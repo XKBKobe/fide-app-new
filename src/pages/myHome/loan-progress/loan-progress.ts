@@ -277,6 +277,8 @@ export class LoanProgress {
 
   //更新loanStep
   outStep(step) {
+    console.log(step);
+
     this.loanStep[step.step] = step.status;
   }
 }

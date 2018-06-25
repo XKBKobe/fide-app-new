@@ -43,4 +43,31 @@ page-identity-check {
     //color: #999999;
   }
 
+  .list-ios .item-block .item-inner{
+    border-bottom: none !important;
+  }
+
+  .list-md .item-block .item-inner{
+    border-bottom: none !important;
+  }
+
+  .item-border{
+    border-bottom: 0.55px solid #eeeeee;
+  }
+
+  .person-data-name{
+    padding-left: 24px;
+    background: url("../assets/imgs/myData/personData/name_inputIcon_normal.png") no-repeat center center;
+    height: 24px;
+    width: 24px;
+    background-size: contain;
+  }
+
+  .person-data-id{
+    padding-left: 24px;
+    background: url("../assets/imgs/myData/personData/ID_inputIcon_normal.png") no-repeat center center;
+    height: 24px;
+    width: 24px;
+    background-size: contain;
+  }
 }

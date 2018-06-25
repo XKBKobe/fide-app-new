@@ -75,13 +75,20 @@ export const HTTP_URL_JSON = {
     server: "fideDataGServer",
     url: "/dataG/getDataBindLoginPage"
   },
-  signPersonalCreditForWx: {  //个人征信授权
+  signPersonalCreditForWx: { //个人征信授权
     server: "fideThirdServer",
     url: "/sign/signPersonalCreditForWx"
   },
-  getNotifyResult: {
+  getNotifyResult: { //获取信息
     server: "fideDataGServer",
     url: "/dataG/notifyResult"
   },
-
+  getIdInfo: { //获取核身信息
+    server: "fideUserServer",
+    url: "/user/getIdInfo"
+  },
+  filesubmit: {   //上传资料
+    server: "fideUserServer",
+    url: "/proofMat/addOrUpdateProofMat",
+  },
 };

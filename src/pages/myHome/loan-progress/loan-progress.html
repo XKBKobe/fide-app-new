@@ -11,7 +11,8 @@
   <page-loan-step-head (skipToPage)="skipToPage($event)" [loanStep]="loanStep"></page-loan-step-head>
 
   <!--身份核身-->
-  <page-loan-step-one *ngIf="page == 1"></page-loan-step-one>
+  <page-loan-step-one *ngIf="page == 1" (nextToPage)="nextToPage($event)"
+                      (outStep)="outStep($event)"></page-loan-step-one>
 
   <!--个人资料-->
   <page-loan-step-two *ngIf="page == 2" [step2Set]="step2Set" [loanStep]="loanStep" (nextToPage)="nextToPage($event)"

@@ -32,7 +32,6 @@ export class LoanStepTwoPage {
     this.http.post('queryPersonalMaterial', {}, false).then(data => {
       this.personData = data;
     });
-    console.log(this.loanStep);
   }
 
   next() {
