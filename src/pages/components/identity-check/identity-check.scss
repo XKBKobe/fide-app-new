@@ -70,4 +70,24 @@ page-identity-check {
     width: 24px;
     background-size: contain;
   }
+
+  .check-success{
+    background: url(../assets/imgs/myHome/check/ok.png) no-repeat center center;
+    height: 40px;
+    width: 40px;
+    background-size: contain;
+    background-position-x: 0px;
+    padding-left: 20px;
+    color: #26CB72;
+  }
+
+  .check-fail{
+    background: url(../assets/imgs/myHome/check/fail.png) no-repeat center center;
+    height: 40px;
+    width: 40px;
+    background-size: contain;
+    background-position-x: 0px;
+    padding-left: 20px;
+    color: #BF6767;
+  }
 }

@@ -97,7 +97,7 @@ export class IdentityCheckPage {
       this.loanStatus = this;
       //核身通过
       if (res['checkIdentity'] == "1") {
-        this.checkStatus = 'CHECKSUCCESS';
+        this.checkStatus = 'CHECKFAIL';
         //下一步不显示
         this.checkNext.hide = true;
         //下一步按钮
@@ -406,10 +406,10 @@ export class IdentityCheckPage {
     //下一步按钮不置灰
     this.checkNext.disabled = false;
     //默认设置
-    this.IDfrontBase64 = 'assets/image/datum/ID_front_photo.png';
-    this.IDbackBase64 = 'assets/image/datum/ID_back_photo.png';
-    this.IDfrontBigImg = 'assets/image/datum/big/IDfrontphotoBig.png';
-    this.IDbackBigImg = 'assets/image/datum/big/IDbackphotoBig.png';
+    this.IDfrontBase64 = 'assets/imgs/datum/ID_front_photo.png';
+    this.IDbackBase64 = 'assets/imgs/datum/ID_back_photo.png';
+    this.IDfrontBigImg = 'assets/imgs/datum/big/IDfrontphotoBig.png';
+    this.IDbackBigImg = 'assets/imgs/datum/big/IDbackphotoBig.png';
   }
 
   //跳到第二步

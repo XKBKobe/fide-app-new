@@ -47,45 +47,41 @@
         <ion-item style="color: #444444;font-size: 15px;">
           <ion-avatar item-start style="margin: 0;">
             <img style="width: 24px;height: 24px;border-radius: 0;margin-top: 6px;"
-                 src="assets/imgs/myData/personData/ID_inputIcon_normal.png">
+                 src="assets/imgs/myHome/check/IDgender_inputIcon.png">
           </ion-avatar>
-          <div item-start>性别：</div>
-          <div item-end>男</div>
-        </ion-item>
-        <ion-item style="color: #444444;font-size: 15px;">
-          <ion-avatar item-start style="margin: 0;">
-            <img style="width: 24px;height: 24px;border-radius: 0;margin-top: 6px;"
-                 src="assets/imgs/myData/personData/ID_inputIcon_normal.png">
-          </ion-avatar>
-          <div item-start>生日：</div>
-          <div item-end>1992-01-07</div>
+          <div item-start>性别：{{frontInfo.gender}}</div>
         </ion-item>
 
         <ion-item style="color: #444444;font-size: 15px;">
           <ion-avatar item-start style="margin: 0;">
             <img style="width: 24px;height: 24px;border-radius: 0;margin-top: 6px;"
-                 src="assets/imgs/myData/personData/ID_inputIcon_normal.png">
+                 src="assets/imgs/myHome/check/IDbirthday_inputIcon.png">
           </ion-avatar>
-          <div item-start>地址：</div>
-          <div item-end>安徽省六安市金寨县斑竹园镇漆店村柏树组</div>
+          <div item-start>生日：{{frontInfo.birthday.year}}年{{frontInfo.birthday.month}}月{{frontInfo.birthday.day}}日</div>
         </ion-item>
 
         <ion-item style="color: #444444;font-size: 15px;">
           <ion-avatar item-start style="margin: 0;">
             <img style="width: 24px;height: 24px;border-radius: 0;margin-top: 6px;"
-                 src="assets/imgs/myData/personData/ID_inputIcon_normal.png">
+                 src="assets/imgs/myHome/check/address.png">
           </ion-avatar>
-          <div item-start>签发机关</div>
-          <div item-end>安徽省六安市金寨</div>
+          <div item-start>地址：{{frontInfo.address}}</div>
         </ion-item>
 
         <ion-item style="color: #444444;font-size: 15px;">
           <ion-avatar item-start style="margin: 0;">
             <img style="width: 24px;height: 24px;border-radius: 0;margin-top: 6px;"
-                 src="assets/imgs/myData/personData/ID_inputIcon_normal.png">
+                 src="assets/imgs/myHome/check/IDpublish_inputIcon.png">
           </ion-avatar>
-          <div item-start>有效期</div>
-          <div item-end>2030-01-26</div>
+          <div item-start>签发机关：{{backInfo.issued_by}}</div>
+        </ion-item>
+
+        <ion-item style="color: #444444;font-size: 15px;">
+          <ion-avatar item-start style="margin: 0;">
+            <img style="width: 24px;height: 24px;border-radius: 0;margin-top: 6px;"
+                 src="assets/imgs/myHome/check/IDvalidity_inputIcon.png">
+          </ion-avatar>
+          <div item-start>有效期：{{backInfo.valid_date}}</div>
         </ion-item>
 
       </ion-list>
@@ -102,12 +98,14 @@
            onerror="javascript:this.src='assets/imgs/myHome/onerror.jpg';"
            style="width: 46%;height: 11rem;margin-left: 3%;">
     </div>
+
+    <div style="text-align: center;color: #555555;height: 49px;line-height: 40px;background-color: #fff;">验证结果：<span class="check-success">核身成功</span></div>
     <!-- todo  图片文字-->
     <ion-list>
       <ion-item class="item-border" style="color: #555555;font-size: 15px;" *ngIf="!!getIdInfoData.userName">
         <ion-avatar item-start style="margin: 0;">
           <img style="width: 24px;height: 24px;border-radius: 0;margin-top: 6px;"
-               src="assets/imgs/myData/personData/ID_inputIcon_normal.png">
+               src="assets/imgs/myData/personData/name_inputIcon_normal.png">
         </ion-avatar>
         <div item-start>姓名：{{getIdInfoData.userName}}</div>
       </ion-item>
@@ -124,7 +122,7 @@
                 *ngIf="!!getIdInfoData.gender && getIdInfoData.gender != '未知'">
         <ion-avatar item-start style="margin: 0;">
           <img style="width: 24px;height: 24px;border-radius: 0;margin-top: 6px;"
-               src="assets/imgs/myData/personData/ID_inputIcon_normal.png">
+               src="assets/imgs/myHome/check/IDgender_inputIcon.png">
         </ion-avatar>
         <div item-start>性别：{{getIdInfoData.gender}}</div>
       </ion-item>
@@ -132,7 +130,7 @@
       <ion-item class="item-border" style="color: #555555;font-size: 15px;" *ngIf="!!getIdInfoData.birthDay">
         <ion-avatar item-start style="margin: 0;">
           <img style="width: 24px;height: 24px;border-radius: 0;margin-top: 6px;"
-               src="assets/imgs/myData/personData/ID_inputIcon_normal.png">
+               src="assets/imgs/myHome/check/IDbirthday_inputIcon.png">
         </ion-avatar>
         <div item-start>生日：{{getIdInfoData.birthDay}}</div>
       </ion-item>
@@ -140,7 +138,7 @@
       <ion-item class="item-border" style="color: #555555;font-size: 15px;" *ngIf="!!getIdInfoData.liveaddr">
         <ion-avatar item-start style="margin: 0;">
           <img style="width: 24px;height: 24px;border-radius: 0;margin-top: 6px;"
-               src="assets/imgs/myData/personData/ID_inputIcon_normal.png">
+               src="assets/imgs/myHome/check/address.png">
         </ion-avatar>
         <div item-start>地址：{{getIdInfoData.liveaddr}}</div>
       </ion-item>
@@ -148,7 +146,7 @@
       <ion-item class="item-border" style="color: #555555;font-size: 15px;" *ngIf="!!getIdInfoData.idissued">
         <ion-avatar item-start style="margin: 0;">
           <img style="width: 24px;height: 24px;border-radius: 0;margin-top: 6px;"
-               src="assets/imgs/myData/personData/ID_inputIcon_normal.png">
+               src="assets/imgs/myHome/check/IDpublish_inputIcon.png">
         </ion-avatar>
         <div item-start>签发机关：{{getIdInfoData.idissued}}</div>
       </ion-item>
@@ -156,7 +154,7 @@
       <ion-item class="item-border" style="color: #555555;font-size: 15px;" *ngIf="!!getIdInfoData.idvaliddate">
         <ion-avatar item-start style="margin: 0;">
           <img style="width: 24px;height: 24px;border-radius: 0;margin-top: 6px;"
-               src="assets/imgs/myData/personData/ID_inputIcon_normal.png">
+               src="assets/imgs/myHome/check/IDvalidity_inputIcon.png">
         </ion-avatar>
         <div item-start>有效期：{{getIdInfoData.idvaliddate}}</div>
       </ion-item>
@@ -171,12 +169,14 @@
       <img src="assets/imgs/myHome/check-failure.png" onerror="javascript:this.src='assets/imgs/myHome/onerror.jpg';"
            style="width: 60%;margin-left: 20%;">
     </div>
-    <!--todo-->
+
+    <div style="text-align: center;color: #555555;height: 49px;line-height: 40px;background-color: #fff;">验证结果：<span class="check-fail">核身失败</span></div>
+
     <ion-list>
       <ion-item class="item-border" style="color: #555555;font-size: 15px;" *ngIf="!!getIdInfoData.userName">
         <ion-avatar item-start style="margin: 0;">
           <img style="width: 24px;height: 24px;border-radius: 0;margin-top: 6px;"
-               src="assets/imgs/myData/personData/ID_inputIcon_normal.png">
+               src="assets/imgs/myData/personData/name_inputIcon_normal.png">
         </ion-avatar>
         <div item-start>姓名：{{getIdInfoData.userName}}</div>
       </ion-item>
@@ -193,7 +193,7 @@
                 *ngIf="!!getIdInfoData.gender && getIdInfoData.gender != '未知'">
         <ion-avatar item-start style="margin: 0;">
           <img style="width: 24px;height: 24px;border-radius: 0;margin-top: 6px;"
-               src="assets/imgs/myData/personData/ID_inputIcon_normal.png">
+               src="assets/imgs/myHome/check/IDgender_inputIcon.png">
         </ion-avatar>
         <div item-start>性别：{{getIdInfoData.gender}}</div>
       </ion-item>
@@ -201,7 +201,7 @@
       <ion-item class="item-border" style="color: #555555;font-size: 15px;" *ngIf="!!getIdInfoData.birthDay">
         <ion-avatar item-start style="margin: 0;">
           <img style="width: 24px;height: 24px;border-radius: 0;margin-top: 6px;"
-               src="assets/imgs/myData/personData/ID_inputIcon_normal.png">
+               src="assets/imgs/myHome/check/IDbirthday_inputIcon.png">
         </ion-avatar>
         <div item-start>生日：{{getIdInfoData.birthDay}}</div>
       </ion-item>
@@ -209,7 +209,7 @@
       <ion-item class="item-border" style="color: #555555;font-size: 15px;" *ngIf="!!getIdInfoData.liveaddr">
         <ion-avatar item-start style="margin: 0;">
           <img style="width: 24px;height: 24px;border-radius: 0;margin-top: 6px;"
-               src="assets/imgs/myData/personData/ID_inputIcon_normal.png">
+               src="assets/imgs/myHome/check/address.png">
         </ion-avatar>
         <div item-start>地址：{{getIdInfoData.liveaddr}}</div>
       </ion-item>
@@ -217,7 +217,7 @@
       <ion-item class="item-border" style="color: #555555;font-size: 15px;" *ngIf="!!getIdInfoData.idissued">
         <ion-avatar item-start style="margin: 0;">
           <img style="width: 24px;height: 24px;border-radius: 0;margin-top: 6px;"
-               src="assets/imgs/myData/personData/ID_inputIcon_normal.png">
+               src="assets/imgs/myHome/check/IDpublish_inputIcon.png">
         </ion-avatar>
         <div item-start>签发机关：{{getIdInfoData.idissued}}</div>
       </ion-item>
@@ -225,7 +225,7 @@
       <ion-item class="item-border" style="color: #555555;font-size: 15px;" *ngIf="!!getIdInfoData.idvaliddate">
         <ion-avatar item-start style="margin: 0;">
           <img style="width: 24px;height: 24px;border-radius: 0;margin-top: 6px;"
-               src="assets/imgs/myData/personData/ID_inputIcon_normal.png">
+               src="assets/imgs/myHome/check/IDvalidity_inputIcon.png">
         </ion-avatar>
         <div item-start>有效期：{{getIdInfoData.idvaliddate}}</div>
       </ion-item>
