@@ -414,6 +414,6 @@ export class IdentityCheckPage {
 
   //跳到第二步
   nextStep() {
-    this.nextToPageTwo.emit(3);
+    this.nextToPageTwo.emit(2);
   }
 }
