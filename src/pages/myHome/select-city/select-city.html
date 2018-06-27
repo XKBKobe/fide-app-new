@@ -5,36 +5,36 @@
 </ion-header>
 
 <ion-content>
-  <div class="ci-position  bgwhite">
+  <div class="ci-position" style="background-color: #fff;">
     <p class="f12">当前定位城市</p>
     <p class="mt5">{{locateCity}}</p>
   </div>
 
-  <!--<div class="ci-access mt10 bgwhite">-->
-    <!--<p class="f12">最近访问城市</p>-->
-    <!--<p *ngIf="!zjCitys.length>0">暂无</p>-->
-    <!--<div *ngIf="zjCitys.length>0" class="ci-access-a">-->
-      <!--<div *ngFor="let item of zjCitys">-->
-        <!--<span tappable (click)="selectCity(item)">{{item}}</span>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
+  <div class="ci-access mt10" style="background-color: #ffffff;margin-top: 10px;">
+    <p class="f12">最近访问城市</p>
+    <p *ngIf="!recentCity.length>0">暂无</p>
+    <div *ngIf="recentCity.length>0" class="ci-access-a">
+      <div *ngFor="let item of recentCity">
+        <span tappable (click)="selectCity(item)">{{item.name}}</span>
+      </div>
+    </div>
+  </div>
 
   <div class="ci-list" style="height:100%;width:100%;">
     <ion-scroll scrollY="true" style="height:auto;width:50%;">
       <div class="ci-list-left" style="width:100%;">
         <ul style="width:100%;">
-          <li *ngFor="let prov of province;let i = index;" class="{{i==provNum?'active':''}} cibar">
-            <span tappable (click)="selectProvinces(i,prov)">{{prov.name}}</span>
+          <li *ngFor="let prov of province;let i = index;" class="{{!!prov.selected?'active':''}} cibar">
+            <span tappable (click)="selectProvinces(prov)">{{prov.name}}</span>
           </li>
         </ul>
       </div>
     </ion-scroll>
     <ion-scroll scrollY="true" style="height:auto;width:50%;">
       <div class="ci-list-right" style="width:100%;">
-        <ul style="width:100%;">
-          <li *ngFor="let city of citys">
-            <span tappable (click)="selectCity(city)">{{city}}</span>
+        <ul style="width:100%;position: relative;">
+          <li *ngFor="let city of city" class="select-city">
+            <span tappable (click)="selectCity(city)">{{city.name}}</span>
           </li>
         </ul>
       </div>

@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {ModalController, NavController, Slides} from 'ionic-angular';
+import {Events, ModalController, NavController, Slides} from 'ionic-angular';
 import {ProductDetailPage} from "./product-detail/product-detail";
 import {HttpApiService} from "../../providers/HttpApiService";
 import {CONSTANTS} from "../../providers/BaseConfig";
@@ -15,19 +15,27 @@ import {SelectCityPage} from "./select-city/select-city";
 export class MyHomePage {
   @ViewChild(Slides) slides: Slides;
   data: any = [];
-
+  locateCity: any = CONSTANTS.defaultCity;
   params: any = {"areaCode": CONSTANTS.defaultCode};
 
   constructor(public navCtrl: NavController,
               public http: HttpApiService,
               public modalCtrl: ModalController,
-              public dataSave: DataSaveService) {
+              public dataSave: DataSaveService,
+              public events: Events) {
 
   }
 
   ionViewDidEnter() {
     this.slides.startAutoplay();
     this.getProductList();
+
+    this.events.subscribe("recentCity", (data) => {
+      if (data) {
+        this.params['areaCode'] = data.code;
+        this.events.unsubscribe('recentCity');
+      }
+    });
   }
 
   ionViewDidLeave() {
@@ -109,8 +117,10 @@ export class MyHomePage {
     }
   }
 
-  openCity(){
+  openCity() {
     console.log('openCity')
-    this.navCtrl.push(SelectCityPage);
+    this.navCtrl.push(SelectCityPage, {
+      locateCity: this.locateCity
+    });
   }
 }
