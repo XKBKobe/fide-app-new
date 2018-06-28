@@ -17,6 +17,23 @@ export class CordovaService {
   }
 
 
+  //获取定位
+  getLocation() {
+    return new Promise((resolve, reject) => {
+      if (this.uiService.isMobile()) {
+        cordova.plugins.baidumap_location.getCurrentPosition(function (result) {
+          console.log(JSON.stringify(result, null, 4));
+          resolve(result);
+        }, function (err) {
+          reject(err);
+        });
+      } else {
+        console.log('该功能只能用于真机');
+        reject(false);
+      }
+    });
+  }
+
   //OCR身份证信息 type :0正面，1反面
   checkIDCard(type) {
     let that = this;

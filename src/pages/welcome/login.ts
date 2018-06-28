@@ -31,7 +31,7 @@ export class LoginPage {
       "cid": ''
     };
     that.http.post('login', params).then(token => {
-      console.log(token);
+      localStorage.setItem('token', JSON.stringify(token));
       that.storage.setItem(APPSTATUS.SUCCESS_TOKEN, token).then(data => {
         //获取用户信息
         that.http.post('getPerson', {}).then(data => {

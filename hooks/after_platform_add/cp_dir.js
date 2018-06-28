@@ -195,14 +195,14 @@ if (rootdir) {
       console.log("copy ok");
     }
   });
-  // copyDir("hooks/cordova-plugin-alipay", "plugins/cordova-plugin-alipay", function (err) {
-  //     if (err) {
-  //         console.log("error ocur");
-  //     } else {
-  //         console.log("copy ok");
-  //     }
-  // });
-  //
+  copyDir("hooks/cordova-plugin-baidumaplocation", "plugins/cordova-plugin-baidumaplocation", function (err) {
+      if (err) {
+          console.log("error ocur");
+      } else {
+          console.log("copy ok");
+      }
+  });
+
 
   fs.createReadStream('hooks/android.json').pipe(fs.createWriteStream('plugins/android.json'));
   fs.createReadStream('hooks/ios.json').pipe(fs.createWriteStream('plugins/ios.json'));

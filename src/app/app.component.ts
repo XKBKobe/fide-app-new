@@ -5,6 +5,9 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {AppMinimize} from '@ionic-native/app-minimize';
 import {TabsPage} from '../pages/tabs/tabs';
 import {MessageService} from "../providers/MessageService";
+import {StorageService} from "../providers/StorageService";
+import {LoginPage} from "../pages/welcome/login";
+import {GuidePage} from "../pages/welcome/guide-page/guide-page";
 
 @Component({
   templateUrl: 'app.html'
@@ -14,21 +17,24 @@ export class MyApp {
 
   backButtonPressed: boolean = false;  //用于判断返回键是否触发
 
-  rootPage: any = TabsPage;
+  // rootPage: any = TabsPage;
 
   constructor(statusBar: StatusBar,
               splashScreen: SplashScreen,
               public platform: Platform,
               public ionicApp: IonicApp,
               private appMinimize: AppMinimize,
-              public appCtrl: App,
-              public message: MessageService) {
+              public app: App,
+              public message: MessageService,
+              public storage:StorageService) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-      //todo
+      //进去app
+      this.goToApp();
+      //back register
       this.registerBackButtonAction();
     });
   }
@@ -46,7 +52,7 @@ export class MyApp {
         return;
       }
 
-      let activeNav: NavController = this.appCtrl.getActiveNav();
+      let activeNav: NavController = this.app.getActiveNav();
       if (activeNav.canGoBack()) {
         activeNav.pop();
       } else {
@@ -72,5 +78,26 @@ export class MyApp {
       this.backButtonPressed = true;
       setTimeout(() => this.backButtonPressed = false, 2000);//2秒内没有再次点击返回则将触发标志标记为false
     }
+  }
+
+  //进入app
+  goToApp() {
+    var token = localStorage.getItem("token");
+    //是否是第一次进入app
+    this.storage.getItem('firstIn').then(res => {
+      //已经进入过了
+      if (!!res) {
+        //登录过的
+        if (!!token) {
+          this.app.getRootNav().setRoot(TabsPage);
+        } else {
+          this.app.getRootNav().setRoot(LoginPage);
+        }
+      } else {
+        this.app.getRootNav().setRoot(GuidePage);
+      }
+    }, err => {
+      console.log('firstIn ' + err);
+    });
   }
 }

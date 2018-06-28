@@ -43,6 +43,7 @@ import {OtoTypePipe} from "../pipes/oto-type.pipe";
 
 
 //pages
+import {GuidePage} from "../pages/welcome/guide-page/guide-page";
 import {MyHomePage} from "../pages/myHome/my-home";
 import {MyLoanPage} from "../pages/myLoan/my-loan";
 import {MyDataPage} from "../pages/myData/my-data";
@@ -84,6 +85,7 @@ import {SelectCityPage} from "../pages/myHome/select-city/select-city";
 @NgModule({
   declarations: [
     MyApp,
+    GuidePage,
     MyHomePage,
     MyLoanPage,
     MyDataPage,
@@ -157,6 +159,7 @@ import {SelectCityPage} from "../pages/myHome/select-city/select-city";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    GuidePage,
     MyHomePage,
     MyLoanPage,
     MyDataPage,

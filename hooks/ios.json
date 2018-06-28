@@ -9,6 +9,10 @@
   "installed_plugins": {
     "cordova-plugin-face": {
       "PACKAGE_NAME": "com.yuanbaopu.fideapp"
+    },
+    "cordova-plugin-baidumaplocation": {
+      "IOS_KEY":"MpRaBfsaQEKv6wpNw3fRZonjlAF4WML1",
+      "PACKAGE_NAME": "com.yuanbaopu.fideapp"
     }
   },
   "dependent_plugins": {

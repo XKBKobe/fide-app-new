@@ -2,11 +2,12 @@ import {Component, ViewChild} from '@angular/core';
 import {Events, ModalController, NavController, Slides} from 'ionic-angular';
 import {ProductDetailPage} from "./product-detail/product-detail";
 import {HttpApiService} from "../../providers/HttpApiService";
-import {CONSTANTS} from "../../providers/BaseConfig";
+import {CITY_DATA, CONSTANTS} from "../../providers/BaseConfig";
 import {LoginPage} from "../welcome/login";
 import {DataSaveService} from "../../providers/DataSaveService";
 import {LoanProgress} from "./loan-progress/loan-progress";
 import {SelectCityPage} from "./select-city/select-city";
+import {CordovaService} from "../../providers/CordovaService";
 
 @Component({
   selector: 'page-my-home',
@@ -22,7 +23,8 @@ export class MyHomePage {
               public http: HttpApiService,
               public modalCtrl: ModalController,
               public dataSave: DataSaveService,
-              public events: Events) {
+              public events: Events,
+              public cordovaService: CordovaService) {
 
   }
 
@@ -36,6 +38,21 @@ export class MyHomePage {
         this.events.unsubscribe('recentCity');
       }
     });
+  }
+
+  ionViewDidLoad() {
+    let that = this;
+    that.cordovaService.getLocation().then(data => {
+      if (!!data) {
+        let province = data['province'];
+        let city = data['city'];
+        let proIndx = _.findIndex(CITY_DATA, {name: province});
+        let cityIndx = _.findIndex(CITY_DATA[proIndx]['children'], {name: city});
+        that.params['areaCode'] = CITY_DATA[proIndx]['children'][cityIndx].code;
+      }
+    }, err => {
+      console.log('定位失败  ', err);
+    })
   }
 
   ionViewDidLeave() {
